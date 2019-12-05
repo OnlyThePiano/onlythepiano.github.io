@@ -6,20 +6,39 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Dec 2019 13:25:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 17:05:44 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>新建Blog</title>
-      <link>https://onlythepiano.github.io/post/%E6%96%B0%E5%BB%BAblog/</link>
+      <title>解决冲突 远端部署</title>
+      <link>https://onlythepiano.github.io/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Thu, 05 Dec 2019 17:05:44 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
+      <description>目标 前面《Git命令分支》介绍了本地分支合并冲突发生后可以手动解决，但是对于《冲突-部署远端》发生的冲突，又应该怎么解决呢？
+  其实本地分支push到远端发生时的冲突，也是因为分支合并而产生的冲突；就是将本地分支和远端分支合并，合并那就是要手动解决
+  git pull
+  git pull &amp;ndash;rebase 在使用git的过程中经常需要使用到git pull命令，在更新远端代码的同时如果与本地代码产生冲突了；那么冲突的文件中就出现了需要手动合并的部分；
+  而git pull &amp;ndash;rebase不同的地方则是当有这些冲突存在时；
+  git帮我们自动创建了一个新的分支，并且git告诉你接下来你要在这个新的分支上处理这个冲突；
+  此时执行git status命令后可以看到首要的提示是这样的： rebase in progress; onto 24f42c6 You are currently rebasing branch &#39;master&#39; on &#39;24f42c6&#39;. (fix conflicts and then run &amp;quot;git rebase --continue&amp;quot;) 并且git还告诉我们 fix conflicts and then run &amp;ldquo;git rebase &amp;ndash;continue&amp;rdquo;，意思是解决冲突然后执行git rebase &amp;ndash;continue命令，
+其实git rebase &amp;ndash;continue的正确操作应该是确认处理好冲突后则将调整好的文件添加到暂存区，并执行git rebase &amp;ndash;continue命令告诉git，我已经解决好冲突了，
+并且已经将处理后的文件添加到了暂存区，现在可以将这些文件commit了，
+简单来讲就是正常的解决冲突过程是： git add . # git commit -m &amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>冲突-远端部署</title>
+      <link>https://onlythepiano.github.io/post/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Thu, 05 Dec 2019 13:25:00 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E6%96%B0%E5%BB%BAblog/</guid>
-      <description>新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突。
-命令： git add . git commit -m &amp;#34;add a test for only push one blog&amp;#34; git push -u origin master 远端效果： 现在在本地修改这个文件 修改内容为现在显示的内容
-命令： hugo --theme=&amp;#34;inkblotty&amp;#34; --baseUrl=&amp;#34;https://onlythepiano.github.io/&amp;#34; --buildDrafts # git add . # git commit -m &amp;#34;update this.新建Blog&amp;#34; # 也没有冲突？ 79949@Cocola MINGW64 /e/myblog/public (master) $ git push Enumerating objects: 17, done. Counting objects: 100% (17/17), done. Delta compression using up to 4 threads Compressing objects: 100% (8/8), done.</description>
+      <guid>https://onlythepiano.github.io/post/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
+      <description>目标 新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突；对于部署到远端，是什么时候才会发生冲突呢？
+冲突发生的时间：
+ 在本地分支合并时，如果master主分支发生了改变，子分支dev是不能合并到master的，会发生冲突； 那对于远端的情况是怎么样的呢？  命令： git add . git commit -m &amp;#34;add a test for only push one blog&amp;#34; git push -u origin master 远端效果： 现在在本地修改这个文件 修改内容为现在显示的内容
+命令： hugo --theme=&amp;#34;inkblotty&amp;#34; --baseUrl=&amp;#34;https://onlythepiano.github.io/&amp;#34; --buildDrafts # git add . # git commit -m &amp;#34;update this.新建Blog&amp;#34; # 也没有冲突？（push成功了） 79949@Cocola MINGW64 /e/myblog/public (master) $ git push Enumerating objects: 17, done. Counting objects: 100% (17/17), done. Delta compression using up to 4 threads Compressing objects: 100% (8/8), done.</description>
     </item>
     
     <item>
