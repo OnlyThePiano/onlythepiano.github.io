@@ -57,6 +57,45 @@
         <article class="list__item post clearfix">
 	<div class="list__content clearfix">
 		<header class="post-header">
+				<h2><a href="/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/" rel="bookmark">数据流图画法</a></h2>
+				<div class="post-details">
+				<a rel="bookmark">
+					<time datetime="2019-12-05T21:52:16">2019-12-05</time>
+				</a>
+				</div>
+		</header>
+
+		<div class="post-excerpt"><p>
+			 数据流图 DFD
+设计原则 父图与子图的平衡原则
+ 子图的输入输出数据流同父图对应加工的输入输出数据流必须一致，即父图与子图的平衡；  数据守恒原则：
+  对一个加工来说，其全部输出数据流中的数据必须能从该加工的输入数据流中直接获得；或者说是通过该加工能产生的数据；
+1.外部实体与外部实体之间不存在数据流
+​ 2.外部实体与数据存储之间不存在数据流
+​ 3.数据存储与数据存储之间不存在数据流
+​   守恒加工原则 ：
+ 对同一个加工来说，输入与输出的名字必须不同样；即使它们的组成成分同样；   对于每一个加工，必须既有输入数据流。又有输出数据流； 数据流与加工有关，且必须经过加工；  画法：   首先画系统的输入输出，即先画顶层数据流图。顶层流图只包含一个加工，用以表示被开发的系统，然后考虑该系统有哪些输入数据、输出数据流。顶层图的作用在于表明被开发系统的范围以及它和周围环境的数据交换关系；
+  画系统内部，即画下层数据流图。不再分解的加工称为基本加工。一般将层号从0开始编号，采用自顶向下，由外向内的原则；画0层数据流图时，分解顶层流图的系统为若干子系统，决定每个子系统间的数据接口和活动关系；
+   一般输入输出流的数量就是0层中子系统的数目；
+模型： DFD图 
+		</p></div>
+	</div>
+	
+	<footer class="post-footer">
+		
+		
+		
+
+		
+		
+		
+	</footer>
+
+</article>
+    
+        <article class="list__item post clearfix">
+	<div class="list__content clearfix">
+		<header class="post-header">
 				<h2><a href="/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" rel="bookmark">解决冲突 远端部署</a></h2>
 				<div class="post-details">
 				<a rel="bookmark">
@@ -352,57 +391,32 @@ git branch -d dev # 二、总结创建与合并分支命令如下： 查看分�
 
 </article>
     
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/e-r%E5%9B%BE/" rel="bookmark">E-R图</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-02T21:39:36">2019-12-02</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			用户：   用户可以对已完成订单发表评论；
-  用户可以搜索想买的商品，想要预定的酒店和交通工具等；
-  用户可以有多个订单，每个订单对应于一个收货地址；
-  商品类型包括酒店、机票、车票、旅游景点；
-  用户拥有添加多个地址信息作为收货地址；
-  用户还可以收藏自己喜欢的酒店、景点；
-  每个用户购买的商品还能有服务；
-  一个订单可以有多个商品；
-  每个用户只有一个登陆账号和注册一个登陆账号；每个账号可以绑定多个外联账号；
-  一个管理员可以管理多个用户，一个用户可以由多个管理员管理
-   N:M：管理员和用户、订单和商品、商品和收藏夹
-1：N：用户和订单
-1：1：用户和收藏夹
-实体 用户、订单、商品、（商品类型）、收藏夹、管理员 商品的商品类型与其他实体有联系吗？与用户、订单等全都没关系，所以商品类型为商品的属性 实体的关系模式： 用户（用户编号、用户名、密码、性别、邮箱）
-订单（订单编号、用户编号、下单时间、订单状态、商品数量）
-商品（商品编号、商品名称、商品价格、商品数量、商品类型）
-收藏夹（收藏夹编号、用户编号、商品编号、商品名称）
-管理员（管理员编号、管理员名称、电话）
-联系的关系模式： 管理（用户编号、管理员编号）
-包含（订单编号、商品编号、订单数量）
-存放（商品编号、收藏夹编号、存放量）
-ER图 
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
   </div>
 
+
+
+<div class="nav-links">
+<ul class="pagination">
+    
+        <a href="/post/" aria-label="First"><span aria-hidden="true">&laquo;</span></a>
+    
+
+    <a href="" aria-label="Previous"><span aria-hidden="true">Previous Page</span></a>
+    
+    
+    <span href="/post/">1</a>
+    
+    
+    
+    <a href="/post/page/2/">2</a>
+    
+    
+    <a href="/post/page/2/" aria-label="Next"><span aria-hidden="true">Next Page</span></a>
+    
+    <a href="/post/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;</span></a>
+    
+</ul>
+</div>
 
 
 <table cellspacing="15" style="width:100%; border: none;">
@@ -438,6 +452,9 @@ ER图
         <h2></h2>
         <ul>
             <li>
+                <a href="/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
+            </li>
+            <li>
                 <a href="/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">解决冲突 远端部署</a>
             </li>
             <li>
@@ -463,9 +480,6 @@ ER图
             </li>
             <li>
                 <a href="/post/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/">Git命令分支合并</a>
-            </li>
-            <li>
-                <a href="/post/e-r%E5%9B%BE/">E-R图</a>
             </li>
         </ul>
     </aside>

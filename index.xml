@@ -6,10 +6,30 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Dec 2019 17:05:44 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Dec 2019 21:52:16 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数据流图画法</title>
+      <link>https://onlythepiano.github.io/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</link>
+      <pubDate>Thu, 05 Dec 2019 21:52:16 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</guid>
+      <description> 数据流图 DFD
+设计原则 父图与子图的平衡原则
+ 子图的输入输出数据流同父图对应加工的输入输出数据流必须一致，即父图与子图的平衡；  数据守恒原则：
+  对一个加工来说，其全部输出数据流中的数据必须能从该加工的输入数据流中直接获得；或者说是通过该加工能产生的数据；
+1.外部实体与外部实体之间不存在数据流
+​ 2.外部实体与数据存储之间不存在数据流
+​ 3.数据存储与数据存储之间不存在数据流
+​   守恒加工原则 ：
+ 对同一个加工来说，输入与输出的名字必须不同样；即使它们的组成成分同样；   对于每一个加工，必须既有输入数据流。又有输出数据流； 数据流与加工有关，且必须经过加工；  画法：   首先画系统的输入输出，即先画顶层数据流图。顶层流图只包含一个加工，用以表示被开发的系统，然后考虑该系统有哪些输入数据、输出数据流。顶层图的作用在于表明被开发系统的范围以及它和周围环境的数据交换关系；
+  画系统内部，即画下层数据流图。不再分解的加工称为基本加工。一般将层号从0开始编号，采用自顶向下，由外向内的原则；画0层数据流图时，分解顶层流图的系统为若干子系统，决定每个子系统间的数据接口和活动关系；
+   一般输入输出流的数量就是0层中子系统的数目；
+模型： DFD图 </description>
+    </item>
     
     <item>
       <title>解决冲突 远端部署</title>
