@@ -17,7 +17,9 @@
       <pubDate>Thu, 05 Dec 2019 13:25:00 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/post/%E6%96%B0%E5%BB%BAblog/</guid>
-      <description> </description>
+      <description>  新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突。
+命令： git add . git commit -m &amp;#34;add a test for only push one blog&amp;#34; git push -u origin master 远端效果： 现在在本地修改这个文件： 修改内容为现在显示的内容
+命令： </description>
     </item>
     
     <item>
