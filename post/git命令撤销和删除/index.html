@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>Git命令撤销和删除 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>Git命令撤销和删除</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2019-12-03T123:946:256">2019-12-03</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fpost%2fgit%25E5%2591%25BD%25E4%25BB%25A4%25E6%2592%25A4%25E9%2594%2580%25E5%2592%258C%25E5%2588%25A0%25E9%2599%25A4%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Git命令撤销和删除" data-url="https://onlythepiano.github.io/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p><a href="https://github.com/OnlyThePiano/onlythepiano.github.io.git">https://github.com/OnlyThePiano/onlythepiano.github.io.git</a></p>
+<p><a href="https://onlythepiano.github.io/">https://onlythepiano.github.io/</a></p>
+<p><img src="C:%5CUsers%5C79949%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575298927718.png" alt="1575298927718"></p>
+<hr>
+<h1 id="part1">Part-1:理解工作区与暂存区的区别？</h1>
+<ul>
+<li>
+<p>工作区：就是你在电脑上看到的目录，比如目录下testGit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。</p>
+</li>
+<li>
+<p>版本库(Repository)：工作区有一个隐藏目录” .git “，这个不属于工作区，这是版本库；其中版本库里面存了很多东西，其中最重要的就是stage(暂存区)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。</p>
+</li>
+<li></li>
+</ul>
+<hr>
+<h2 id="heading"><strong>什么是版本库？</strong></h2>
+<p>​	版本库又名仓库，英文名repository；你可以简单的理解一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改，删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。</p>
+<p>我们前面说过使用Git提交文件到版本库有两步：</p>
+<ol>
+<li>
+<h4 id="-git-add-">是使用 git add 把文件添加进去，实际上就是把文件添加到暂存区。</h4>
+</li>
+<li>
+<h4 id="git-commit">使用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支上。</h4>
+</li>
+</ol>
+<hr>
+<h1 id="part2git">Part-2:Git撤销修改和删除文件操作</h1>
+<h2 id="heading1">目标</h2>
+<p>对文件的操作最多的肯定是撤回和查看，撤回和查看，撤回和查看</p>
+<h2 id="heading2">一、撤销修改</h2>
+<p>​	比如我现在在readme.txt文件里面增加了内容，但是我只是写了没提交（git add 没有）；在我未提交之前，如果我需要马上恢复以前的版本；现在我可以有如下几种方法可以做修改：</p>
+<ul>
+<li>
+<p>手动修改：去掉那些需要的文件，然后add添加到暂存区，最后commit掉。</p>
+</li>
+<li>
+<p>git reset命令：我可以按以前的方法直接恢复到上一个版本；如下：</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git reset --hard HEAD^
+#
+</code></pre></div><h3 id="git-checkout">主要是git checkout命令撤销</h3>
+<h4 id="1">1）查看下当前的状态：</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git status
+<span style="color:#75715e">#非常常用的命令</span>
+</code></pre></div><p>之后可以发现，Git会告诉你，git checkout &ndash; file 可以丢弃工作区的修改；</p>
+<p><strong>2）执行撤回命令：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -- readme.txt
+#
+</code></pre></div><p>命令 git checkout &ndash;readme.txt 意思就是，把readme.txt文件在工作区做的修改全部撤销，这里有2种情况，如下：</p>
+<ul>
+<li>readme.txt自动修改后，还没有放到暂存区，使用 撤销修改就回到和版本库一模一样的状态。</li>
+<li>另外一种是readme.txt已经放入暂存区了，接着又作了修改，撤销修改就回到添加暂存区后的状态。<strong>也就是说git checkout &ndash; file 仅仅是撤会上一步，不能撤会两步；但是它的作用范围是两个区域：临时工作区、暂存区。</strong></li>
+</ul>
+<h3 id="heading3">注意：</h3>
+<p>命令git checkout &ndash; readme.txt 中的 &ndash; 很重要，如果没有 &ndash; 的话，那么命令变成创建分支了。</p>
+<h2 id="heading4">二、删除文件</h2>
+<p>一般情况下，可以直接在文件目录中把文件删了，或者使用如上rm命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行commit命令 提交掉。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rm b.txt
+#
+</code></pre></div><hr>
+<h1 id="part3">Part-3:问题</h1>
+<h3 id="git-remote-add-origin-gitgithubcomyylxmgitgit">一、问题：执行git remote add origin <a href="mailto:git@github.com">git@github.com</a>:yylxm/Git.git</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">出现问题fatal: remote origin already exists.
+#
+解决办法：git remote显示所有的远程库，然后采用git remote rm origin删除该origin。
+</code></pre></div><h3 id="-git-push-u-origin-mastergithub">二、问题： 采用git push -u origin master推送本地库到github</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">出现问题fatal: I don<span style="color:#e6db74">&#39;t handle protocol &#39;</span>git@https<span style="color:#960050;background-color:#1e0010">&#39;</span>
+#
+解决办法：采用git remote add origin http://github.com:yylxm/Git.git，Git.git是在github上创建的repositories 。
+</code></pre></div><h3 id="-git-push-u-origin-master">三、问题：执行$ git push -u origin master</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">出现问题 Username <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;https://github.com&#39;</span>: yylxm
+                                    To https://github.com/yylxm/YYXQZ.git
+                                     ! <span style="color:#f92672">[</span>rejected<span style="color:#f92672">]</span>        master -&gt; master <span style="color:#f92672">(</span>fetch first<span style="color:#f92672">)</span>
+                                    error: failed to push some refs to <span style="color:#e6db74">&#39;https://github.com/yylxm/YYXQZ.git&#39;</span>
+                                    hint: Updates were rejected because the remote contains work that you <span style="color:#66d9ef">do</span>
+                                    hint: not have locally. This is usually caused by another repository pushing
+                                    hint: to the same ref. You may want to first integrate the remote changes
+                                    hint: <span style="color:#f92672">(</span>e.g., <span style="color:#e6db74">&#39;git pull ...&#39;</span><span style="color:#f92672">)</span> before pushing again.
+                                    hint: See the <span style="color:#e6db74">&#39;Note about fast-forwards&#39;</span> in <span style="color:#e6db74">&#39;git push --help&#39;</span> <span style="color:#66d9ef">for</span> details.
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">解决办法：错误的主要原因是github中的README.md文件不在本地代码目录中，
+可以通过如下命令进行代码合并【注：pull<span style="color:#f92672">=</span>fetch+merge】 git pull --rebase origin master
+再通过命令git push -u origin master完成代码上传到github的操作。
+</code></pre></div>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/post/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/"> Git命令分支合并</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/post/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/"> Git命令远端</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2></h2>
+        <ul class="widget__list">
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2></h2>
+        <div class="tagcloud">
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2></h2>
+        <ul>
+            <li>
+                <a href="/post/hugo_post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
+            </li>
+            <li>
+                <a href="/post/git%E5%88%86%E6%94%AF/">Git分支</a>
+            </li>
+            <li>
+                <a href="/post/hugo%E5%AD%A6%E4%B9%A0/">Hugo学习</a>
+            </li>
+            <li>
+                <a href="/post/mvc%E6%A1%86%E6%9E%B6/">MVC框架</a>
+            </li>
+            <li>
+                <a href="/post/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/">Git命令远端</a>
+            </li>
+            <li>
+                <a href="/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">Git命令撤销和删除</a>
+            </li>
+            <li>
+                <a href="/post/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/">Git命令分支合并</a>
+            </li>
+            <li>
+                <a href="/post/e-r%E5%9B%BE/">E-R图</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2></h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>
