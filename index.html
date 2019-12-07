@@ -59,87 +59,7 @@
         <article class="list__item post clearfix">
 	<div class="list__content clearfix">
 		<header class="post-header">
-<<<<<<< HEAD
-				<h2><a href="/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/" rel="bookmark">数据流图画法</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-05T21:52:16">2019-12-05</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			 数据流图 DFD
-设计原则 父图与子图的平衡原则
- 子图的输入输出数据流同父图对应加工的输入输出数据流必须一致，即父图与子图的平衡；  数据守恒原则：
-  对一个加工来说，其全部输出数据流中的数据必须能从该加工的输入数据流中直接获得；或者说是通过该加工能产生的数据；
-1.外部实体与外部实体之间不存在数据流
-​ 2.外部实体与数据存储之间不存在数据流
-​ 3.数据存储与数据存储之间不存在数据流
-​   守恒加工原则 ：
- 对同一个加工来说，输入与输出的名字必须不同样；即使它们的组成成分同样；   对于每一个加工，必须既有输入数据流。又有输出数据流； 数据流与加工有关，且必须经过加工；  画法：   首先画系统的输入输出，即先画顶层数据流图。顶层流图只包含一个加工，用以表示被开发的系统，然后考虑该系统有哪些输入数据、输出数据流。顶层图的作用在于表明被开发系统的范围以及它和周围环境的数据交换关系；
-  画系统内部，即画下层数据流图。不再分解的加工称为基本加工。一般将层号从0开始编号，采用自顶向下，由外向内的原则；画0层数据流图时，分解顶层流图的系统为若干子系统，决定每个子系统间的数据接口和活动关系；
-   一般输入输出流的数量就是0层中子系统的数目；
-模型： DFD图 
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" rel="bookmark">解决冲突 远端部署</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-05T17:05:44">2019-12-05</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			目标 前面《Git命令分支》介绍了本地分支合并冲突发生后可以手动解决，但是对于《冲突-部署远端》发生的冲突，又应该怎么解决呢？
-  其实本地分支push到远端发生时的冲突，也是因为分支合并而产生的冲突；就是将本地分支和远端分支合并，合并那就是要手动解决
-  git pull
-  git pull &ndash;rebase 在使用git的过程中经常需要使用到git pull命令，在更新远端代码的同时如果与本地代码产生冲突了；那么冲突的文件中就出现了需要手动合并的部分；
-  而git pull &ndash;rebase不同的地方则是当有这些冲突存在时；
-  git帮我们自动创建了一个新的分支，并且git告诉你接下来你要在这个新的分支上处理这个冲突；
-  此时执行git status命令后可以看到首要的提示是这样的： rebase in progress; onto 24f42c6 You are currently rebasing branch 'master' on '24f42c6'. (fix conflicts and then run &quot;git rebase --continue&quot;) 并且git还告诉我们 fix conflicts and then run &ldquo;git rebase &ndash;continue&rdquo;，意思是解决冲突然后执行git rebase &ndash;continue命令，
-其实git rebase &ndash;continue的正确操作应该是确认处理好冲突后则将调整好的文件添加到暂存区，并执行git rebase &ndash;continue命令告诉git，我已经解决好冲突了，
-并且已经将处理后的文件添加到了暂存区，现在可以将这些文件commit了，
-简单来讲就是正常的解决冲突过程是： git add . # git commit -m &#34;.
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" rel="bookmark">冲突-远端部署</a></h2>
-=======
 				<h2><a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%87/" rel="bookmark">小作文</a></h2>
->>>>>>> add blog:小作文
 				<div class="post-details">
 				<a rel="bookmark">
 					<time datetime="2019-12-07T14:25:18">2019-12-07</time>
@@ -148,12 +68,6 @@
 		</header>
 
 		<div class="post-excerpt"><p>
-<<<<<<< HEAD
-			目标 新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突；对于部署到远端，是什么时候才会发生冲突呢？
-冲突发生的时间：
- 在本地分支合并时，如果master主分支发生了改变，子分支dev是不能合并到master的，会发生冲突； 那对于远端的情况是怎么样的呢？  命令： git add . git commit -m &#34;add a test for only push one blog&#34; git push -u origin master 远端效果： 现在在本地修改这个文件 修改内容为现在显示的内容
-命令： hugo --theme=&#34;inkblotty&#34; --baseUrl=&#34;https://onlythepiano.github.io/&#34; --buildDrafts # git add . # git commit -m &#34;update this.新建Blog&#34; # 也没有冲突？（push成功了） 79949@Cocola MINGW64 /e/myblog/public (master) $ git push Enumerating objects: 17, done. Counting objects: 100% (17/17), done. Delta compression using up to 4 threads Compressing objects: 100% (8/8), done.
-=======
 			惊！ 广告：作文征集
   要求1：文章开头必须有引言；文中不得出现具体的人名、宿舍名等；字体颜色VIP渐变；
   要求2：有过TangTou项目经验优先原则；
@@ -170,7 +84,6 @@
   hugo &ndash;theme=&quot;inkblotty&rdquo; &ndash;baseUrl=&quot;https://onlythepiano.github.io/&rdquo; &ndash;buildDrafts
 生成public/文件
   
->>>>>>> add blog:小作文
 		</p></div>
 	</div>
 	
@@ -448,10 +361,6 @@
 
 </article>
     
-<<<<<<< HEAD
-  </div>
-
-=======
         <article class="list__item post clearfix">
 	<div class="list__content clearfix">
 		<header class="post-header">
@@ -484,31 +393,16 @@ git checkout -- readme.
 		
 		
 		
->>>>>>> add blog:小作文
 
+		
+		
+		
+	</footer>
 
-<div class="nav-links">
-<ul class="pagination">
+</article>
     
-        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;</span></a>
-    
+  </div>
 
-    <a href="" aria-label="Previous"><span aria-hidden="true">Previous Page</span></a>
-    
-    
-    <span href="/">1</a>
-    
-    
-    
-    <a href="/page/2/">2</a>
-    
-    
-    <a href="/page/2/" aria-label="Next"><span aria-hidden="true">Next Page</span></a>
-    
-    <a href="/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;</span></a>
-    
-</ul>
-</div>
 
 
 <div class="nav-links">
@@ -568,12 +462,9 @@ git checkout -- readme.
         <h2></h2>
         <ul>
             <li>
-<<<<<<< HEAD
-=======
                 <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
             </li>
             <li>
->>>>>>> add blog:小作文
                 <a href="/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
             </li>
             <li>
@@ -600,12 +491,6 @@ git checkout -- readme.
             <li>
                 <a href="/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">Git命令撤销和删除</a>
             </li>
-<<<<<<< HEAD
-            <li>
-                <a href="/post/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/">Git命令分支合并</a>
-            </li>
-=======
->>>>>>> add blog:小作文
         </ul>
     </aside>
 
