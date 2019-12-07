@@ -6,12 +6,43 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Thu, 05 Dec 2019 21:52:16 +0800</lastBuildDate>
+=======
+    <lastBuildDate>Sat, 07 Dec 2019 14:25:18 +0800</lastBuildDate>
+>>>>>>> add blog:小作文
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+<<<<<<< HEAD
+=======
+      <title>小作文</title>
+      <link>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%87/</link>
+      <pubDate>Sat, 07 Dec 2019 14:25:18 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%87/</guid>
+      <description>惊！ 广告：作文征集
+  要求1：文章开头必须有引言；文中不得出现具体的人名、宿舍名等；字体颜色VIP渐变；
+  要求2：有过TangTou项目经验优先原则；
+  联系方式：QQ“绿色健康小清新”
+  GitHub项目查找笔记   in:name example	名字中有“example”
+  in:readme example	readme中有“example”
+  in:description example	描述中有“example”
+  stars:&amp;gt;1000	star&amp;gt;1000
+  forks:&amp;gt;1000	fork&amp;gt;1000
+  pushed:&amp;gt;2019-09-01	2019年9月1日后有更新的
+  language:java
+  Hugo   hugo server &amp;ndash;theme=&amp;quot;inkblotty&amp;rdquo; &amp;ndash;buildDrafts
+部署时可以实时地查看网页效果
+  hugo &amp;ndash;theme=&amp;quot;inkblotty&amp;rdquo; &amp;ndash;baseUrl=&amp;quot;https://onlythepiano.github.io/&amp;rdquo; &amp;ndash;buildDrafts
+生成public/文件
+  </description>
+    </item>
+    
+    <item>
+>>>>>>> add blog:小作文
       <title>数据流图画法</title>
       <link>https://onlythepiano.github.io/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</link>
       <pubDate>Thu, 05 Dec 2019 21:52:16 +0800</pubDate>

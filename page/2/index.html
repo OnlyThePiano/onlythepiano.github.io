@@ -59,6 +59,44 @@
         <article class="list__item post clearfix">
 	<div class="list__content clearfix">
 		<header class="post-header">
+<<<<<<< HEAD
+=======
+				<h2><a href="/post/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/" rel="bookmark">Git命令分支合并</a></h2>
+				<div class="post-details">
+				<a rel="bookmark">
+					<time datetime="2019-12-03T21:26:09">2019-12-03</time>
+				</a>
+				</div>
+		</header>
+
+		<div class="post-excerpt"><p>
+			Part-1:git merge 目标 这是一个贯穿整个GIt的分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。
+一、创建与合并分支 在 版本回填退里，你已经知道，每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。
+1）建立新的分支工作：(这里dev是我测试用的目标分支) #建立并切换到该分支 git checkout -b dev #相当于两条指令 git branch dev git checkout dev 2）切换到主分支后合并创建的分支： git checkout master # git merge dev git merge命令用于合并指定分支到当前分支上；合并后，再查看readme.txt内容，可以看到，和dev分支最新提交的是完全一样的。
+注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
+3）删除分支： 合并完成后的下一步，我们要接着删除dev分支了
+git branch -d dev # 二、总结创建与合并分支命令如下： 查看分支：git branch 创建分支：git branch name 切换分支：git checkout name 创建+切换分支：git checkout –b name 合并某分支到当前分支：git merge name 删除分支：git branch –d name  Part-2:如何解决冲突？ 目标 以上是要合并的主分支没有修改的情况下，合并时不会发生冲突；但是大多数时候，团体协作时主分支master不可能一直不变，它不是一个增量过程，它是一个敏捷过程；你在开发修改，别人也是在开发修改。
+假设都是提交合并到同一个master分支时，于是当别人提交到远端比你早的时候，就相当于你的本地相对应的master主分支发生了改变，所以合并其他分支时就会发生冲突.
+1）合并分支： git checkout master # git merge test # 2）查看合并文件，手动解决冲突 （Git用&laquo;&laquo;&laquo;&lt;，=======，&raquo;&raquo;&raquo;&gt;标记出不同分支的内容）：
+		</p></div>
+	</div>
+	
+	<footer class="post-footer">
+		
+		
+		
+
+		
+		
+		
+	</footer>
+
+</article>
+    
+        <article class="list__item post clearfix">
+	<div class="list__content clearfix">
+		<header class="post-header">
+>>>>>>> add blog:小作文
 				<h2><a href="/post/e-r%E5%9B%BE/" rel="bookmark">E-R图</a></h2>
 				<div class="post-details">
 				<a rel="bookmark">
@@ -166,6 +204,12 @@ ER图
         <h2></h2>
         <ul>
             <li>
+<<<<<<< HEAD
+=======
+                <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
+            </li>
+            <li>
+>>>>>>> add blog:小作文
                 <a href="/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
             </li>
             <li>
@@ -192,9 +236,12 @@ ER图
             <li>
                 <a href="/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">Git命令撤销和删除</a>
             </li>
+<<<<<<< HEAD
             <li>
                 <a href="/post/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/">Git命令分支合并</a>
             </li>
+=======
+>>>>>>> add blog:小作文
         </ul>
     </aside>
 
