@@ -6,10 +6,40 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2019 14:25:18 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Dec 2019 22:05:28 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>UML关系</title>
+      <link>https://onlythepiano.github.io/post/uml%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Sun, 08 Dec 2019 22:05:28 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/uml%E5%85%B3%E7%B3%BB/</guid>
+      <description>所有的 实例方法 都是 静态方法 —— 底层内核根本就没有 “实例方法” 这个概念。
+  所以：只要不是 架构层的东西，能用静态方法就用静态方法。
+  区别在于，静态方法的内存常驻；非静态的有机会释放。
+  用例图常用关系 包含关系与泛化关系的区分：
+不复杂的理解，举个例子：制作奶茶；
+所以2是1的包含；3是1的泛化；4是1的扩展；
+  用例1：制作奶茶；
+  用例2：加水；
+  用例3：制作巧克力味的奶茶；
+  用例4：包装；
+  包含关系：
+包含关系是一个特殊的依赖关系；包含关系使一个用例的功能可以在另一个用例中实现；
+  一个用例功能太多时，可以用包含关系创建多个子例；
+  多个用例有重复功能时，可以将重复功能分解到另一个用例中后建立包含关系；
+  泛化关系：
+ 反应到代码中，要么是接口和实现类的关系，要么是抽象类和子类的关系；  类图常用关系 继承关系：
+  继承关系包括子类和父类、子接口和父接口之间两种继承关系；
+  用空心三角形和实线表示这种继承关系；
+  实现关系：
+  类和接口之间的关系，用空心三角形和虚线表示；是两种不同类型元素间的关系；
+  用空心三角形和虚线表示；
+  依赖关系：</description>
+    </item>
     
     <item>
       <title>小作文</title>

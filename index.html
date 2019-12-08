@@ -59,6 +59,55 @@
         <article class="list__item post clearfix">
 	<div class="list__content clearfix">
 		<header class="post-header">
+				<h2><a href="/post/uml%E5%85%B3%E7%B3%BB/" rel="bookmark">UML关系</a></h2>
+				<div class="post-details">
+				<a rel="bookmark">
+					<time datetime="2019-12-08T22:05:28">2019-12-08</time>
+				</a>
+				</div>
+		</header>
+
+		<div class="post-excerpt"><p>
+			所有的 实例方法 都是 静态方法 —— 底层内核根本就没有 “实例方法” 这个概念。
+  所以：只要不是 架构层的东西，能用静态方法就用静态方法。
+  区别在于，静态方法的内存常驻；非静态的有机会释放。
+  用例图常用关系 包含关系与泛化关系的区分：
+不复杂的理解，举个例子：制作奶茶；
+所以2是1的包含；3是1的泛化；4是1的扩展；
+  用例1：制作奶茶；
+  用例2：加水；
+  用例3：制作巧克力味的奶茶；
+  用例4：包装；
+  包含关系：
+包含关系是一个特殊的依赖关系；包含关系使一个用例的功能可以在另一个用例中实现；
+  一个用例功能太多时，可以用包含关系创建多个子例；
+  多个用例有重复功能时，可以将重复功能分解到另一个用例中后建立包含关系；
+  泛化关系：
+ 反应到代码中，要么是接口和实现类的关系，要么是抽象类和子类的关系；  类图常用关系 继承关系：
+  继承关系包括子类和父类、子接口和父接口之间两种继承关系；
+  用空心三角形和实线表示这种继承关系；
+  实现关系：
+  类和接口之间的关系，用空心三角形和虚线表示；是两种不同类型元素间的关系；
+  用空心三角形和虚线表示；
+  依赖关系：
+		</p></div>
+	</div>
+	
+	<footer class="post-footer">
+		
+		
+		
+
+		
+		
+		
+	</footer>
+
+</article>
+    
+        <article class="list__item post clearfix">
+	<div class="list__content clearfix">
+		<header class="post-header">
 				<h2><a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%87/" rel="bookmark">小作文</a></h2>
 				<div class="post-details">
 				<a rel="bookmark">
@@ -361,46 +410,6 @@
 
 </article>
     
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/" rel="bookmark">Git命令撤销和删除</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-03T21:46:25">2019-12-03</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			https://github.com/OnlyThePiano/onlythepiano.github.io.git
-https://onlythepiano.github.io/
- Part-1:理解工作区与暂存区的区别？   工作区：就是你在电脑上看到的目录，比如目录下testGit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。
-  版本库(Repository)：工作区有一个隐藏目录” .git “，这个不属于工作区，这是版本库；其中版本库里面存了很多东西，其中最重要的就是stage(暂存区)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。
-    什么是版本库？ ​	版本库又名仓库，英文名repository；你可以简单的理解一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改，删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。
-我们前面说过使用Git提交文件到版本库有两步：
-  是使用 git add 把文件添加进去，实际上就是把文件添加到暂存区。   使用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支上。    Part-2:Git撤销修改和删除文件操作 目标 对文件的操作最多的肯定是撤回和查看，撤回和查看，撤回和查看
-一、撤销修改 ​	比如我现在在readme.txt文件里面增加了内容，但是我只是写了没提交（git add 没有）；在我未提交之前，如果我需要马上恢复以前的版本；现在我可以有如下几种方法可以做修改：
-  手动修改：去掉那些需要的文件，然后add添加到暂存区，最后commit掉。
-  git reset命令：我可以按以前的方法直接恢复到上一个版本；如下：
-  git reset --hard HEAD^ # 主要是git checkout命令撤销 1）查看下当前的状态： git status #非常常用的命令 之后可以发现，Git会告诉你，git checkout &ndash; file 可以丢弃工作区的修改；
-2）执行撤回命令：
-git checkout -- readme.
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
   </div>
 
 
@@ -462,6 +471,9 @@ git checkout -- readme.
         <h2></h2>
         <ul>
             <li>
+                <a href="/post/uml%E5%85%B3%E7%B3%BB/">UML关系</a>
+            </li>
+            <li>
                 <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
             </li>
             <li>
@@ -487,9 +499,6 @@ git checkout -- readme.
             </li>
             <li>
                 <a href="/post/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/">Git命令远端</a>
-            </li>
-            <li>
-                <a href="/post/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/">Git命令撤销和删除</a>
             </li>
         </ul>
     </aside>
