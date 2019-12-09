@@ -6,10 +6,38 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Dec 2019 22:05:28 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 20:56:50 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>小作文2</title>
+      <link>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%872/</link>
+      <pubDate>Mon, 09 Dec 2019 20:56:50 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%872/</guid>
+      <description>惊！ 2019年12月09日，比悲伤更悲伤的故事发生了啊
+  1000奖金去火锅，没有我，😔
+  官宣，可惜不是我，😔
+  广告：作文征集
+  明天有素材？后天有素材？期待你们的分享😄
+  联系方式：QQ“绿色健康小清新”
+         目标 依赖关系和包含关系；依赖关系和关联关系时类图最常见的关系，不能区分关系就会使得一整个类图都是同一种关系，很明显这样的一个类图是，，，错的吧。
+依赖关系和包含关系   举例：删除操作，如果查询类改变的话，删除类会受到影响吗？查询类是独立的，但是删除类要依赖于查询类；
+  包含关系是特殊的依赖关系；而包含关系的理解就是，将类可以独立的部分划分出去，使得两个部分成为包含关系；
+  依赖关系和关联关系的区分 主要是，关键是对has和use的关系的理解就可以了；
+  关联是“HAS”关系，依赖是“USE”关系：
+①A类依赖B类，指的是B的对象作为A类的方法参数存在，称为“use”关系。
+②A类关联B类，指的是B类对象作为A类的属性存在，称为“has”关系。
+  生命周期不同：
+①如果A类依赖B类，那么只有当A类对象调用到相应方法时，B类对象才被临时创建，方法执行结束，B类对象即被回收，A类和B类之间的依赖关系是一种瞬时的关系。
+②如果A类关联B类，那么创建A类的对象时实例化B类的对象，直到A类对象被销毁，所关联的B类对象也被销毁。即只要A类对象存在，B类对象就存在。
+  例子   可以看的出来；购物车和订单、图书之间是“Has”的关系；因为购物车里有多个订单、多个图书；
+  顾客和购物车之间是“Use”的关系；因为顾客是使用购物车，而非顾客里有个购物车；
+  总结 订单类是作为工作人员的依赖关系时，订单类里只有属性以体现只作为工作人员类方法的参数； 如下：
+class 订单类{ 查看订单(订单类 a){ int 订单 = a.</description>
+    </item>
     
     <item>
       <title>UML关系</title>
