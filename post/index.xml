@@ -6,10 +6,55 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Dec 2019 20:56:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Dec 2019 22:23:10 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hosts的#影响</title>
+      <link>https://onlythepiano.github.io/post/hosts%E7%9A%84#%E5%BD%B1%E5%93%8D/</link>
+      <pubDate>Sun, 15 Dec 2019 22:23:10 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/hosts%E7%9A%84#%E5%BD%B1%E5%93%8D/</guid>
+      <description>目的 #不是注释吗？为什么要加上？
+    Bash 不加注释#： 192.30.253.113 github.com 199.232.5.194 github.global.ssl.fastly.net 79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into &#39;squirrel&#39;... remote: Enumerating objects: 751, done. Receiving objects: 86% (647/751), 25.33 MiB | 91.00 KiB/s 空白：  79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into &#39;squirrel&#39;... remote: Enumerating objects: 751, done. Receiving objects: 47% (358/751), 2.36 MiB | 78.00 KiB/s Cmd 不加注释#： 151.101.185.194 github.</description>
+    </item>
+    
+    <item>
+      <title>Gitclone加速</title>
+      <link>https://onlythepiano.github.io/post/git-clone%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Sun, 15 Dec 2019 22:16:07 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/git-clone%E5%8A%A0%E9%80%9F/</guid>
+      <description>目的 git clone特别慢是因为github.global.ssl.fastly.net域名被限制了；
+  当我们访问域名首先要获取对应的ip，域名解析器要解析出对应的ip，然后我们才能访问到，如果域名解析器解析错了，或解析慢，当我们访问某些域名的时候就会很慢才能访问到；
+  只要找到这个域名对应的ip地址，然后在hosts文件中加上ip–&amp;gt;域名的映射，刷新DNS缓存便可。更快地得到了IP地址可以访问，即访问就快了；
+  操作 在网站 https://www.ipaddress.com/ 分别搜索得到ip：
+  github.global.ssl.fastly.net
+  github.com
+  当然了，也可以去CSDN等博客找被人以及收集到的最新hosts；
+1、打开hosts文件：   Windows上的hosts文件路径在C:\Windows\System32\drivers\etc\hosts
+  Linux的hosts文件路径在：sudo vim /etc/hosts
+  在hosts文件末尾添加两行(对应上面查到的ip)：
+#151.101.185.194 github.global-ssl.fastly.net #192.30.253.112 github.com 2、保存更新DNS：  Winodws系统的做法：  ipconfig /flushdns  Linux的做法：  sudo /etc/init.d/networking restart 原文链接：https://blog.csdn.net/shahuhu000/article/details/83965642
+DNS 解析流程 DNS( Domain Name System)是“域名系统”的英文缩写，是一种组织成域层次结构的计算机和网络服务命名系统，它用于TCP/IP网络，它所提供的服务是用来将主机名和域名转换为IP地址的工作。
+DNS从用户访问到响应的整个流程：
+  第一步：浏览器将会检查缓存中有没有这个域名对应的解析过的IP地址，如果有该解析过程将会结束。浏览器缓存域名也是有限制的，包括缓存的时间、大小，可以通过TTL属性来设置。
+  第二步：如果用户的浏览器中缓存中没有，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。
+  第三步：如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。</description>
+    </item>
+    
+    <item>
+      <title>小作文3</title>
+      <link>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%873/</link>
+      <pubDate>Sun, 15 Dec 2019 21:42:16 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%873/</guid>
+      <description>A sense of family responsibility ​	As we grow up and our parents grow older, we have to realize that a sense of family responsibility should pay an important role in dealing with our family members.
+​	One the one hand, we should notice that it was our family that gave us life, raised us up and made us who we are today.
+​	One the other hand, being responsibility for our family is undoubtedly a necessary value should be shared by all of us Chinese and passed on to the next generations.</description>
+    </item>
     
     <item>
       <title>小作文2</title>

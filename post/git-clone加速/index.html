@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>Gitclone加速 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>Gitclone加速</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2019-12-15T1215:1016:76">2019-12-15</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/post/git-clone%E5%8A%A0%E9%80%9F/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fpost%2fgit-clone%25E5%258A%25A0%25E9%2580%259F%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Gitclone加速" data-url="https://onlythepiano.github.io/post/git-clone%E5%8A%A0%E9%80%9F/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="heading">目的</h2>
+<p>git clone特别慢是因为github.global.ssl.fastly.net域名被限制了；</p>
+<ul>
+<li>
+<p>当我们访问域名首先要获取对应的ip，域名解析器要解析出对应的ip，然后我们才能访问到，如果域名解析器解析错了，或解析慢，当我们访问某些域名的时候就会很慢才能访问到；</p>
+</li>
+<li>
+<p>只要找到这个域名对应的ip地址，然后在hosts文件中加上ip–&gt;域名的映射，刷新DNS缓存便可。更快地得到了IP地址可以访问，即访问就快了；</p>
+</li>
+</ul>
+<h2 id="heading1">操作</h2>
+<p>在网站 <a href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> 分别搜索得到ip：</p>
+<ul>
+<li>
+<p>github.global.ssl.fastly.net</p>
+</li>
+<li>
+<p>github.com</p>
+</li>
+</ul>
+<p>当然了，也可以去CSDN等博客找被人以及收集到的最新hosts；</p>
+<h3 id="1hosts">1、打开hosts文件：</h3>
+<ul>
+<li>
+<p>Windows上的hosts文件路径在C:\Windows\System32\drivers\etc\hosts</p>
+</li>
+<li>
+<p>Linux的hosts文件路径在：sudo vim /etc/hosts</p>
+</li>
+</ul>
+<p><strong>在hosts文件末尾添加两行(对应上面查到的ip)：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#151.101.185.194 github.global-ssl.fastly.net</span>
+<span style="color:#75715e">#192.30.253.112 github.com</span>
+</code></pre></div><h3 id="2dns">2、保存更新DNS：</h3>
+<ul>
+<li>Winodws系统的做法：</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ipconfig /flushdns
+</code></pre></div><ul>
+<li>Linux的做法：</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo /etc/init.d/networking restart
+</code></pre></div><p>原文链接：https://blog.csdn.net/shahuhu000/article/details/83965642</p>
+<h2 id="dns-">DNS 解析流程</h2>
+<p>DNS( Domain Name System)是“域名系统”的英文缩写，是一种组织成域层次结构的计算机和网络服务命名系统，它用于TCP/IP网络，它所提供的服务是用来将主机名和域名转换为IP地址的工作。</p>
+<p><strong>DNS从用户访问到响应的整个流程：</strong></p>
+<p><img src="http://www.ityouknow.com/assets/images/2017/optimize/dns.jpg" alt="img"></p>
+<ul>
+<li>
+<p>第一步：浏览器将会检查缓存中有没有这个域名对应的解析过的IP地址，如果有该解析过程将会结束。浏览器缓存域名也是有限制的，包括缓存的时间、大小，可以通过TTL属性来设置。</p>
+</li>
+<li>
+<p>第二步：如果用户的浏览器中缓存中没有，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。</p>
+</li>
+<li>
+<p>第三步：如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。</p>
+</li>
+<li>
+<p>第四步：如果hosts与本地DNS解析器缓存都没有相应的网址映射关系，首先会找TCP/ip参数中设置的首选DNS服务器，在此我们叫它本地DNS服务器，此服务器收到查询时，如果要查询的域名，包含在本地配置区域资源中，则返回解析结果给客户机，完成域名解析，此解析具有权威性。</p>
+</li>
+<li>
+<p>第五步：如果要查询的域名，不由本地DNS服务器区域解析，但该服务器已缓存了此网址映射关系，则调用这个IP地址映射，完成域名解析，此解析不具有权威性。</p>
+</li>
+<li>
+<p>第六步：如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置（是否设置转发器）进行查询，如果未用转发模式，本地DNS就把请求发至13台根DNS，根DNS服务器收到请求后会判断这个域名(.com)是谁来授权管理，并会返回一个负责该顶级域名服务器的一个IP。本地DNS服务器收到IP信息后，将会联系负责.com域的这台服务器。这台负责.com域的服务器收到请求后，如果自己无法解析，它就会找一个管理.com域的下一级DNS服务器地址给本地DNS服务器。当本地DNS服务器收到这个地址后，就会找域名域服务器，重复上面的动作，进行查询，直至找到域名对应的主机。</p>
+</li>
+<li>
+<p>第七步：如果用的是转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。不管是本地DNS服务器用是是转发，还是根提示，最后都是把结果返回给本地DNS服务器，由此DNS服务器再返回给客户机</p>
+</li>
+</ul>
+<h2 id="heading2">问题</h2>
+<ul>
+<li>
+<p>在git bash下可以找到Linux的hosts文件路径在/etc/hosts，但是修改后刷新 DNS 解析缓存需要在CMD下进行；</p>
+</li>
+<li>
+<p>而在CMD下修改C:\Windows\System32\drivers\etc\hosts，的速度却是没有/etc/hosts的快，为什么呢？</p>
+</li>
+<li>
+<p>还有#不是注释吗？为什么添加如：才会成功</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#151.101.185.194 github.global-ssl.fastly.net</span>
+<span style="color:#75715e">#192.30.253.112 github.com</span>
+</code></pre></div><h2 id="heading3">总结</h2>
+<p>下面是用的最多的命令Vim：</p>
+<ul>
+<li>在命令行模式 ：e!   将文件还原到最原始状态；</li>
+<li>一般模式下： u   复原前一个操作，Ctrl+r   重复上一个操作；</li>
+</ul>
+
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%873/"> 小作文3</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/post/hosts%E7%9A%84#%E5%BD%B1%E5%93%8D/"> Hosts的#影响</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2></h2>
+        <ul class="widget__list">
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2></h2>
+        <div class="tagcloud">
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2></h2>
+        <ul>
+            <li>
+                <a href="/post/hosts%E7%9A%84#%E5%BD%B1%E5%93%8D/">Hosts的#影响</a>
+            </li>
+            <li>
+                <a href="/post/git-clone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
+            </li>
+            <li>
+                <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
+            </li>
+            <li>
+                <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%872/">小作文2</a>
+            </li>
+            <li>
+                <a href="/post/uml%E5%85%B3%E7%B3%BB/">UML关系</a>
+            </li>
+            <li>
+                <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
+            </li>
+            <li>
+                <a href="/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
+            </li>
+            <li>
+                <a href="/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">解决冲突 远端部署</a>
+            </li>
+            <li>
+                <a href="/post/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">冲突-远端部署</a>
+            </li>
+            <li>
+                <a href="/post/hugo_post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2></h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

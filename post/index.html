@@ -57,6 +57,108 @@
         <article class="list__item post clearfix">
 	<div class="list__content clearfix">
 		<header class="post-header">
+				<h2><a href="/post/hosts%E7%9A%84#%E5%BD%B1%E5%93%8D/" rel="bookmark">Hosts的#影响</a></h2>
+				<div class="post-details">
+				<a rel="bookmark">
+					<time datetime="2019-12-15T22:23:10">2019-12-15</time>
+				</a>
+				</div>
+		</header>
+
+		<div class="post-excerpt"><p>
+			目的 #不是注释吗？为什么要加上？
+    Bash 不加注释#： 192.30.253.113 github.com 199.232.5.194 github.global.ssl.fastly.net 79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into 'squirrel'... remote: Enumerating objects: 751, done. Receiving objects: 86% (647/751), 25.33 MiB | 91.00 KiB/s 空白：  79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into 'squirrel'... remote: Enumerating objects: 751, done. Receiving objects: 47% (358/751), 2.36 MiB | 78.00 KiB/s Cmd 不加注释#： 151.101.185.194 github.
+		</p></div>
+	</div>
+	
+	<footer class="post-footer">
+		
+		
+		
+
+		
+		
+		
+	</footer>
+
+</article>
+    
+        <article class="list__item post clearfix">
+	<div class="list__content clearfix">
+		<header class="post-header">
+				<h2><a href="/post/git-clone%E5%8A%A0%E9%80%9F/" rel="bookmark">Gitclone加速</a></h2>
+				<div class="post-details">
+				<a rel="bookmark">
+					<time datetime="2019-12-15T22:16:07">2019-12-15</time>
+				</a>
+				</div>
+		</header>
+
+		<div class="post-excerpt"><p>
+			目的 git clone特别慢是因为github.global.ssl.fastly.net域名被限制了；
+  当我们访问域名首先要获取对应的ip，域名解析器要解析出对应的ip，然后我们才能访问到，如果域名解析器解析错了，或解析慢，当我们访问某些域名的时候就会很慢才能访问到；
+  只要找到这个域名对应的ip地址，然后在hosts文件中加上ip–&gt;域名的映射，刷新DNS缓存便可。更快地得到了IP地址可以访问，即访问就快了；
+  操作 在网站 https://www.ipaddress.com/ 分别搜索得到ip：
+  github.global.ssl.fastly.net
+  github.com
+  当然了，也可以去CSDN等博客找被人以及收集到的最新hosts；
+1、打开hosts文件：   Windows上的hosts文件路径在C:\Windows\System32\drivers\etc\hosts
+  Linux的hosts文件路径在：sudo vim /etc/hosts
+  在hosts文件末尾添加两行(对应上面查到的ip)：
+#151.101.185.194 github.global-ssl.fastly.net #192.30.253.112 github.com 2、保存更新DNS：  Winodws系统的做法：  ipconfig /flushdns  Linux的做法：  sudo /etc/init.d/networking restart 原文链接：https://blog.csdn.net/shahuhu000/article/details/83965642
+DNS 解析流程 DNS( Domain Name System)是“域名系统”的英文缩写，是一种组织成域层次结构的计算机和网络服务命名系统，它用于TCP/IP网络，它所提供的服务是用来将主机名和域名转换为IP地址的工作。
+DNS从用户访问到响应的整个流程：
+  第一步：浏览器将会检查缓存中有没有这个域名对应的解析过的IP地址，如果有该解析过程将会结束。浏览器缓存域名也是有限制的，包括缓存的时间、大小，可以通过TTL属性来设置。
+  第二步：如果用户的浏览器中缓存中没有，操作系统会先检查自己本地的hosts文件是否有这个网址映射关系，如果有，就先调用这个IP地址映射，完成域名解析。
+  第三步：如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存，是否有这个网址映射关系，如果有，直接返回，完成域名解析。
+		</p></div>
+	</div>
+	
+	<footer class="post-footer">
+		
+		
+		
+
+		
+		
+		
+	</footer>
+
+</article>
+    
+        <article class="list__item post clearfix">
+	<div class="list__content clearfix">
+		<header class="post-header">
+				<h2><a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%873/" rel="bookmark">小作文3</a></h2>
+				<div class="post-details">
+				<a rel="bookmark">
+					<time datetime="2019-12-15T21:42:16">2019-12-15</time>
+				</a>
+				</div>
+		</header>
+
+		<div class="post-excerpt"><p>
+			A sense of family responsibility ​	As we grow up and our parents grow older, we have to realize that a sense of family responsibility should pay an important role in dealing with our family members.
+​	One the one hand, we should notice that it was our family that gave us life, raised us up and made us who we are today.
+​	One the other hand, being responsibility for our family is undoubtedly a necessary value should be shared by all of us Chinese and passed on to the next generations.
+		</p></div>
+	</div>
+	
+	<footer class="post-footer">
+		
+		
+		
+
+		
+		
+		
+	</footer>
+
+</article>
+    
+        <article class="list__item post clearfix">
+	<div class="list__content clearfix">
+		<header class="post-header">
 				<h2><a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%872/" rel="bookmark">小作文2</a></h2>
 				<div class="post-details">
 				<a rel="bookmark">
@@ -328,99 +430,6 @@ class 订单类{ 查看订单(订单类 a){ int 订单 = a.
 
 </article>
     
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/git%E5%88%86%E6%94%AF/" rel="bookmark">Git分支</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-05T11:34:24">2019-12-05</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			github上有分支master、dev： 在本地：
- git checkout -b dev 新建并且切换到本地dev分支 git pull origin dev 本地分支和远端分支dev相关联 或 git branch -u origin/dev 本地分支和远端分支dev相关联  github上没有dev分支：   git push origin :  git push origin dev:dev #或 git push origin dev #相当于默认建立与本地同名   
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/hugo%E5%AD%A6%E4%B9%A0/" rel="bookmark">Hugo学习</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-04T13:24:21">2019-12-04</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			Part-1:Hugo Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。Hugo与hexo类似，只需要记住几个简单的命令，即可生成静态博客。
-下面就开始简单介绍一下这款静态博客系统
-先介绍常用参数  --bind=&quot;127.0.0.1&quot; 服务监听IP地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为draft的文章； -E, --buildExpired 包括已过期的文章； -F, --buildFuture 包括将在未来发布的文章； -b, --baseURL=&quot;www.datals.com&quot; 服务监听域名； --log[=false]: 开启日志； --logFile=&quot;/var/log/hugo.log&quot;: log输出路径； -t, --theme=&quot;&quot; 指定主题； -v, --verbose[=false]: 输出详细信息 下载Hugo GitHub下载
-添加环境变量 解压文件，复制hugo.exe路径，添加到环境变量Path；
-创建站点 1）在命令行中执行如下命令： hugo new site /path/to/site 2）执行完会在你填写的路径下创建一个站点目录，执行命令进入站点目录： cd /path/to/site 站点目录结构如下
- ▸ archetypes/ #包括内容类型，在创建新内容时自动生成内容的配置 ▸ content/ # 网站内容，全部使用markdown格式 ▸ layouts/ # 网站模板文件，决定内容如何呈现 ▸ static/ # 图片、css、js 等静态资源 ▸ themes/ # 存放主题 config.
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/post/mvc%E6%A1%86%E6%9E%B6/" rel="bookmark">MVC框架</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-04T10:57:47">2019-12-04</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			MVC 框架 Model View Controller：模型(model)－视图(view)－控制器(controller)
- Model（模型）：  是应用程序中用于处理应用程序数据逻辑的部分。 通常模型对象负责在数据库中存取数据。  View（视图）：  是应用程序中处理数据显示的部分。 通常视图是依据模型数据创建的。  　Controller（控制器）：  是应用程序中处理用户交互的部分。 通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。   优点 耦合性低： 对于视图层而言（view）：  视图层和业务层分离，这样就允许更改视图层代码而不用重新编译模型和控制器代码，同样，一个应用的业务流程或者业务规则的改变只需要改动MVC的模型层即可。  对于模型层而言（modle）：  因为模型 与控制器和视图相分离，所以很容易改变应用程序的数据层和业务规则。  ​	模型是自包含的，并且与控制器和视图相分离，所以很容易改变应用程序的数据层和业务规则。如果把数据库从MySQL移植到Oracle，或者改变基于RDBMS数据源到LDAP，只需改变模型即可。一旦正确的实现了模型，不管数据来自数据库或是LDAP服务器，视图将会正确的显示它们。由于运用MVC的应用程序的三个部件是相互独立，改变其中一个不会影响其它两个，所以依据这种设计思想能构造良好的松耦合的构件。
- 缺点 不适合小型，中等规模的应用程序：  花费大量时间将MVC应用到规模并不是很大的应用程序通常会得不偿失。  增加系统结构和实现的复杂性：  对于简单的界面，严格遵循MVC，使模型、视图与控制器分离，会增加结构的复杂性，并可能产生过多的更新操作，降低运行效率。  视图与控制器间的过于紧密的连接：  视图与控制器是相互分离，但却是联系紧密的部件，视图没有控制器的存在，其应用是很有限的，反之亦然，这样就妨碍了他们的独立重用。  视图对模型数据的低效率访问：  依据模型操作接口的不同，视图可能需要多次调用才能获得足够的显示数据。对未变化数据的不必要的频繁访问，也将损害操作性能。   例子 最典型的MVC就是JavaEE规范的JSP（M） + servlet（C） + javabean（M）的模式：
-  JSP+JavaBean （最早的JavaEE架构）——&gt; JSP + servlet + javabean
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-
-		
-		
-		
-	</footer>
-
-</article>
-    
   </div>
 
 
@@ -482,6 +491,15 @@ class 订单类{ 查看订单(订单类 a){ int 订单 = a.
         <h2></h2>
         <ul>
             <li>
+                <a href="/post/hosts%E7%9A%84#%E5%BD%B1%E5%93%8D/">Hosts的#影响</a>
+            </li>
+            <li>
+                <a href="/post/git-clone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
+            </li>
+            <li>
+                <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
+            </li>
+            <li>
                 <a href="/post/%E5%B0%8F%E4%BD%9C%E6%96%872/">小作文2</a>
             </li>
             <li>
@@ -501,15 +519,6 @@ class 订单类{ 查看订单(订单类 a){ int 订单 = a.
             </li>
             <li>
                 <a href="/post/hugo_post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
-            </li>
-            <li>
-                <a href="/post/git%E5%88%86%E6%94%AF/">Git分支</a>
-            </li>
-            <li>
-                <a href="/post/hugo%E5%AD%A6%E4%B9%A0/">Hugo学习</a>
-            </li>
-            <li>
-                <a href="/post/mvc%E6%A1%86%E6%9E%B6/">MVC框架</a>
             </li>
         </ul>
     </aside>
