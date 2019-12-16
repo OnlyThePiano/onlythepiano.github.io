@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UML on Cocloa is looking at the Piano</title>
+    <link>https://onlythepiano.github.io/categories/uml/</link>
+    <description>Recent content in UML on Cocloa is looking at the Piano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Dec 2019 22:05:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://onlythepiano.github.io/categories/uml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>UML关系</title>
+      <link>https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/</link>
+      <pubDate>Sun, 08 Dec 2019 22:05:28 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/</guid>
+      <description>所有的 实例方法 都是 静态方法 —— 底层内核根本就没有 “实例方法” 这个概念。 所以：只要不是 架构层的东西，能用静态方法就用静态方法。 区别在于，静态方法的内存常驻；非静态的有机会释放。 用例图常用关系 包含关系与泛化关系的区分： 不复杂的理解，举个例子：制作奶茶； 所以2是1的包含；3是1的泛化；4是1的扩展； 用例1</description>
+    </item>
+    
+  </channel>
+</rss>

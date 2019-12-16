@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>UML关系 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>UML关系</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2019-12-08T128:105:286">2019-12-08</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fuml%25E5%2585%25B3%25E7%25B3%25BB%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="UML关系" data-url="https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<ul>
+<li>
+<p><strong>所有的 实例方法 都是 静态方法 —— 底层内核根本就没有 “实例方法” 这个概念。</strong></p>
+</li>
+<li>
+<p>所以：只要不是 架构层的东西，能用静态方法就用静态方法。</p>
+</li>
+<li>
+<p>区别在于，静态方法的内存常驻；非静态的有机会释放。</p>
+</li>
+</ul>
+<h2 id="heading">用例图常用关系</h2>
+<p><strong>包含关系与泛化关系的区分：</strong></p>
+<p>不复杂的理解，举个例子：制作奶茶；</p>
+<p>所以2是1的包含；3是1的泛化；4是1的扩展；</p>
+<ul>
+<li>
+<p>用例1：制作奶茶；</p>
+</li>
+<li>
+<p>用例2：加水；</p>
+</li>
+<li>
+<p>用例3：制作巧克力味的奶茶；</p>
+</li>
+<li>
+<p>用例4：包装；</p>
+</li>
+</ul>
+<p><strong>包含关系：</strong></p>
+<p>包含关系是一个特殊的依赖关系；包含关系使一个用例的功能可以在另一个用例中实现；</p>
+<ul>
+<li>
+<p>一个用例功能太多时，可以用包含关系创建多个子例；</p>
+</li>
+<li>
+<p>多个用例有重复功能时，可以将重复功能分解到另一个用例中后建立包含关系；</p>
+</li>
+</ul>
+<p><strong>泛化关系：</strong></p>
+<ul>
+<li>反应到代码中，要么是接口和实现类的关系，要么是抽象类和子类的关系；</li>
+</ul>
+<h2 id="heading1">类图常用关系</h2>
+<p><strong>继承关系：</strong></p>
+<ul>
+<li>
+<p>继承关系包括子类和父类、子接口和父接口之间两种继承关系；</p>
+</li>
+<li>
+<p>用空心三角形和实线表示这种继承关系；</p>
+</li>
+</ul>
+<p><img src="https://onlythepiano.github.io/images/%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB.jpg" alt="继承关系"></p>
+<p><strong>实现关系</strong>：</p>
+<ul>
+<li>
+<p>类和接口之间的关系，用空心三角形和虚线表示；是两种不同类型元素间的关系；</p>
+</li>
+<li>
+<p>用空心三角形和虚线表示；</p>
+</li>
+</ul>
+<p><img src="https://onlythepiano.github.io/images/%E5%AE%9E%E7%8E%B0%E5%85%B3%E7%B3%BB.jpg" alt="实现关系"></p>
+<p><strong>依赖关系</strong>：</p>
+<ul>
+<li>
+<p>依赖关系：A类会用到B类，这种关系具有偶然性，临时性。但B类的变化会影响A类；</p>
+</li>
+<li>
+<p>这种在代码中的体现为：A类方法中的参数包含了B类；</p>
+</li>
+<li>
+<p>由虚线和箭头表示;</p>
+</li>
+</ul>
+<p><img src="https://onlythepiano.github.io/images/%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB.jpg" alt="依赖关系"></p>
+<p><strong>关联关系：</strong></p>
+<ul>
+<li>
+<p>关联关系：A类会用到B类，这是一种强依赖关系，是长期的并非偶然；</p>
+</li>
+<li>
+<p>在代码中的表现为：A类的成员变量中含有B类；</p>
+</li>
+<li>
+<p>由实线和箭头表示；</p>
+</li>
+</ul>
+<p><img src="https://onlythepiano.github.io/images/%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB.jpg" alt="关联关系"></p>
+<p><strong>聚合关系：</strong></p>
+<ul>
+<li>
+<p>聚合是关联关系的一种特例，是整体和部分的关系，即has-a的关系。整体和部分之间是可分离的，拥有各自的生命周期；</p>
+</li>
+<li>
+<p>和组合关系的整体和部分关系不同的是：该整体包含很多个部分，但这里的部分都是相同的。比如鸟群和鸟的关系是聚合关系，鸟群中每个部分都是鸟。</p>
+</li>
+</ul>
+<p><strong>组合关系：</strong></p>
+<ul>
+<li>
+<p>组合关系也是关联关系的一种特例，它体现一种contains-a的关系，这种关系比聚合更强，也称为强聚合；它同样体现整体与部分的关系，但这种整体和部分是不可分割的，他们具有相同的生命周期；</p>
+</li>
+<li>
+<p>和聚合关系相比：这种部分和整体的关系表现为，整体包含该部分，但也包含其他部分，其他部分和该部分并不相同。比如cpu和计算机是组合关系，计算机包含cpu，但又不仅仅是cpu还有屏幕键盘等。其他的部分不和cpu是同样的；</p>
+</li>
+<li></li>
+</ul>
+<p>原文链接：https://blog.csdn.net/zhujun_xiaoxin/article/details/78539010</p>
+<h2 id="heading2">总结：</h2>
+<ul>
+<li>
+<p>聚合关系和组合关系是特殊的关联关系；</p>
+</li>
+<li>
+<p>关联关系是强依赖关系；</p>
+<p>强表示了关联关系的比依赖关系严格；</p>
+<p>例如：手机和充电器是依赖关系，因为充电器没了手机可以工作，也就是非固定关系的体现；</p>
+<p>计算机和CPU可以往大的说是关联关系，因为计算机是必须包含CPU才能工作的，是固定关系的体现；</p>
+</li>
+<li>
+<p>组合关系是强聚合关系；</p>
+</li>
+</ul>
+<p><strong>依赖关系 &lt; 关联关系 &lt; 聚合关系 &lt; 组合关系；</strong></p>
+<h2 id="heading3">问题</h2>
+<p><strong>但是这些关系之间都有关联，到底精确性怎么去确定呢？</strong></p>
+<p>——从大往小来给定关系是可以的，反之则是不可以的；一个关联关系可以说是依赖关系；但是是依赖关系不能说是关联关系；</p>
+
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/uml/">UML</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%87/"> 小作文</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%872/"> 小作文2</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (8)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文 (3)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud">
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/hosts/">Hosts</a>
+            </li>
+            <li>
+                <a href="/gitclone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%872/">小作文2</a>
+            </li>
+            <li>
+                <a href="/uml%E5%85%B3%E7%B3%BB/">UML关系</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
+            </li>
+            <li>
+                <a href="/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
+            </li>
+            <li>
+                <a href="/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">解决冲突 远端部署</a>
+            </li>
+            <li>
+                <a href="/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">冲突-远端部署</a>
+            </li>
+            <li>
+                <a href="/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Cocloa is looking at the Piano</title>
+    <link>https://onlythepiano.github.io/categories/hugo/</link>
+    <description>Recent content in Hugo on Cocloa is looking at the Piano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Dec 2019 13:16:26 +0800</lastBuildDate>
+    
+	<atom:link href="https://onlythepiano.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo post文件夹</title>
+      <link>https://onlythepiano.github.io/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <pubDate>Thu, 05 Dec 2019 13:16:26 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <description>hugo new post/ .md MarkDown文件必须要放在hugo new 生成的post文件夹里，其他文件夹或者其他命令新建文件夹都是不行的。</description>
+    </item>
+    
+    <item>
+      <title>Hugo学习</title>
+      <link>https://onlythepiano.github.io/hugo%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 04 Dec 2019 13:24:21 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/hugo%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Part-1:Hugo Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。Hugo与hexo类似，只需要记住几个简单的命令，即可生成静态博客。 下面就开始简单介绍一下这款静态博客系统 先介绍常用参数 --bind=&amp;quot;127.0.0.1&amp;quot; 服务监听IP地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为dra</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -13,155 +13,155 @@
     
     <item>
       <title>Hosts</title>
-      <link>https://onlythepiano.github.io/post/hosts/</link>
+      <link>https://onlythepiano.github.io/hosts/</link>
       <pubDate>Mon, 16 Dec 2019 00:22:21 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/hosts/</guid>
-      <description>目的 #不是注释吗？为什么要加上？ Bash 不加注释#： 192.30.253.113 github.com 199.232.5.194 github.global.ssl.fastly.net 79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into &#39;squirrel&#39;... remote: Enumerating objects: 751, done. Receiving objects: 86% (647/751), 25.33 MiB | 91.00 KiB/s 空白： 79949@Cocola MINGW64 ~/D</description>
+      <guid>https://onlythepiano.github.io/hosts/</guid>
+      <description>目的 #不是注释吗？为什么要加上？ Bash 不加注释#： 192.30.253.113 github.com 199.232.5.194 github.global.ssl.fastly.net 79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into &#39;squirrel&#39;... remote: Enumerating objects: 751, done. Receiving objects: 86% (647/751), 25.33 MiB | 91.00 KiB/s 空白： 79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into &#39;squirrel&#39;... remote: Enumerating objects: 751, done. Receiving objects: 47% (358/751), 2.36 MiB | 78.00 KiB/s Cmd 不加注释#： 151.101.185.194 github.global-ssl.fastly.net 192.30.253.112 github.com 79949@Cocola MINGW64 ~/Desktop/新建文件夹 (2) (master) $ git clone https://github.com/hlk-1135/squirrel.git Cloning into &#39;squirrel&#39;... remote: Enumerating objects:</description>
     </item>
     
     <item>
       <title>Gitclone加速</title>
-      <link>https://onlythepiano.github.io/post/git-clone%E5%8A%A0%E9%80%9F/</link>
+      <link>https://onlythepiano.github.io/gitclone%E5%8A%A0%E9%80%9F/</link>
       <pubDate>Sun, 15 Dec 2019 22:16:07 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/git-clone%E5%8A%A0%E9%80%9F/</guid>
-      <description>目的 git clone特别慢是因为github.global.ssl.fastly.net域名被限制了； 当我们访问域名首先要获取对应的ip，域名解析器要解析</description>
+      <guid>https://onlythepiano.github.io/gitclone%E5%8A%A0%E9%80%9F/</guid>
+      <description>目的 git clone特别慢是因为github.global.ssl.fastly.net域名被限制了； 当我们访问域名首先要获取对应的ip，域名解析器要解析出对应的ip，然后我们才能访问到，如果域名解析器解析错了，或解析慢，当我们访问某些域名的时候就会很慢才能访问到； 只要找到这个域名对应的ip地址，然后在</description>
     </item>
     
     <item>
       <title>小作文3</title>
-      <link>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%873/</link>
+      <link>https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%873/</link>
       <pubDate>Sun, 15 Dec 2019 21:42:16 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%873/</guid>
-      <description>A sense of family responsibility ​ As we grow up and our parents grow older, we have to realize that a sense of family responsibility should pay an important role in dealing with our family members. ​ One the one hand, we should notice that it was our family that gave us life, raised us up and made us who we are today. ​ One the other hand, being responsibility for our family is undoubtedly</description>
+      <guid>https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%873/</guid>
+      <description>A sense of family responsibility ​ As we grow up and our parents grow older, we have to realize that a sense of family responsibility should pay an important role in dealing with our family members. ​ One the one hand, we should notice that it was our family that gave us life, raised us up and made us who we are today. ​ One the other hand, being responsibility for our family is undoubtedly a necessary value should be shared by all of us Chinese and passed on to the next generations. 荷花骄阳不惧、出淤泥而不染： Lotus, it does not fear the strong sunshine and keeps clean in the dirty soil. 广告：作文征集 有一说一，没素材停更了 联系方式：QQ“绿色</description>
     </item>
     
     <item>
       <title>小作文2</title>
-      <link>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%872/</link>
+      <link>https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%872/</link>
       <pubDate>Mon, 09 Dec 2019 20:56:50 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%872/</guid>
-      <description>惊！ 2019年12月09日，比悲伤更悲伤的故事发生了啊 1000奖金去火锅，没有我，😔 官宣，可惜不是我，😔 广告：作文征集 明天有素材？后天有素材？期待你们</description>
+      <guid>https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%872/</guid>
+      <description>惊！ 2019年12月09日，比悲伤更悲伤的故事发生了啊 1000奖金去火锅，没有我，😔 官宣，可惜不是我，😔 广告：作文征集 明天有素材？后天有素材？期待你们的分享😄 联系方式：QQ“绿色健康小清新” 目标 依赖关系和包含关系；依赖关系和关联关系时类图最常见的关系，不能区分关系就会使得一整个类图都是同一种关系，很</description>
     </item>
     
     <item>
       <title>UML关系</title>
-      <link>https://onlythepiano.github.io/post/UML%E5%85%B3%E7%B3%BB/</link>
+      <link>https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/</link>
       <pubDate>Sun, 08 Dec 2019 22:05:28 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/UML%E5%85%B3%E7%B3%BB/</guid>
-      <description>所有的 实例方法 都是 静态方法 —— 底层内核根本就没有 “实例方法” 这个概念。 所以：只要不是 架构层的东西，能用静态方法就用静态方法。 区别在于，静态方法的内存常</description>
+      <guid>https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/</guid>
+      <description>所有的 实例方法 都是 静态方法 —— 底层内核根本就没有 “实例方法” 这个概念。 所以：只要不是 架构层的东西，能用静态方法就用静态方法。 区别在于，静态方法的内存常驻；非静态的有机会释放。 用例图常用关系 包含关系与泛化关系的区分： 不复杂的理解，举个例子：制作奶茶； 所以2是1的包含；3是1的泛化；4是1的扩展； 用例1</description>
     </item>
     
     <item>
       <title>小作文</title>
-      <link>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%87/</link>
+      <link>https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%87/</link>
       <pubDate>Sat, 07 Dec 2019 14:25:18 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E5%B0%8F%E4%BD%9C%E6%96%87/</guid>
-      <description>惊！ 广告：作文征集 要求1：文章开头必须有引言；文中不得出现具体的人名、宿舍名等；字体颜色VIP渐变； 要求2：有过TangTou项目经验优先原则； 联系方</description>
+      <guid>https://onlythepiano.github.io/%E5%B0%8F%E4%BD%9C%E6%96%87/</guid>
+      <description>惊！ 广告：作文征集 要求1：文章开头必须有引言；文中不得出现具体的人名、宿舍名等；字体颜色VIP渐变； 要求2：有过TangTou项目经验优先原则； 联系方式：QQ“绿色健康小清新” GitHub项目查找笔记 in:name example 名字中有“example” in:readme example readme中有“example” in:description example 描述中有“example” stars:&amp;gt;1000</description>
     </item>
     
     <item>
       <title>数据流图画法</title>
-      <link>https://onlythepiano.github.io/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</link>
+      <link>https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</link>
       <pubDate>Thu, 05 Dec 2019 21:52:16 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</guid>
-      <description>数据流图 DFD 设计原则 父图与子图的平衡原则 子图的输入输出数据流同父图对应加工的输入输出数据流必须一致，即父图与子图的平衡； 数据守恒原则： 对一个加工来说，其</description>
+      <guid>https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/</guid>
+      <description>数据流图 DFD 设计原则 父图与子图的平衡原则 子图的输入输出数据流同父图对应加工的输入输出数据流必须一致，即父图与子图的平衡； 数据守恒原则： 对一个加工来说，其全部输出数据流中的数据必须能从该加工的输入数据流中直接获得；或者说是通过该加工能产生的数据； 1.外部实体与外部实体之间不存在数据流 ​ 2.外部实体与数据</description>
     </item>
     
     <item>
       <title>解决冲突 远端部署</title>
-      <link>https://onlythepiano.github.io/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
+      <link>https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Thu, 05 Dec 2019 17:05:44 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
-      <description>目标 前面《Git命令分支》介绍了本地分支合并冲突发生后可以手动解决，但是对于《冲突-部署远端》发生的冲突，又应该怎么解决呢？ 其实本地分支push到远端</description>
+      <guid>https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
+      <description>目标 前面《Git命令分支》介绍了本地分支合并冲突发生后可以手动解决，但是对于《冲突-部署远端》发生的冲突，又应该怎么解决呢？ 其实本地分支push到远端发生时的冲突，也是因为分支合并而产生的冲突；就是将本地分支和远端分支合并，合并那就是要手动解决 git pull git pull &amp;ndash;rebase 在使用git的过程中经常需要使用到git pul</description>
     </item>
     
     <item>
       <title>冲突-远端部署</title>
-      <link>https://onlythepiano.github.io/post/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
+      <link>https://onlythepiano.github.io/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Thu, 05 Dec 2019 13:25:00 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
-      <description>目标 新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突；对于部署到远端，是什么时候才会发生冲突呢？ 冲突发生的</description>
+      <guid>https://onlythepiano.github.io/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/</guid>
+      <description>目标 新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突；对于部署到远端，是什么时候才会发生冲突呢？ 冲突发生的时间： 在本地分支合并时，如果master主分支发生了改变，子分支dev是不能合并到master的，会发生冲突； 那对于远端的情况是怎么样的呢？ 命令： git add</description>
     </item>
     
     <item>
       <title>Hugo post文件夹</title>
-      <link>https://onlythepiano.github.io/post/hugo_post%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
+      <link>https://onlythepiano.github.io/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/</link>
       <pubDate>Thu, 05 Dec 2019 13:16:26 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/hugo_post%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
+      <guid>https://onlythepiano.github.io/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/</guid>
       <description>hugo new post/ .md MarkDown文件必须要放在hugo new 生成的post文件夹里，其他文件夹或者其他命令新建文件夹都是不行的。</description>
     </item>
     
     <item>
       <title>Git分支</title>
-      <link>https://onlythepiano.github.io/post/Git%E5%88%86%E6%94%AF/</link>
+      <link>https://onlythepiano.github.io/git%E5%88%86%E6%94%AF/</link>
       <pubDate>Thu, 05 Dec 2019 11:34:24 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/Git%E5%88%86%E6%94%AF/</guid>
-      <description>github上有分支master、dev： 在本地： git checkout -b dev 新建并且切换到本地dev分支 git pull origin dev 本地分支和远端分支dev相关联 或 git branch -u origin/dev 本地分支和远端分</description>
+      <guid>https://onlythepiano.github.io/git%E5%88%86%E6%94%AF/</guid>
+      <description>github上有分支master、dev： 在本地： git checkout -b dev 新建并且切换到本地dev分支 git pull origin dev 本地分支和远端分支dev相关联 或 git branch -u origin/dev 本地分支和远端分支dev相关联 github上没有dev分支： git push origin : git push origin dev:dev #或 git push origin dev #相当于默认建立与本地同名</description>
     </item>
     
     <item>
       <title>Hugo学习</title>
-      <link>https://onlythepiano.github.io/post/Hugo%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://onlythepiano.github.io/hugo%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 04 Dec 2019 13:24:21 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/Hugo%E5%AD%A6%E4%B9%A0/</guid>
-      <description>Part-1:Hugo Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。Hugo与hexo类似，只需要记住几个简单的命令，即可生成静态博客。 下</description>
+      <guid>https://onlythepiano.github.io/hugo%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Part-1:Hugo Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。Hugo与hexo类似，只需要记住几个简单的命令，即可生成静态博客。 下面就开始简单介绍一下这款静态博客系统 先介绍常用参数 --bind=&amp;quot;127.0.0.1&amp;quot; 服务监听IP地址； -p, --port=1313 服务监听端口； -w, --watch[=true] 监听站点目录，发现文件变更自动编译； -D, --buildDrafts 包括被标记为dra</description>
     </item>
     
     <item>
       <title>MVC框架</title>
-      <link>https://onlythepiano.github.io/post/MVC%E6%A1%86%E6%9E%B6/</link>
+      <link>https://onlythepiano.github.io/mvc%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Wed, 04 Dec 2019 10:57:47 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/MVC%E6%A1%86%E6%9E%B6/</guid>
-      <description>MVC 框架 Model View Controller：模型(model)－视图(view)－控制器(controller) Model（模型）： 是应用程序中用于处理应用程序数</description>
+      <guid>https://onlythepiano.github.io/mvc%E6%A1%86%E6%9E%B6/</guid>
+      <description>MVC 框架 Model View Controller：模型(model)－视图(view)－控制器(controller) Model（模型）： 是应用程序中用于处理应用程序数据逻辑的部分。 通常模型对象负责在数据库中存取数据。 View（视图）： 是应用程序中处理数据显示的部分。 通常视图是依据模型数据创建的。 Controller</description>
     </item>
     
     <item>
       <title>Git命令远端</title>
-      <link>https://onlythepiano.github.io/post/Git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/</link>
+      <link>https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/</link>
       <pubDate>Tue, 03 Dec 2019 21:50:03 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/Git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/</guid>
-      <description>命令顺序：git remote -&amp;gt; git branch -&amp;gt; git push Part-1:git remote 查看关联的远程仓库信息 #查看关联的远程仓库的名称 git remote # #查看关联的远程仓库的详细信息 git remote -v 通过 git clone 下载项目到本地时，</description>
+      <guid>https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/</guid>
+      <description>命令顺序：git remote -&amp;gt; git branch -&amp;gt; git push Part-1:git remote 查看关联的远程仓库信息 #查看关联的远程仓库的名称 git remote # #查看关联的远程仓库的详细信息 git remote -v 通过 git clone 下载项目到本地时，项目文件夹中的 .git 目录就是版本库目录。.git 目录中的 config 文件中有远程仓库的关联配置。 新的；git init 命令初始化一个新本地仓库，它在工作目录下生成一个名为.</description>
     </item>
     
     <item>
       <title>Git命令撤销和删除</title>
-      <link>https://onlythepiano.github.io/post/Git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/</link>
+      <link>https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/</link>
       <pubDate>Tue, 03 Dec 2019 21:46:25 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/Git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/</guid>
-      <description>https://github.com/OnlyThePiano/onlythepiano.github.io.git https://onlythepiano.github.io/ Part-1:理解工作区与暂存区的区别？ 工作区：就是你在电脑上看到的目录，比如目录下testGit里的文件(.git隐藏目录版本库除外)。或者以后</description>
+      <guid>https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/</guid>
+      <description>https://github.com/OnlyThePiano/onlythepiano.github.io.git https://onlythepiano.github.io/ Part-1:理解工作区与暂存区的区别？ 工作区：就是你在电脑上看到的目录，比如目录下testGit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。 版本库(Repository)：工作区有一个隐藏目录” .git “，这个不属于工作区，这是版本库；其中版本库里面存了</description>
     </item>
     
     <item>
       <title>Git命令分支合并</title>
-      <link>https://onlythepiano.github.io/post/Git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/</link>
+      <link>https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/</link>
       <pubDate>Tue, 03 Dec 2019 21:26:09 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/Git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/</guid>
-      <description>Part-1:git merge 目标 这是一个贯穿整个GIt的分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新</description>
+      <guid>https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6/</guid>
+      <description>Part-1:git merge 目标 这是一个贯穿整个GIt的分支策略：首先master主分支应该是非常稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般情况下在新建的dev分支上干活，干完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。 一、创建与合并分支 在 版本回填退里，你已经知道，</description>
     </item>
     
     <item>
       <title>E-R图</title>
-      <link>https://onlythepiano.github.io/post/E-R%E5%9B%BE/</link>
+      <link>https://onlythepiano.github.io/e-r%E5%9B%BE/</link>
       <pubDate>Mon, 02 Dec 2019 21:39:36 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/post/E-R%E5%9B%BE/</guid>
-      <description>用户： 用户可以对已完成订单发表评论； 用户可以搜索想买的商品，想要预定的酒店和交通工具等； 用户可以有多个订单，每个订单对应于一个收货地址； 商品类型包括酒</description>
+      <guid>https://onlythepiano.github.io/e-r%E5%9B%BE/</guid>
+      <description>用户： 用户可以对已完成订单发表评论； 用户可以搜索想买的商品，想要预定的酒店和交通工具等； 用户可以有多个订单，每个订单对应于一个收货地址； 商品类型包括酒店、机票、车票、旅游景点； 用户拥有添加多个地址信息作为收货地址； 用户还可以收藏自己喜欢的酒店、景点； 每个用户购买的商品还能有服务； 一个订单可以有多个商</description>
     </item>
     
   </channel>

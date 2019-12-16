@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>解决冲突 远端部署 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>解决冲突 远端部署</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2019-12-05T125:55:446">2019-12-05</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E8%25A7%25A3%25E5%2586%25B3%25E5%2586%25B2%25E7%25AA%2581-%25E8%25BF%259C%25E7%25AB%25AF%25E9%2583%25A8%25E7%25BD%25B2%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="解决冲突 远端部署" data-url="https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <h2 id="heading">目标</h2>
+<p>前面《Git命令分支》介绍了本地分支合并冲突发生后可以手动解决，但是对于《冲突-部署远端》发生的冲突，又应该怎么解决呢？</p>
+<ul>
+<li>
+<p>其实本地分支push到远端发生时的冲突，也是因为分支合并而产生的冲突；就是将本地分支和远端分支合并，合并那就是要手动解决</p>
+</li>
+<li>
+<p>git pull</p>
+</li>
+</ul>
+<h2 id="git-pull-rebase">git pull &ndash;rebase</h2>
+<p>在使用git的过程中经常需要使用到git pull命令，在更新远端代码的同时如果与本地代码产生冲突了；那么冲突的文件中就出现了需要手动合并的部分；</p>
+<ul>
+<li>
+<p>而git pull &ndash;rebase不同的地方则是当有这些冲突存在时；</p>
+</li>
+<li>
+<p>git帮我们自动创建了一个新的分支，并且git告诉你接下来你要在这个新的分支上处理这个冲突；</p>
+</li>
+</ul>
+<h3 id="git-status">此时执行git status命令后可以看到首要的提示是这样的：</h3>
+<pre><code>rebase in progress; onto 24f42c6
+You are currently rebasing branch 'master' on '24f42c6'.
+(fix conflicts and then run &quot;git rebase --continue&quot;)
+</code></pre><p>并且git还告诉我们 fix conflicts and then run &ldquo;git rebase &ndash;continue&rdquo;，意思是解决冲突然后执行git rebase &ndash;continue命令，</p>
+<p>其实git rebase &ndash;continue的正确操作应该是确认处理好冲突后则将调整好的文件添加到暂存区，并执行git rebase &ndash;continue命令告诉git，我已经解决好冲突了，</p>
+<p>并且已经将处理后的文件添加到了暂存区，现在可以将这些文件commit了，</p>
+<h3 id="heading1">简单来讲就是正常的解决冲突过程是：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
+#
+git commit -m <span style="color:#e6db74">&#34;...&#34;</span> 
+#
+git push 
+<span style="color:#75715e">#此时因为本地仓库代码与远程仓代码有冲突，所以接下来</span>
+#
+git pull
+<span style="color:#75715e">#拉取远程代码，而冲突需要手动解决</span>
+#
+5.解决好后重新进行git add . git commit -m<span style="color:#e6db74">&#34;..&#34;</span> git push
+</code></pre></div><p>而git pull 这一步如果加上了 &ndash;rebase的选项，那么第5步操作将变成如下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
+#
+git rebase --continue
+<span style="color:#75715e"># rebase --continue代替了commit</span>
+#
+git push
+</code></pre></div><h2 id="heading2">总结：</h2>
+<p>所以，git pull &ndash;rebase用在合并代码的时候其作用就是在一个随机创建的分支上处理冲突，避免了直接污染原来的分区</p>
+<p>转载：https://www.cnblogs.com/kungfupan/p/9967531.html</p>
+<h2 id="git-pull--git-fetch--git-merge">git pull = git fetch + git merge</h2>
+<p><strong>fetch和pull的区别在于：</strong></p>
+<ul>
+<li>
+<p>git fetch是从远程获取最新版本到本地，不会自动merge，用户在检查了以后决定是否合并到工作本机分支中。（所以git fetch 和 git clone的目的都是：拿东西）</p>
+</li>
+<li>
+<p>git pull是从远程获取最新版本并自动merge到本地仓库，产生冲突后手动解决；（不是拿东西，目的是：合并）</p>
+</li>
+<li>
+<p>从安全角度出发，git fetch比git pull更安全，因为我们可以先比较本地与远程的区别后，选择性的合并。</p>
+</li>
+</ul>
+
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/git/">Git</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/"> 冲突-远端部署</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/"> 数据流图画法</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (8)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文 (3)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud">
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/hosts/">Hosts</a>
+            </li>
+            <li>
+                <a href="/gitclone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%872/">小作文2</a>
+            </li>
+            <li>
+                <a href="/uml%E5%85%B3%E7%B3%BB/">UML关系</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
+            </li>
+            <li>
+                <a href="/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
+            </li>
+            <li>
+                <a href="/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">解决冲突 远端部署</a>
+            </li>
+            <li>
+                <a href="/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">冲突-远端部署</a>
+            </li>
+            <li>
+                <a href="/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

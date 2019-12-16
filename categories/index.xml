@@ -6,9 +6,64 @@
     <description>Recent content in Categories on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 16 Dec 2019 00:22:21 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git</title>
+      <link>https://onlythepiano.github.io/categories/git/</link>
+      <pubDate>Mon, 16 Dec 2019 00:22:21 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>小作文</title>
+      <link>https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/</link>
+      <pubDate>Sun, 15 Dec 2019 21:42:16 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UML</title>
+      <link>https://onlythepiano.github.io/categories/uml/</link>
+      <pubDate>Sun, 08 Dec 2019 22:05:28 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/uml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>软件工程</title>
+      <link>https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</link>
+      <pubDate>Thu, 05 Dec 2019 21:52:16 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://onlythepiano.github.io/categories/hugo/</link>
+      <pubDate>Thu, 05 Dec 2019 13:16:26 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://onlythepiano.github.io/categories/java/</link>
+      <pubDate>Wed, 04 Dec 2019 10:57:47 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/java/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

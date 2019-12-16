@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>Git命令远端 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>Git命令远端</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2019-12-03T123:950:36">2019-12-03</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fgit%25E5%2591%25BD%25E4%25BB%25A4%25E8%25BF%259C%25E7%25AB%25AF%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Git命令远端" data-url="https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E8%BF%9C%E7%AB%AF/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <p><img src="C:%5CUsers%5C79949%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575298927718.png" alt="1575298927718"></p>
+<p><strong>命令顺序：git remote -&gt; git branch -&gt; git push</strong></p>
+<hr>
+<h1 id="part1git-remote">Part-1:git remote</h1>
+<h2 id="heading">查看关联的远程仓库信息</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#查看关联的远程仓库的名称</span>
+git remote
+#
+<span style="color:#75715e">#查看关联的远程仓库的详细信息</span>
+git remote -v
+</code></pre></div><ul>
+<li>
+<p>通过 git clone 下载项目到本地时，项目文件夹中的 .git 目录就是版本库目录。.git 目录中的 config 文件中有远程仓库的关联配置。</p>
+</li>
+<li>
+<p>新的；git init 命令初始化一个新本地仓库，它在工作目录下生成一个名为.git的隐藏文件夹；但是没有和远程仓库关联</p>
+</li>
+</ul>
+<h2 id="heading1">添加远程仓库的关联</h2>
+<p>远程仓库的名称一般默认为 origin ，当然，你可以设置为其他的名称。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># &lt;url&gt;远程仓库的 url，可采用 http 协议或 ssh（git） 协议</span>
+git remote add origin &lt;url&gt;
+</code></pre></div><h2 id="heading2">删除远程仓库的关联</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git remote remove &lt;name&gt;
+#
+</code></pre></div><h2 id="heading3">修改远程仓库的关联</h2>
+<p>比如，之前你关联的远程仓库使用的协议是 http ，你想将关联的远程仓库的 url 改为 ssh 协议的。</p>
+<p>修改关联的远程仓库的方法，主要有三种：</p>
+<h3 id="-git-remote-seturl--url">第一种：使用 git remote set-url 命令，更新远程仓库的 url</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git remote set-url origin &lt;newurl&gt;
+#
+</code></pre></div><h3 id="heading4">第二种：先删除之前关联的远程仓库，再来添加新的远程仓库关联</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#删除关联的远程仓库</span>
+git remote remove &lt;name&gt;
+#
+<span style="color:#75715e">#添加新的远程仓库关联</span>
+git remote add &lt;name&gt; &lt;url&gt;
+</code></pre></div><p>远程仓库的名称推荐使用默认的名称 origin 。</p>
+<h3 id="-git--config-">第三种：直接修改项目目录下的 .git 目录中的 config 配置文件</h3>
+<h1 id="part2-git-branch">Part-2: git branch</h1>
+<h2 id="heading5">目标</h2>
+<p>目标是为了建立本地分支与远程分支的映射关系（或者为跟踪关系track）。这样使用git pull或者git push时就不必每次都要指定从远程的哪个分支拉取合并和推送到远程的哪个分支了</p>
+<h2 id="heading6">一、查看本地分支—远程分支的映射关系</h2>
+<h3 id="v"><strong>使用以下命令查看（注意是双v）：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch -vv
+#
+git branch -l/r
+</code></pre></div><p>这个显示映射关系数量关系到 “git push” 和 “git pull” 的参数写法</p>
+<h2 id="heading7">二、建立本地分支—远程分支的映射关系</h2>
+<h3 id="1"><strong>1）建立本地分支：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch name
+</code></pre></div><h3 id="2"><strong>2）切换本地分支：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout name
+#
+git checkout –b name
+<span style="color:#75715e">#创建并切换</span>
+</code></pre></div><h3 id="3"><strong>3）删除本地分支：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch –d name
+#
+
+</code></pre></div><h3 id="4"><strong>4）建立当前分支与远程分支的映射关系:</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch -u origin/dev
+<span style="color:#75715e">#或者使用命令：</span>
+git branch --set-upstream-to origin/dev
+
+</code></pre></div><h2 id="heading8">三、撤销本地分支—远程分支的映射关系</h2>
+<h3 id="heading9"><strong>撤销本地分支与远程分支的映射关系:</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch --unset-upstream
+
+</code></pre></div><h2 id="heading10">四、问题思考：本地分支只能跟踪远程的同名分支吗？</h2>
+<p>答案是否定的；本地分支可以与远程不同名的分支建立映射关系，可以使本地分支dev和远程分支master建立映射关系，然后此时可以把本地分支dev提交到远程分支master分支中去</p>
+<hr>
+<h1 id="part3-git-pushpull">Part-3: git push（pull）</h1>
+<h2 id="heading11">目标</h2>
+<p>​	既然git branch是有关建立和查看”本地分支“，还有建立本地分支和远端分支的映射关系，那远端必须存在分支，而远端默认创建master分支，于是就必须用git push 创建其它分支。</p>
+<p>​	可以用push的理解是：我把本地仓库提交到远端仓库，如果你远端没有对应的仓库，我就顺便帮你创建了。</p>
+<h2 id="heading12">参数格式</h2>
+<p>git push命令用于将本地分支的更新，推送到远程主机。它的格式与git pull命令相仿。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
+#
+
+</code></pre></div><p><strong>注意：这里的:前后是必须没有空格的。</strong></p>
+<p>如果省略远程分支名，则表示将本地分支推送与之存在&rdquo;<strong>追踪关系</strong>&ldquo;的远程分支（通常两者同名），如果该远程分支不存在，则会被新建。</p>
+<h2 id="heading13">具体操作</h2>
+<h3 id="1-">1. 未建立关系映射</h3>
+<p>下面命令表示，将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建。</p>
+<h3 id="1originmaster"><strong>1）建立origin主机的master分支：</strong></h3>
+<p>（git push -u origin master）， 加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push origin master
+<span style="color:#75715e">#1 : 0 -&gt; 1</span>
+
+</code></pre></div><p>如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支。</p>
+<h3 id="2originmaster"><strong>2）删除origin主机的master分支：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#慎用,删除远程仓库的分支</span>
+<span style="color:#75715e">#0 : 1 -&gt; 0</span>
+git push origin :master
+<span style="color:#75715e"># 等同于</span>
+git push origin --delete master
+
+</code></pre></div><h3 id="3-">3. 已经建立关系映射</h3>
+<p>如果当前分支与远程分支之间存在追踪关系，则本地分支和远程分支都可以省略。（已经由git branch建立映射关系）</p>
+<h3 id="1origin"><strong>1）将当前分支推送到origin主机的对应分支：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> git push origin
+ <span style="color:#75715e">#指定主机</span>
+
+</code></pre></div><h3 id="21"><strong>2）如果当前分支只有一个追踪分支，那么主机名都可以省略：</strong></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push
+<span style="color:#75715e">#只有一个主机</span>
+
+</code></pre></div><h3 id="31"><strong>3）</strong></h3>
+<p>如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git push -u origin master
+<span style="color:#75715e">#多个主机，指定默认</span>
+<span style="color:#75715e">#这个命令以后git push即可</span>
+
+</code></pre></div><h2 id="41">4.发生冲突</h2>
+<p>这步很重要，没处理好可能无法提交。远程仓库如果未初始化，直接跳过这步，如果已经初始化了，需要执行如下命令，将仓库数据先拉取下来</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git pull origin master --allow-unrelated-histories
+或
+git pull --rebase origin master
+
+</code></pre></div>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/git/">Git</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/git%E5%91%BD%E4%BB%A4%E6%92%A4%E9%94%80%E5%92%8C%E5%88%A0%E9%99%A4/"> Git命令撤销和删除</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/mvc%E6%A1%86%E6%9E%B6/"> MVC框架</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (8)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文 (3)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud">
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/hosts/">Hosts</a>
+            </li>
+            <li>
+                <a href="/gitclone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%872/">小作文2</a>
+            </li>
+            <li>
+                <a href="/uml%E5%85%B3%E7%B3%BB/">UML关系</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
+            </li>
+            <li>
+                <a href="/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
+            </li>
+            <li>
+                <a href="/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">解决冲突 远端部署</a>
+            </li>
+            <li>
+                <a href="/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">冲突-远端部署</a>
+            </li>
+            <li>
+                <a href="/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

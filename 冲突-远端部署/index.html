@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>冲突-远端部署 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>冲突-远端部署</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2019-12-05T125:125:06">2019-12-05</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E5%2586%25B2%25E7%25AA%2581-%25E8%25BF%259C%25E7%25AB%25AF%25E9%2583%25A8%25E7%25BD%25B2%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="冲突-远端部署" data-url="https://onlythepiano.github.io/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="heading">目标</h2>
+<p>新建一个没有的Blog.md是可以很顺利的push到远端的，因为这个文件：远端和本地没有冲突；对于部署到远端，是什么时候才会发生冲突呢？</p>
+<p><strong>冲突发生的时间：</strong></p>
+<ul>
+<li>在本地分支合并时，如果master主分支发生了改变，子分支dev是不能合并到master的，会发生冲突；</li>
+<li>那对于远端的情况是怎么样的呢？</li>
+</ul>
+<h3 id="heading1">命令：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
+git commit -m <span style="color:#e6db74">&#34;add a test for only push one blog&#34;</span>
+git push -u origin master
+</code></pre></div><h3 id="heading2">远端效果：</h3>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20191205133240480.png" alt="image-20191205133240480"></p>
+<h2 id="heading3">现在在本地修改这个文件</h2>
+<p>修改内容为现在显示的内容</p>
+<h3 id="heading4">命令：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo --theme<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inkblotty&#34;</span> --baseUrl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://onlythepiano.github.io/&#34;</span> --buildDrafts
+#
+git add .
+#
+git commit -m <span style="color:#e6db74">&#34;update this.新建Blog&#34;</span>
+#
+
+</code></pre></div><h3 id="push">也没有冲突？（push成功了）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">79949@Cocola MINGW64 /e/myblog/public <span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>
+$ git push
+Enumerating objects: 17, <span style="color:#66d9ef">done</span>.
+Counting objects: 100% <span style="color:#f92672">(</span>17/17<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Delta compression using up to <span style="color:#ae81ff">4</span> threads
+Compressing objects: 100% <span style="color:#f92672">(</span>8/8<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Writing objects: 100% <span style="color:#f92672">(</span>9/9<span style="color:#f92672">)</span>, 1.78 KiB | 607.00 KiB/s, <span style="color:#66d9ef">done</span>.
+Total <span style="color:#ae81ff">9</span> <span style="color:#f92672">(</span>delta 7<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
+remote: Resolving deltas: 100% <span style="color:#f92672">(</span>7/7<span style="color:#f92672">)</span>, completed with <span style="color:#ae81ff">5</span> local objects.
+To https://github.com/OnlyThePiano/onlythepiano.github.io.git
+   b8f3665..01aa044  master -&gt; master
+
+</code></pre></div><h3 id="heading5">远端效果：</h3>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20191205134054545.png" alt="image-20191205134054545"></p>
+<h2 id="blog">再一次修改新建Blog</h2>
+<p>修改内容也为从这开始往上的内容，上一次是从空白到一部分，这次是从一部分到更多修改。</p>
+<h3 id="push1">也是没有冲突（push成功了）</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">79949@Cocola MINGW64 /e/myblog/public <span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>
+$ git push
+Enumerating objects: 17, <span style="color:#66d9ef">done</span>.
+Counting objects: 100% <span style="color:#f92672">(</span>17/17<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Delta compression using up to <span style="color:#ae81ff">4</span> threads
+Compressing objects: 100% <span style="color:#f92672">(</span>8/8<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+Writing objects: 100% <span style="color:#f92672">(</span>9/9<span style="color:#f92672">)</span>, 1.65 KiB | 563.00 KiB/s, <span style="color:#66d9ef">done</span>.
+Total <span style="color:#ae81ff">9</span> <span style="color:#f92672">(</span>delta 7<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>
+remote: Resolving deltas: 100% <span style="color:#f92672">(</span>7/7<span style="color:#f92672">)</span>, completed with <span style="color:#ae81ff">5</span> local objects.
+To https://github.com/OnlyThePiano/onlythepiano.github.io.git
+   01aa044..9b1af01  master -&gt; master
+</code></pre></div><h3 id="heading6">远端效果：</h3>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20191205134522494.png" alt="image-20191205134522494"></p>
+<h2 id="heading7">总结</h2>
+<p><strong>所以新建一个Blog.md到不断地修改后部署到远端，这个过程是没有冲突的。</strong></p>
+<h3 id="heading8">思考：那什么时候会发生冲突呢？</h3>
+<ul>
+<li>在前面《Git命令分支合并》中有：</li>
+</ul>
+<pre><code>假设都是提交合并到同一个master分支时，可是当别人提交到远端比你早的时候，就相当于你的本地相对应的master主分支发生了改变，所以合并其他分支时就会发生冲突.
+</code></pre><ul>
+<li>也就是说，它是发生在远端分支和本地分支不同的时候。</li>
+</ul>
+<h2 id="heading9">直接修改远端</h2>
+<p>我是之前没有添加readme.md，所以我直接在远端commit 了一个</p>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20191205140217825.png" alt="image-20191205140217825"></p>
+<h3 id="push2">终于冲突了（push失败了）</h3>
+<pre><code>79949@Cocola MINGW64 /e/myblog/public (master)
+$ git push
+To https://github.com/OnlyThePiano/onlythepiano.github.io.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'https://github.com/OnlyThePiano/onlythepiano.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+</code></pre>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/git/">Git</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/"> Hugo post文件夹</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/"> 解决冲突 远端部署</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (8)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文 (3)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud">
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/hosts/">Hosts</a>
+            </li>
+            <li>
+                <a href="/gitclone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%872/">小作文2</a>
+            </li>
+            <li>
+                <a href="/uml%E5%85%B3%E7%B3%BB/">UML关系</a>
+            </li>
+            <li>
+                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文</a>
+            </li>
+            <li>
+                <a href="/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/">数据流图画法</a>
+            </li>
+            <li>
+                <a href="/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">解决冲突 远端部署</a>
+            </li>
+            <li>
+                <a href="/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/">冲突-远端部署</a>
+            </li>
+            <li>
+                <a href="/hugo-post%E6%96%87%E4%BB%B6%E5%A4%B9/">Hugo post文件夹</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>
