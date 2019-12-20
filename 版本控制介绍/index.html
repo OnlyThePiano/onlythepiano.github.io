@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-    <title>解决冲突 远端部署 - Cocloa is looking at the Piano</title>
+    <title>版本控制介绍 - Cocloa is looking at the Piano</title>
 
     <style type="text/css">
         img.wp-smiley,
@@ -55,10 +55,10 @@
 <main role="main">
     <article role="article" class="post type-post format-standard hentry">
         <header class="post-header">
-            <h1>解决冲突 远端部署</h1>
+            <h1>版本控制介绍</h1>
             <div class="post-details">
                 <a rel="bookmark">
-                    <time datetime="2019-12-05T125:55:446">2019-12-05</time>
+                    <time datetime="2019-12-20T1220:1050:426">2019-12-20</time>
                 </a>
 				
 <span style="float: right;">
@@ -66,11 +66,11 @@
     
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     
-    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" data-layout="button_count" data-size="small">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E8%25A7%25A3%25E5%2586%25B3%25E5%2586%25B2%25E7%25AA%2581-%25E8%25BF%259C%25E7%25AB%25AF%25E9%2583%25A8%25E7%25BD%25B2%2f" class="fb-xfbml-parse-ignore">Share</a>
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%BB%8B%E7%BB%8D/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E7%2589%2588%25E6%259C%25AC%25E6%258E%25A7%25E5%2588%25B6%25E4%25BB%258B%25E7%25BB%258D%2f" class="fb-xfbml-parse-ignore">Share</a>
     </div>
     &nbsp;
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="解决冲突 远端部署" data-url="https://onlythepiano.github.io/%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/" data-show-count="false">Tweet</a>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="版本控制介绍" data-url="https://onlythepiano.github.io/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%BB%8B%E7%BB%8D/" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     &nbsp;
     
@@ -80,66 +80,54 @@
         </header>
 
         <div class="post-content">
-            <h2 id="heading">目标</h2>
-<p>前面《Git命令分支》介绍了本地分支合并冲突发生后可以手动解决，但是对于《冲突-部署远端》发生的冲突，又应该怎么解决呢？</p>
+            <h2 id="heading">目的</h2>
+<p>介绍版本控制前，知道以下常用的版本控制工具有git、SVN、HG、CVS和什么是版本控制？</p>
+<h3 id="heading1">什么是版本控制？</h3>
+<p>可以把一个版本控制系统（缩写VCS）理解为一个“数据库”，在需要的时候，它可以帮你完整地保存一个项目的快照。当你需要查看一个之前的快照（称之为“版本”）时，版本控制系统可以显示出当前版本与上一个版本之间的所有改动的细节。</p>
+<h2 id="heading2">在团队开发中使用版本控制系统的好处</h2>
 <ul>
 <li>
-<p>其实本地分支push到远端发生时的冲突，也是因为分支合并而产生的冲突；就是将本地分支和远端分支合并，合并那就是要手动解决</p>
+<p><strong>作为数据备份：</strong></p>
+<p>这是一个主要的原因了。虽然数据备份同样可以用比较笨的方法：本地复制副本，但这种古老的方法有很多不足，无法应对频繁的修改，会照成版本混乱，不便于管理，并且占用空间。</p>
 </li>
 <li>
-<p>git pull</p>
+<p><strong>版本管理：</strong></p>
+<p>避免版本管理混乱。这是使用版本管理的最主要原因，也是版本管理的目的所在。你肯定不会希望在本地手动备份了多个副本后，到头来却不知道那个备份是最新的，那个备份进行了什么修改，修改日期是什么时候等等一切你记不清的问题。而版本管理软件能解决这些问题，它有详细的日志，能记住你的每一次提交、每一次改动，并且能够比较查看不同版本之间的异同，并且可以恢复到之前的任一版本。</p>
+</li>
+<li>
+<p><strong>提高代码质量：</strong></p>
+<p>在没有版本管理之前，可能经常要在代码里写些不相关的注释，比如：某人某日对某代码进行修改；或是将一些不确定是否使用的代码用注释的形式保留等等,这些也就是僵尸代码啦。现在这些工作都可以交由版本管理工具完成，把这些不相关的僵尸代码从代码里删掉吧。</p>
+</li>
+<li>
+<p><strong>提高协同、多人开发时的效率：</strong></p>
 </li>
 </ul>
-<h2 id="git-pull-rebase">git pull &ndash;rebase</h2>
-<p>在使用git的过程中经常需要使用到git pull命令，在更新远端代码的同时如果与本地代码产生冲突了；那么冲突的文件中就出现了需要手动合并的部分；</p>
+<h2 id="heading3">下面来介绍下目前常见的版本控制工具</h2>
+<p><strong>1.Git</strong></p>
+<p>Git是目前世界上最先进的分布式版本控制系统，使用Git和Gitlab搭建版本控制环境是现在互联网公司最流行的版本控制方式；</p>
 <ul>
 <li>
-<p>而git pull &ndash;rebase不同的地方则是当有这些冲突存在时；</p>
+<p>Git是一个免费的开源分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有事务；</p>
 </li>
 <li>
-<p>git帮我们自动创建了一个新的分支，并且git告诉你接下来你要在这个新的分支上处理这个冲突；</p>
+<p>Git易于学习，占用内存小，具有闪电般快速的性能。</p>
 </li>
 </ul>
-<h3 id="git-status">此时执行git status命令后可以看到首要的提示是这样的：</h3>
-<pre><code>rebase in progress; onto 24f42c6
-You are currently rebasing branch 'master' on '24f42c6'.
-(fix conflicts and then run &quot;git rebase --continue&quot;)
-</code></pre><p>并且git还告诉我们 fix conflicts and then run &ldquo;git rebase &ndash;continue&rdquo;，意思是解决冲突然后执行git rebase &ndash;continue命令，</p>
-<p>其实git rebase &ndash;continue的正确操作应该是确认处理好冲突后则将调整好的文件添加到暂存区，并执行git rebase &ndash;continue命令告诉git，我已经解决好冲突了，</p>
-<p>并且已经将处理后的文件添加到了暂存区，现在可以将这些文件commit了，</p>
-<h3 id="heading1">简单来讲就是正常的解决冲突过程是：</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
-#
-git commit -m <span style="color:#e6db74">&#34;...&#34;</span> 
-#
-git push 
-<span style="color:#75715e">#此时因为本地仓库代码与远程仓代码有冲突，所以接下来</span>
-#
-git pull
-<span style="color:#75715e">#拉取远程代码，而冲突需要手动解决</span>
-#
-5.解决好后重新进行git add . git commit -m<span style="color:#e6db74">&#34;..&#34;</span> git push
-</code></pre></div><p>而git pull 这一步如果加上了 &ndash;rebase的选项，那么第5步操作将变成如下</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
-#
-git rebase --continue
-<span style="color:#75715e"># rebase --continue代替了commit</span>
-#
-git push
-</code></pre></div><h2 id="heading2">总结：</h2>
-<p>所以，git pull &ndash;rebase用在合并代码的时候其作用就是在一个随机创建的分支上处理冲突，避免了直接污染原来的分区</p>
-<p>转载：https://www.cnblogs.com/kungfupan/p/9967531.html</p>
-<h2 id="git-pull--git-fetch--git-merge">git pull = git fetch + git merge</h2>
-<p><strong>fetch和pull的区别在于：</strong></p>
+<p>2.SVN</p>
+<p>3.HG</p>
+<p>4.CVS</p>
+<ul>
+<li></li>
+</ul>
+<p>参考链接：https://www.jianshu.com/p/47f79a13524f</p>
+<h2 id="gitgithub">Git和GitHub</h2>
+<p>​	历史渊源：Git比GitHub出生的早。事件回到2005年，有个公司不允许linux系统继续免费使用它们的版本控制软件了，然后linux系统创始人Torvalds一气之下花了10天时间创造了Git（第一个版本），并且开源给所有人免费试用。3年后，Tom Preston使用Git作为版本控制软件创建了github网站；一个专门托管代码并且可以实现版本控制的网站。</p>
 <ul>
 <li>
-<p>git fetch是从远程获取最新版本到本地，不会自动merge，用户在检查了以后决定是否合并到工作本机分支中。（所以git fetch 和 git clone的目的都是：拿东西）</p>
+<p>git是软件,它可在本地建立仓库,你写的代码的各个版本都可以存着 ；</p>
 </li>
 <li>
-<p>git pull是从远程获取最新版本并自动merge到本地仓库，产生冲突后手动解决；（不是拿东西，目的是：合并）</p>
-</li>
-<li>
-<p>从安全角度出发，git fetch比git pull更安全，因为我们可以先比较本地与远程的区别后，选择性的合并。</p>
+<p>github是网上仓库,你写的代码的各个版本都可以存着。</p>
 </li>
 </ul>
 
@@ -160,6 +148,11 @@ git push
                 
                 
                 
+                <span class="post-tags">
+                        <a href="https://onlythepiano.github.io/tags/out-of-mess/">out of mess</a>&emsp;
+                        
+                </span>
+                
         </footer>
         
 <table cellspacing="15" style="width:100%; border: none;">
@@ -174,6 +167,15 @@ git push
         
 	
 	
+	<h4>Related Posts</h4>
+	<ol style="margin-left: 30px; list-style-type: decimal;">
+		
+		<li><strong><a href="/mavan%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/">Mavan构建工具</a></strong></li>
+		
+		<li><strong><a href="/keeping/">Keeping</a></strong></li>
+		
+	</ol>
+	
 
     </article>
 
@@ -182,12 +184,10 @@ git push
         <div class="nav-links">
             <div class="nav-previous">
                 
-                <a class="previous" href="https://onlythepiano.github.io/%E5%86%B2%E7%AA%81-%E8%BF%9C%E7%AB%AF%E9%83%A8%E7%BD%B2/"> 冲突-远端部署</a>
+                <a class="previous" href="https://onlythepiano.github.io/mavan%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/"> Mavan构建工具</a>
                 
             </div>
             <div class="nav-next">
-                
-                <a class="next" href="https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/"> 数据流图画法</a>
                 
             </div>
         </div>

@@ -6,10 +6,19 @@
     <description>Recent content in Java on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Dec 2019 10:57:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Dec 2019 22:43:51 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mavan构建工具</title>
+      <link>https://onlythepiano.github.io/mavan%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 20 Dec 2019 22:43:51 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/mavan%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/</guid>
+      <description>目的 介绍构建工具make、Maven等之前，先介绍编程不可少的IDE，即集成开发环境；但是为什么基本上主流的IDE都是要集成构建工具呢？ IDE例子： 一般包括：编辑器+编译器+调试器（editor+compiler+debugger） 为什么会有构建工具？ 编译步骤一般包括：预处理、编译、汇编、链接；如果</description>
+    </item>
     
     <item>
       <title>MVC框架</title>
