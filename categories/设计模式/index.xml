@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计模式 on Cocloa is looking at the Piano</title>
+    <link>https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on Cocloa is looking at the Piano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 03 Jun 2020 13:10:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>简单工厂模式</title>
+      <link>https://onlythepiano.github.io/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 03 Jun 2020 13:10:10 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>简单工厂模式 1.为什么？ “比如增加开根运算，运算类是很容易变化的地方，应该考虑用一个单独的类来做这个创造实例的过程——工厂“； 顾名思义：工厂就是用来造东西的，市面上的东西，购买时我们完全不知道它是如何生产的，但是我们就可以直接购买，这就是工厂方法模式 。 2.简单工厂模式 工厂类代码： public class OperationFactory { public static Operation creatieOperate() { Operation</description>
+    </item>
+    
+  </channel>
+</rss>
