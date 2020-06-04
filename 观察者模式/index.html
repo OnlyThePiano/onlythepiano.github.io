@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-    <title>策略模式结合简单工厂模式 - Cocloa is looking at the Piano</title>
+    <title>观察者模式 - Cocloa is looking at the Piano</title>
 
     <style type="text/css">
         img.wp-smiley,
@@ -55,10 +55,10 @@
 <main role="main">
     <article role="article" class="post type-post format-standard hentry">
         <header class="post-header">
-            <h1>策略模式结合简单工厂模式</h1>
+            <h1>观察者模式</h1>
             <div class="post-details">
                 <a rel="bookmark">
-                    <time datetime="2020-06-03T63:133:96">2020-06-03</time>
+                    <time datetime="2020-06-04T64:151:506">2020-06-04</time>
                 </a>
 				
 <span style="float: right;">
@@ -66,11 +66,11 @@
     
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     
-    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" data-layout="button_count" data-size="small">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E7%25AD%2596%25E7%2595%25A5%25E6%25A8%25A1%25E5%25BC%258F%25E7%25BB%2593%25E5%2590%2588%25E7%25AE%2580%25E5%258D%2595%25E5%25B7%25A5%25E5%258E%2582%25E6%25A8%25A1%25E5%25BC%258F%2f" class="fb-xfbml-parse-ignore">Share</a>
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E8%25A7%2582%25E5%25AF%259F%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f" class="fb-xfbml-parse-ignore">Share</a>
     </div>
     &nbsp;
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="策略模式结合简单工厂模式" data-url="https://onlythepiano.github.io/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" data-show-count="false">Tweet</a>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="观察者模式" data-url="https://onlythepiano.github.io/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     &nbsp;
     
@@ -81,63 +81,77 @@
 
         <div class="post-content">
             <hr>
-<h1 id="heading">策略模式与简单工厂模式结合</h1>
+<h1 id="heading">观察者模式</h1>
 <h2 id="heading1">一、为什么？</h2>
-<p><strong>“难道简单工厂就一定要是一个单独的类吗?难道不可以与策略模式的Context结合?”</strong></p>
-<p>于是，将客户端判断代码搬运到Context构造器中，客户端传入需要的”收费方式字符串“就可以了。</p>
-<h2 id="heading2">二、策略模式与简单工厂模式结合</h2>
-<h3 id="1context">1）Context类代码：</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CashContext</span>
-<span style="color:#f92672">{</span>
-    CashSuper cs <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-    
-    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CashContext</span><span style="color:#f92672">(</span>string type<span style="color:#f92672">)</span>
-    <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>type<span style="color:#f92672">)</span>
-        <span style="color:#f92672">{</span>
-            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;正常收费&#34;</span>
-            	cs <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CashContext<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CashNormal<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
-        	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;打8折&#34;</span>
-           	 	cs <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CashContext<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CashRebate<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;0.8&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-        		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+<p>如何在老板不在时开小差又不被发现？于是就请前台的小美帮忙，如果老板出门后回来，就打个电话进来，大家也好马上各就各位，这样就不会被老板发现问题了。</p>
+<p>”观察者模式的关键对象是主题Subject和观察者Observer；**一个Subject可以有任意数目的依赖它Observer，一旦 Subject的状态发生了改变，所有的Observer都可以得到通知。**Subject 发出通知时并不需要知道谁是它的观察者，也就是说，具体观察者是谁，它根本不需要知道。而任何一个具体观察者不知道也不需要知道其他观察者的存在。”</p>
+<h2 id="heading2">二、解耦合</h2>
+<p>观察者模式所做的工作其实就是在解除耦合。让耦合的双方都依赖于抽象，而不是依赖于具体。从而使得各自的变化都不会影响另一边的变化。</p>
+<h4 id="heading3">解耦合：针对抽象编程，减少与具体类耦合</h4>
+<ul>
+<li>抽象观察者，因为”看股票“、”看NBA“和其他。</li>
+<li>抽象通知者，因为前台接电话通知的不只是具体某个人。</li>
+</ul>
+<h2 id="heading4">三、观察者模式</h2>
+<p><img src="https://onlythepiano.github.io/images/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="观察者模式结构图"></p>
+<h3 id="heading5">例子（通风报信）：</h3>
+<p><img src="https://onlythepiano.github.io/images/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BE%8B%E5%AD%90.png" alt="观察者模式例子"></p>
+<h3 id="heading6">解释：</h3>
+<p>关系：</p>
+<ul>
+<li>依赖关系：抽象通知者依赖于抽象观察者；</li>
+<li>依赖关系：抽象观察者依赖于抽象通知者（<strong>==继承关系，这里上升到顶层之间关系，具体类之间成功解耦合==</strong>）</li>
+</ul>
+<p>通知者的方法需要用到观察者，所以形成依赖关系；观察者需要知道继承者状态属性，所以形成依赖关系</p>
+<p>关联关系是强依赖关系；只要在类中用到了对方就会产生依赖关系，而关联关系是做为其他类的成员变量。</p>
+<h3 id="heading7">客户端代码：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Boss huhansan <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Boss<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 
-        <span style="color:#f92672">}</span>
-    <span style="color:#f92672">}</span>
-    
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">GetResult</span><span style="color:#f92672">(</span><span style="color:#66d9ef">double</span> money<span style="color:#f92672">)</span>
-    <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">return</span> cs<span style="color:#f92672">.</span><span style="color:#a6e22e">acceptCash</span><span style="color:#f92672">(</span>money<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h3 id="2">2）客户端代码：</h3>
-<p><img src="https://onlythepiano.github.io/images/image-20200529150150331.png" alt="image-20200529150150331"></p>
+SockObserver tongshi1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SockObserver<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+NBAObserver tongshi2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NBAObserver<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//给观察者添加具体通知者
+</span><span style="color:#75715e"></span>huhansan<span style="color:#f92672">.</span><span style="color:#a6e22e">Attach</span><span style="color:#f92672">(</span>tongshi1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+huhansan<span style="color:#f92672">.</span><span style="color:#a6e22e">Attach</span><span style="color:#f92672">(</span>tongshi2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//Boss回来
+</span><span style="color:#75715e"></span>huhansan<span style="color:#f92672">.</span><span style="color:#a6e22e">SubjectState</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Boss back&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//发出通知
+</span><span style="color:#75715e"></span>huhansan<span style="color:#f92672">.</span><span style="color:#a6e22e">Notify</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><h2 id="heading8">四、事件委托</h2>
+<p>“尽管已经用了依赖倒转原则，但是‘抽象通知者’还是依赖‘抽象观察者’，也就是说，万一没有了抽象观察者这样的接口，我这通知的功能就完不成了。“</p>
+<p>”Subject 发出通知时并不需要知道谁是它的观察者，也就是说，具体观察者是谁，它根本不需要知道。而任何一个具体观察者不知道也不需要知道其他观察者的存在。所以——事件委托“</p>
+<h2 id="heading9">五、观察者模式应用</h2>
+<h3 id="heading10">优点</h3>
 <ul>
-<li>
-<p>简单工厂模式我需要让客户端认识两个类：CashSuper 和CashFactory；</p>
-</li>
-<li>
-<p>而策略模式与简单工厂结合的用法：客户端就只需要认识一个类CashContext就可以了。耦合更加降低。</p>
-</li>
+<li>观察者和被观察者是抽象耦合的</li>
+<li>建立了一套触发机制</li>
 </ul>
-<h3 id="3">3）解释：</h3>
-<p><strong>在客户端实例化的是CashContext的对象，调用的是CashContext的方法GetResult，这使得具体的收费算法彻底地与客户端分离。连算法的父类CashSuper都不让客户端认识了。</strong></p>
-<h2 id="heading3">二、总结简单工厂模式、策略模式、策略模式结合简单工厂模式优缺点</h2>
-<p>​	同样的，将判断搬运到Context类后，如果增加一种策略就必须增加一段case判断代码，也就是回到了：策略模式改进简单工厂模式的地方，Context类又变得累赘了。</p>
-<h3 id="heading4">缺点：</h3>
+<h3 id="heading11">缺点</h3>
 <ul>
-<li>简单工厂模式：工厂类累赘</li>
-<li>策略模式：客户端有业务逻辑层代码，耦合性强</li>
-<li>策略模式结合简单工厂模式：Context类累赘</li>
+<li>如果一个被观察者对象有很多的直接和间接的观察者的话，将所有的观察者都通知到会花费很多时间</li>
+<li>如果观察者和观察目标间有循环依赖，可能导致系统崩溃</li>
+<li>没有相应的机制让观察者知道所观察的目标对象是怎么发生变化的</li>
 </ul>
-<h3 id="heading5">优点：</h3>
+<h3 id="heading12">使用场景</h3>
 <ul>
-<li>简单工厂模式：解决了对象的创建问题</li>
-<li>策略模式：解决了工厂的累赘问题</li>
-<li>策略模式结合简单工厂模式：与客户端分离，客户端只需知道Context类</li>
+<li>关联行为场景</li>
+<li>事件多级触发场景</li>
+<li>跨系统的消息变换场景，如消息队列的处理机制</li>
 </ul>
-<h2 id="heading6">三、反射技术</h2>
-<p>解决结合后使得Context类累赘问题。</p>
+<h3 id="heading13">应用实例</h3>
+<ul>
+<li>手机丢了，委托别人给其他人发消息通知</li>
+<li>通知老师/老板来了</li>
+<li>拍卖，拍卖师观察最高标价，然后通知给其它竞价者竞价</li>
+<li>在一个目录下建立一个文件，会同时通知目录管理器增加目录，并通知磁盘减少空间，文件是被观察者，目录管理器和磁盘管理器是观察者</li>
+<li>猫叫了一声，吓着了老鼠，也惊到了主人，猫是被观察者，老鼠和人是观察者</li>
+</ul>
+<h3 id="heading14">注意事项</h3>
+<ul>
+<li>避免循环引用</li>
+<li>如果顺序执行，某一观察者错误会导致系统卡壳，一般采用异步方式</li>
+</ul>
 
         </div>
 
@@ -178,6 +192,8 @@
 	<h4>Related Posts</h4>
 	<ol style="margin-left: 30px; list-style-type: decimal;">
 		
+		<li><strong><a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">策略模式结合简单工厂模式</a></strong></li>
+		
 		<li><strong><a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a></strong></li>
 		
 		<li><strong><a href="/%E5%B0%8F%E4%BD%9C%E6%96%874/">小作文4</a></strong></li>
@@ -198,12 +214,10 @@
         <div class="nav-links">
             <div class="nav-previous">
                 
-                <a class="previous" href="https://onlythepiano.github.io/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"> 策略模式</a>
+                <a class="previous" href="https://onlythepiano.github.io/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"> 工厂方法模式</a>
                 
             </div>
             <div class="nav-next">
-                
-                <a class="next" href="https://onlythepiano.github.io/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/"> 工厂方法模式</a>
                 
             </div>
         </div>

@@ -6,10 +6,19 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2020 13:04:12 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 13:51:50 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>观察者模式</title>
+      <link>https://onlythepiano.github.io/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 04 Jun 2020 13:51:50 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>观察者模式 一、为什么？ 如何在老板不在时开小差又不被发现？于是就请前台的小美帮忙，如果老板出门后回来，就打个电话进来，大家也好马上各就各位，这样就不会被老板发现问题了。 ”观察者模式的关键对象是主题Subject和观察者Observer；**一个Subject可以有任意数目的依赖它Observer，一旦</description>
+    </item>
     
     <item>
       <title>工厂方法模式</title>
