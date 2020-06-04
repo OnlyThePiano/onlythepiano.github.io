@@ -82,14 +82,14 @@
         <div class="post-content">
             <hr>
 <h1 id="heading">策略模式</h1>
-<h2 id="1">1.为什么？</h2>
+<h2 id="heading1">一、为什么？</h2>
 <p>商场收银时如何促销，用打折还是返利，其实都是一些算法，用工厂来生成算法对象，这没有错，但算法本身只是一种策略，最重要的是这些算法是随时都可能互相替换的，这就是变化点，而封装变化点是我们面向对象的一种 很重要的思维方式。</p>
 <p>简单工厂模式只是解决对象的创建问题，由于“工厂”本身包括了所有的收费方式，商场是可能经常性地更改打折额度和返利额度，每次维护或扩展收费方式都要改动这个工厂，以致代码需重新编译部署，这真的是很糟糕的处理方式，所以用它不是最好的办法。面对算法的时常变动，应该有更好的办法。——策略模式</p>
-<h2 id="2">2.策略模式</h2>
+<h2 id="heading2">二、策略模式</h2>
 <p><img src="https://onlythepiano.github.io/images/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="策略模式结构图"></p>
-<h3 id="heading1">例子（商场收费系统）：</h3>
+<h3 id="1">1）例子（商场收费系统）：</h3>
 <p><img src="https://onlythepiano.github.io/images/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E4%BE%8B%E5%AD%90.png" alt="策略模式例子"></p>
-<h3 id="context">Context类代码：</h3>
+<h3 id="2context">2）Context类代码：</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CashContext</span>
 <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">private</span> CashSuper cs<span style="color:#f92672">;</span>
@@ -104,7 +104,7 @@
         <span style="color:#66d9ef">return</span> cs<span style="color:#f92672">.</span><span style="color:#a6e22e">acceptCash</span><span style="color:#f92672">(</span>money<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h3 id="heading2">客户端代码：</h3>
+</code></pre></div><h3 id="3">3）客户端代码：</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">CashContext cc <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
 <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#f92672">{</span>
@@ -118,18 +118,18 @@
 <span style="color:#f92672">}</span>
 <span style="color:#66d9ef">double</span> totalPrice <span style="color:#f92672">=</span> cc<span style="color:#f92672">.</span><span style="color:#a6e22e">GetResult</span><span style="color:#f92672">(</span>10<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 
-</code></pre></div><h3 id="heading3">解释：</h3>
+</code></pre></div><h3 id="4">4）解释：</h3>
 <p>关系：</p>
 <ul>
 <li>聚合关系：Context类和策略类</li>
 </ul>
 <p>Context类中声明了策略对象，通过客户端传入具体策略对象给Context类然后调用具体策略的方法。</p>
-<h3 id="heading4">缺点：</h3>
+<h3 id="5">5）缺点：</h3>
 <p>虽然解决了工厂改动频繁的问题，但是却使得封装不好，客户端的留下了业务逻辑层代码（switch case，然后传入策略对象给Context）。</p>
-<h2 id="3">3.策略模式与简单工厂模式结合</h2>
+<h2 id="heading3">三、策略模式与简单工厂模式结合</h2>
 <p><strong>“难道简单工厂就一定要是一个单独的类吗?难道不可以与策略模式的Context结合?”</strong></p>
 <p>于是，将客户端判断代码搬运到Context构造器中，客户端传入需要的”收费方式字符串“就可以了。</p>
-<h3 id="context1">Context类代码：</h3>
+<h3 id="1context">1）Context类代码：</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CashContext</span>
 <span style="color:#f92672">{</span>
     CashSuper cs <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
@@ -153,7 +153,7 @@
         <span style="color:#66d9ef">return</span> cs<span style="color:#f92672">.</span><span style="color:#a6e22e">acceptCash</span><span style="color:#f92672">(</span>money<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><h3 id="heading5">客户端代码：</h3>
+</code></pre></div><h3 id="2">2）客户端代码：</h3>
 <p><img src="https://onlythepiano.github.io/images/image-20200529150150331.png" alt="image-20200529150150331"></p>
 <ul>
 <li>
@@ -162,10 +162,13 @@
 <li>
 <p>而策略模式与简单工厂结合的用法：客户端就只需要认识一个类CashContext就可以了。耦合更加降低。</p>
 </li>
+<li></li>
+<li></li>
 </ul>
+<hr>
 <p><strong>在客户端实例化的是CashContext的对象，调用的是CashContext的方法GetResult，这使得具体的收费算法彻底地与客户端分离。连算法的父类CashSuper都不让客户端认识了。</strong></p>
-<h2 id="4">4.策略模式应用</h2>
-<h3 id="heading6">优点</h3>
+<h2 id="heading4">四、策略模式应用</h2>
+<h3 id="heading5">优点</h3>
 <ul>
 <li>
 <p>算法可以自由切换</p>
@@ -177,24 +180,24 @@
 <p>扩展性良好，增加一个策略只需实现接口即可</p>
 </li>
 </ul>
-<h3 id="heading7">缺点</h3>
+<h3 id="heading6">缺点</h3>
 <ul>
 <li>策略类数量会增多，每个策略都是一个类，复用的可能性很小</li>
 <li>所有的策略类都需要对外暴露</li>
 </ul>
-<h3 id="heading8">使用场景</h3>
+<h3 id="heading7">使用场景</h3>
 <ul>
 <li>多个类只有算法或行为上稍有不同的场景</li>
 <li>算法需要自由切换的场景</li>
 <li>需要屏蔽算法规则的场景</li>
 </ul>
-<h3 id="heading9">应用实例</h3>
+<h3 id="heading8">应用实例</h3>
 <ul>
 <li>出行方式，自行车、汽车等，每一种出行方式都是一个策略</li>
 <li>商场促销方式，打折、满减等</li>
 <li>Java AWT中的LayoutManager，即布局管理器</li>
 </ul>
-<h3 id="heading10">注意事项</h3>
+<h3 id="heading9">注意事项</h3>
 <ul>
 <li>如果一个系统的策略多于四个，就需要考虑使用混合模式来解决策略类膨胀的问题</li>
 </ul>
@@ -237,8 +240,6 @@
 	
 	<h4>Related Posts</h4>
 	<ol style="margin-left: 30px; list-style-type: decimal;">
-		
-		<li><strong><a href="/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">简单工厂模式</a></strong></li>
 		
 		<li><strong><a href="/%E5%B0%8F%E4%BD%9C%E6%96%874/">小作文4</a></strong></li>
 		
@@ -294,7 +295,7 @@
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文 (5)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (3)</a>
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (4)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
             </li>
@@ -303,13 +304,16 @@
 
     <aside class="widget widget_tag_cloud">
         <h2>Tags</h2>
-        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
         </div>
     </aside>
 
     <aside class="widget widget_recent_entries">
         <h2>Recent Posts</h2>
         <ul>
+            <li>
+                <a href="/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">工厂方法模式</a>
+            </li>
             <li>
                 <a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">策略模式结合简单工厂模式</a>
             </li>
@@ -336,9 +340,6 @@
             </li>
             <li>
                 <a href="/gitclone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
-            </li>
-            <li>
-                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
             </li>
         </ul>
     </aside>

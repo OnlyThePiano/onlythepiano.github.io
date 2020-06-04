@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>out of messy on Cocloa is looking at the Piano</title>
+    <link>https://onlythepiano.github.io/tags/out-of-messy/</link>
+    <description>Recent content in out of messy on Cocloa is looking at the Piano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Jun 2020 13:04:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://onlythepiano.github.io/tags/out-of-messy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>工厂方法模式</title>
+      <link>https://onlythepiano.github.io/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 04 Jun 2020 13:04:12 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <description>工厂方法模式 一、为什么？ ​ 简单工厂模式引入”工厂“类只是解决对象的创建问题，将对象的创建交给了“工厂”；对象多了，工厂也就拥挤了。于是，为了改变工厂拥挤的问题，有了工厂方法模式。 工厂方法模式和简单工厂的区别所在： 简单工厂模式的最大优点在于工厂类中包含了必要的逻辑判断，根据客户端的选择条件动态实例化相</description>
+    </item>
+    
+    <item>
+      <title>简单工厂模式</title>
+      <link>https://onlythepiano.github.io/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Wed, 03 Jun 2020 13:10:10 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>简单工厂模式 一、为什么？ “比如增加开根运算，运算类是很容易变化的地方，应该考虑用一个单独的类来做这个创造实例的过程——工厂“； 顾名思义：工厂就是用来造东西的，市面上的东西，购买时我们完全不知道它是如何生产的，但是我们就可以直接购买，这就是工厂方法模式 。 二、简单工厂模式 1）工厂类代码： public class OperationFactory { public static Operation creatieOperate()</description>
+    </item>
+    
+  </channel>
+</rss>

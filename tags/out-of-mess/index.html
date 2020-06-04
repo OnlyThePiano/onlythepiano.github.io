@@ -75,7 +75,7 @@
 		</header>
 
 		<div class="post-excerpt"><p>
-			策略模式与简单工厂模式结合 1.为什么？ “难道简单工厂就一定要是一个单独的类吗?难道不可以与策略模式的Context结合?” 于是，将客户端判断代码搬运到Context构造器中，客户端传入需要的”收费方式字符串“就可以了。 Context类代码： class CashContext { CashSuper cs = null; public CashContext(string type) { switch (type) { case &#34;正常收费&#34; cs
+			策略模式与简单工厂模式结合 一、为什么？ “难道简单工厂就一定要是一个单独的类吗?难道不可以与策略模式的Context结合?” 于是，将客户端判断代码搬运到Context构造器中，客户端传入需要的”收费方式字符串“就可以了。 二、策略模式与简单工厂模式结合 1）Context类代码： class CashContext { CashSuper cs = null; public CashContext(string type) { switch (type)
 			<a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="more-link">Read more</a>
 		</p></div>
 	</div>
@@ -114,47 +114,8 @@
 		</header>
 
 		<div class="post-excerpt"><p>
-			策略模式 1.为什么？ 商场收银时如何促销，用打折还是返利，其实都是一些算法，用工厂来生成算法对象，这没有错，但算法本身只是一种策略，最重要的是这些算法是随时都可能互相替换的，这就是变化点，而封装变化点是我们面向对象的一种 很重要的思维方式。 简单工厂模式只是解决对象的创建问题，由于“工厂”本身包括了所有的
+			策略模式 一、为什么？ 商场收银时如何促销，用打折还是返利，其实都是一些算法，用工厂来生成算法对象，这没有错，但算法本身只是一种策略，最重要的是这些算法是随时都可能互相替换的，这就是变化点，而封装变化点是我们面向对象的一种 很重要的思维方式。 简单工厂模式只是解决对象的创建问题，由于“工厂”本身包括了所有的
 			<a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="more-link">Read more</a>
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
-		<span class="post-categories">
-				<a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&emsp;
-				
-		</span>
-		
-
-		
-		
-		
-		<span class="post-tags">
-				<a href="https://onlythepiano.github.io/tags/out-of-mess/">out of mess</a>&emsp;
-				
-		</span>
-		
-	</footer>
-
-</article>
-    
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" rel="bookmark">简单工厂模式</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2020-06-03T13:10:10">2020-06-03</time>
-				</a>
-				</div>
-		</header>
-
-		<div class="post-excerpt"><p>
-			简单工厂模式 1.为什么？ “比如增加开根运算，运算类是很容易变化的地方，应该考虑用一个单独的类来做这个创造实例的过程——工厂“； 顾名思义：工厂就是用来造东西的，市面上的东西，购买时我们完全不知道它是如何生产的，但是我们就可以直接购买，这就是工厂方法模式 。 2.简单工厂模式 工厂类代码： public class OperationFactory { public static Operation creatieOperate() { Operation
-			<a href="/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="more-link">Read more</a>
 		</p></div>
 	</div>
 	
@@ -368,7 +329,7 @@
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E5%B0%8F%E4%BD%9C%E6%96%87/">小作文 (5)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (3)</a>
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (4)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
             </li>
@@ -377,13 +338,16 @@
 
     <aside class="widget widget_tag_cloud">
         <h2>Tags</h2>
-        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
         </div>
     </aside>
 
     <aside class="widget widget_recent_entries">
         <h2>Recent Posts</h2>
         <ul>
+            <li>
+                <a href="/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">工厂方法模式</a>
+            </li>
             <li>
                 <a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">策略模式结合简单工厂模式</a>
             </li>
@@ -410,9 +374,6 @@
             </li>
             <li>
                 <a href="/gitclone%E5%8A%A0%E9%80%9F/">Gitclone加速</a>
-            </li>
-            <li>
-                <a href="/%E5%B0%8F%E4%BD%9C%E6%96%873/">小作文3</a>
             </li>
         </ul>
     </aside>

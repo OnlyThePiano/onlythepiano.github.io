@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2020 13:33:09 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 13:04:12 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>工厂方法模式</title>
+      <link>https://onlythepiano.github.io/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 04 Jun 2020 13:04:12 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</guid>
+      <description>工厂方法模式 一、为什么？ ​ 简单工厂模式引入”工厂“类只是解决对象的创建问题，将对象的创建交给了“工厂”；对象多了，工厂也就拥挤了。于是，为了改变工厂拥挤的问题，有了工厂方法模式。 工厂方法模式和简单工厂的区别所在： 简单工厂模式的最大优点在于工厂类中包含了必要的逻辑判断，根据客户端的选择条件动态实例化相</description>
+    </item>
     
     <item>
       <title>策略模式结合简单工厂模式</title>
@@ -17,7 +26,7 @@
       <pubDate>Wed, 03 Jun 2020 13:33:09 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
-      <description>策略模式与简单工厂模式结合 1.为什么？ “难道简单工厂就一定要是一个单独的类吗?难道不可以与策略模式的Context结合?” 于是，将客户端判断代码搬运到Context构造器中，客户端传入需要的”收费方式字符串“就可以了。 Context类代码： class CashContext { CashSuper cs = null; public CashContext(string type) { switch (type) { case &amp;#34;正常收费&amp;#34; cs</description>
+      <description>策略模式与简单工厂模式结合 一、为什么？ “难道简单工厂就一定要是一个单独的类吗?难道不可以与策略模式的Context结合?” 于是，将客户端判断代码搬运到Context构造器中，客户端传入需要的”收费方式字符串“就可以了。 二、策略模式与简单工厂模式结合 1）Context类代码： class CashContext { CashSuper cs = null; public CashContext(string type) { switch (type)</description>
     </item>
     
     <item>
@@ -26,7 +35,7 @@
       <pubDate>Wed, 03 Jun 2020 13:30:04 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
-      <description>策略模式 1.为什么？ 商场收银时如何促销，用打折还是返利，其实都是一些算法，用工厂来生成算法对象，这没有错，但算法本身只是一种策略，最重要的是这些算法是随时都可能互相替换的，这就是变化点，而封装变化点是我们面向对象的一种 很重要的思维方式。 简单工厂模式只是解决对象的创建问题，由于“工厂”本身包括了所有的</description>
+      <description>策略模式 一、为什么？ 商场收银时如何促销，用打折还是返利，其实都是一些算法，用工厂来生成算法对象，这没有错，但算法本身只是一种策略，最重要的是这些算法是随时都可能互相替换的，这就是变化点，而封装变化点是我们面向对象的一种 很重要的思维方式。 简单工厂模式只是解决对象的创建问题，由于“工厂”本身包括了所有的</description>
     </item>
     
     <item>
@@ -35,7 +44,7 @@
       <pubDate>Wed, 03 Jun 2020 13:10:10 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
-      <description>简单工厂模式 1.为什么？ “比如增加开根运算，运算类是很容易变化的地方，应该考虑用一个单独的类来做这个创造实例的过程——工厂“； 顾名思义：工厂就是用来造东西的，市面上的东西，购买时我们完全不知道它是如何生产的，但是我们就可以直接购买，这就是工厂方法模式 。 2.简单工厂模式 工厂类代码： public class OperationFactory { public static Operation creatieOperate() { Operation</description>
+      <description>简单工厂模式 一、为什么？ “比如增加开根运算，运算类是很容易变化的地方，应该考虑用一个单独的类来做这个创造实例的过程——工厂“； 顾名思义：工厂就是用来造东西的，市面上的东西，购买时我们完全不知道它是如何生产的，但是我们就可以直接购买，这就是工厂方法模式 。 二、简单工厂模式 1）工厂类代码： public class OperationFactory { public static Operation creatieOperate()</description>
     </item>
     
     <item>
