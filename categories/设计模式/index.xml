@@ -6,10 +6,28 @@
     <description>Recent content in 设计模式 on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2020 13:51:50 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 16:55:55 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>单例模式2</title>
+      <link>https://onlythepiano.github.io/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F2/</link>
+      <pubDate>Fri, 05 Jun 2020 16:55:55 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F2/</guid>
+      <description>单例模式2 为什么？ 我们在编程中最常用的模式就是单例模式了，然而单例模式都用在什么场合？ 为什么不用静态方法而要用单例模式呢？ 要搞清这些问题，需要从静态方法和非静态方法的区别和联系说起。 一、静态方法常驻内存，非静态方法只有使用的时候才分配内存吗？ 一般都认为是这样，并且怕静态方法占用过多内存而建议使用非静</description>
+    </item>
+    
+    <item>
+      <title>单例模式</title>
+      <link>https://onlythepiano.github.io/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Fri, 05 Jun 2020 16:54:51 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>单例模式 一、为什么？ “写一个MDI窗体程序，当中有一个是‘工具箱’的窗体，问题就是，我希望工具箱要么不出现，出现也只出现一个，可实际上却是我每点击菜单，实例化‘工具箱’，它就会出来一个，这样点击多次就会出现很多个‘工具箱’，你说怎么办?” 二、责任问题 一般情况下为了方便，工具箱&amp;rsquo; FormT</description>
+    </item>
     
     <item>
       <title>观察者模式</title>
