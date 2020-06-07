@@ -119,24 +119,32 @@
 <p>1：1：用户和收藏夹</p>
 <h2 id="heading1">实体</h2>
 <h4 id="heading2">用户、订单、商品、（商品类型）、收藏夹、管理员</h4>
+<p>实体和属性区分的原则之一：属性不能和其它实体有联系</p>
 <h5 id="heading3">商品的商品类型与其他实体有联系吗？与用户、订单等全都没关系，所以商品类型为商品的属性</h5>
-<h3 id="heading4">实体的关系模式：</h3>
+<h3 id="111n">实体的关系模式：（1:1、1:N时关系模式中包含了联系）</h3>
 <p>用户（<!-- raw HTML omitted -->用户编号<!-- raw HTML omitted -->、用户名、密码、性别、邮箱）</p>
 <p>订单（<!-- raw HTML omitted -->订单编号<!-- raw HTML omitted -->、用户编号、下单时间、订单状态、商品数量）</p>
 <p>商品（<!-- raw HTML omitted -->商品编号<!-- raw HTML omitted -->、商品名称、商品价格、商品数量、商品类型）</p>
 <p>收藏夹（<!-- raw HTML omitted -->收藏夹编号<!-- raw HTML omitted -->、用户编号、商品编号、商品名称）</p>
 <p>管理员（<!-- raw HTML omitted -->管理员编号<!-- raw HTML omitted -->、管理员名称、电话）</p>
-<h3 id="heading5">联系的关系模式：</h3>
+<h3 id="nm">联系的关系模式：（N：M时要写出联系的关系模式）</h3>
 <p>管理（<!-- raw HTML omitted -->用户编号<!-- raw HTML omitted -->、<!-- raw HTML omitted -->管理员编号<!-- raw HTML omitted -->）</p>
 <p>包含（<!-- raw HTML omitted -->订单编号<!-- raw HTML omitted -->、<!-- raw HTML omitted -->商品编号<!-- raw HTML omitted -->、订单数量）</p>
 <p>存放（<!-- raw HTML omitted -->商品编号<!-- raw HTML omitted -->、<!-- raw HTML omitted -->收藏夹编号<!-- raw HTML omitted -->、存放量）</p>
+<hr>
+<p>包含和存放这两个联系有自己的属性，作为获选码出现；但是并不是每个联系都会有属性，</p>
+<p><strong>例如：</strong></p>
+<ul>
+<li>用户和管理员，用户被管理员“管理”什么也不会发生；</li>
+<li>学生和课程，学生”选修“课程就会有成绩，成绩即作为联系而出现的属性。</li>
+</ul>
 <h2 id="er">ER图</h2>
-<p><img src="E:%5Cdownload%5C%E6%97%85%E6%B8%B8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9FER%E5%9B%BE.png" alt="旅游推荐系统ER图">
-<img src="E:%5Cdownload%5C%E7%94%A8%E6%88%B7.png" alt="用户">
-<img src="E:%5Cdownload%5C%E8%AE%A2%E5%8D%95.png" alt="订单">
-<img src="E:%5Cdownload%5C%E5%95%86%E5%93%81.png" alt="商品">
-<img src="E:%5Cdownload%5C%E6%94%B6%E8%97%8F%E5%A4%B9.png" alt="收藏夹">
-<img src="E:%5Cdownload%5C%E7%AE%A1%E7%90%86%E5%91%98.png" alt="管理员"></p>
+<p><img src="https://onlythepiano.github.io/images/%E6%97%85%E6%B8%B8%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9FER%E5%9B%BE.png" alt="旅游推荐系统ER图">
+<img src="https://onlythepiano.github.io/images/%E7%94%A8%E6%88%B7.png" alt="用户">
+<img src="https://onlythepiano.github.io/images/%E8%AE%A2%E5%8D%95.png" alt="订单">
+<img src="https://onlythepiano.github.io/images/%E5%95%86%E5%93%81.png" alt="商品">
+<img src="https://onlythepiano.github.io/images/%E6%94%B6%E8%97%8F%E5%A4%B9.png" alt="收藏夹">
+<img src="https://onlythepiano.github.io/images/%E7%AE%A1%E7%90%86%E5%91%98.png" alt="管理员"></p>
 
         </div>
 
