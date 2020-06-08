@@ -3,18 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://onlythepiano.github.io/5%E5%8F%B7%E6%9D%AF/</loc>
+    <lastmod>2020-06-08T09:10:34+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://onlythepiano.github.io/categories/</loc>
-    <lastmod>2020-06-08T08:52:22+08:00</lastmod>
+    <lastmod>2020-06-08T09:10:34+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://onlythepiano.github.io/</loc>
-    <lastmod>2020-06-08T08:52:22+08:00</lastmod>
+    <lastmod>2020-06-08T09:10:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://onlythepiano.github.io/categories/java/</loc>
+    <lastmod>2020-06-08T09:10:34+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://onlythepiano.github.io/post/</loc>
-    <lastmod>2020-06-08T08:52:22+08:00</lastmod>
+    <lastmod>2020-06-08T09:10:34+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/</loc>
+    <lastmod>2020-06-08T09:10:34+08:00</lastmod>
   </url>
   
   <url>
@@ -83,11 +98,6 @@
   </url>
   
   <url>
-    <loc>https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/</loc>
-    <lastmod>2020-01-02T15:02:36+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://onlythepiano.github.io/categories/git/</loc>
     <lastmod>2019-12-20T22:50:42+08:00</lastmod>
   </url>
@@ -95,11 +105,6 @@
   <url>
     <loc>https://onlythepiano.github.io/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2019-12-20T22:50:42+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://onlythepiano.github.io/categories/java/</loc>
-    <lastmod>2019-12-20T22:43:51+08:00</lastmod>
   </url>
   
   <url>
