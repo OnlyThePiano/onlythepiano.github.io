@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-    <title>1号杯 - Cocloa is looking at the Piano</title>
+    <title>外观模式 - Cocloa is looking at the Piano</title>
 
     <style type="text/css">
         img.wp-smiley,
@@ -55,10 +55,10 @@
 <main role="main">
     <article role="article" class="post type-post format-standard hentry">
         <header class="post-header">
-            <h1>1号杯</h1>
+            <h1>外观模式</h1>
             <div class="post-details">
                 <a rel="bookmark">
-                    <time datetime="2019-12-07T127:225:186">2019-12-07</time>
+                    <time datetime="2020-06-08T68:852:226">2020-06-08</time>
                 </a>
 				
 <span style="float: right;">
@@ -66,11 +66,11 @@
     
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     
-    <div class="fb-share-button" data-href="https://onlythepiano.github.io/1%E5%8F%B7%E6%9D%AF/" data-layout="button_count" data-size="small">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f1%25E5%258F%25B7%25E6%259D%25AF%2f" class="fb-xfbml-parse-ignore">Share</a>
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E5%25A4%2596%25E8%25A7%2582%25E6%25A8%25A1%25E5%25BC%258F%2f" class="fb-xfbml-parse-ignore">Share</a>
     </div>
     &nbsp;
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="1号杯" data-url="https://onlythepiano.github.io/1%E5%8F%B7%E6%9D%AF/" data-show-count="false">Tweet</a>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="外观模式" data-url="https://onlythepiano.github.io/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     &nbsp;
     
@@ -80,53 +80,52 @@
         </header>
 
         <div class="post-content">
-            <h2 id="heading">惊！</h2>
-<p>广告：作文征集</p>
+            <hr>
+<h1 id="heading">外观模式</h1>
+<h2 id="heading1">一、为什么？</h2>
+<p>经典的三层架构，在数据访问层和业务逻辑层、业务逻辑层和表示层的层与层之间建立外观类Facade，这样可以为复杂的子系统提供一个 简单的接口，使得耦合大大降低。</p>
+<p>还有，子系统往往因为不断的重构演化而变得越来越复杂，大多数的模式使用时也都会产生很多很小的类，这本是
+好事，但也给外部调用它们的用户程序带来了使用上的困难，增加外观Facade 可以提供一个简单的接口，减少它们之间的依赖。</p>
+<h2 id="heading2">二、子系统</h2>
+<p>外观类，它需要了解所有的子系统的方法或属性，进行组合，以备外界调用。</p>
+<h2 id="heading3">三、外观模式</h2>
+<p><strong>“非常常用的模式之一，因为它完美地体现了依赖倒转原则和迪米特法则的思想。”</strong></p>
+<p><img src="https://onlythepiano.github.io/images/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="image-20200531133811703"></p>
+<h3 id="1">1）例子（买股票）：</h3>
+<p><img src="https://onlythepiano.github.io/images/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%E4%BE%8B%E5%AD%90.png" alt="外观模式例子"></p>
+<h3 id="2">2）解释：</h3>
+<p><strong>关系：</strong></p>
 <ul>
-<li>
-<p>要求1：文章开头必须有引言；文中不得出现具体的人名、宿舍名等；字体颜色VIP渐变；</p>
-</li>
-<li>
-<p>要求2：有过TangTou项目经验优先原则；</p>
-</li>
-<li>
-<p>联系方式：QQ“绿色健康小清新”</p>
-</li>
+<li>关联关系：客户类和基金类</li>
+<li>聚合关系：股票类和基金类</li>
 </ul>
-<h2 id="github">GitHub项目查找笔记</h2>
+<p>增加的外观类（基金类），由于子系统类不需要知道外观类（基金类）的任何信息，所以形成类聚合关系；而客户类仅需要调用基金类几何完成对多个股票类的操作，所以形成关联关系。</p>
+<h3 id="3">3）客户端代码：</h3>
+<p>由于外观类的作用，客户端根本不知道子类的存在</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Fund jijin <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Fund<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+jijin<span style="color:#f92672">.</span><span style="color:#a6e22e">BuyFund</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+jijin<span style="color:#f92672">.</span><span style="color:#a6e22e">SellFund</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+</code></pre></div><h2 id="heading4">四、外观模式的应用</h2>
+<h3 id="heading5">优点</h3>
 <ul>
-<li>
-<p>in:name example		名字中有“example”</p>
-</li>
-<li>
-<p>in:readme example		readme中有“example”</p>
-</li>
-<li>
-<p>in:description example	描述中有“example”</p>
-</li>
-<li>
-<p>stars:&gt;1000		star&gt;1000</p>
-</li>
-<li>
-<p>forks:&gt;1000		fork&gt;1000</p>
-</li>
-<li>
-<p>pushed:&gt;2019-09-01		2019年9月1日后有更新的</p>
-</li>
-<li>
-<p>language:java</p>
-</li>
+<li>减少了系统的相互依赖</li>
+<li>提高了灵活性。不管系统内部如何变化，只要不影响到外观对象，任你自由活动</li>
+<li>提高了安全性。想让你访问子系统的哪些业务就开通哪些逻辑，不在外观上开通的方法，你就访问不到</li>
 </ul>
-<h2 id="hugo">Hugo</h2>
+<h3 id="heading6">缺点</h3>
 <ul>
-<li>
-<p>hugo server &ndash;theme=&quot;inkblotty&rdquo; &ndash;buildDrafts</p>
-<p>部署时可以实时地查看网页效果</p>
-</li>
-<li>
-<p>hugo &ndash;theme=&quot;inkblotty&rdquo; &ndash;baseUrl=&quot;https://onlythepiano.github.io/&rdquo; &ndash;buildDrafts</p>
-<p>生成public/文件</p>
-</li>
+<li>不符合开闭原则，修改很麻烦</li>
+</ul>
+<h3 id="heading7">使用场景</h3>
+<ul>
+<li>为一个复杂的模块或子系统提供一个外界访问的接口</li>
+<li>子系统相对独立，外界对子系统的访问只要黑箱操作即可</li>
+<li>预防低水平人员带来的风险扩散</li>
+</ul>
+<h3 id="heading8">应用实例</h3>
+<ul>
+<li>基金（用户只和基金打交道，实际操作为基金经理人与股票和其它投资品打交道）</li>
 </ul>
 
         </div>
@@ -138,7 +137,7 @@
                 
                 
                 <span class="post-categories">
-                        <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐</a>&emsp;
+                        <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&emsp;
                         
                 </span>
                 
@@ -168,12 +167,10 @@
         <div class="nav-links">
             <div class="nav-previous">
                 
-                <a class="previous" href="https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE%E7%94%BB%E6%B3%95/"> 数据流图画法</a>
+                <a class="previous" href="https://onlythepiano.github.io/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F2/"> 单例模式2</a>
                 
             </div>
             <div class="nav-next">
-                
-                <a class="next" href="https://onlythepiano.github.io/uml%E5%85%B3%E7%B3%BB/"> UML关系</a>
                 
             </div>
         </div>

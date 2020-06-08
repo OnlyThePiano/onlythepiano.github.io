@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2020 16:55:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2020 08:52:22 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>外观模式</title>
+      <link>https://onlythepiano.github.io/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 08 Jun 2020 08:52:22 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>外观模式 一、为什么？ 经典的三层架构，在数据访问层和业务逻辑层、业务逻辑层和表示层的层与层之间建立外观类Facade，这样可以为复杂的子系统提供一个 简单的接口，使得耦合大大降低。 还有，子系统往往因为不断的重构演化而变得越来越复杂，大多数的模式使用时也都会产生很多很小的类，这本是 好事，但也给外部调用它们</description>
+    </item>
     
     <item>
       <title>单例模式2</title>
