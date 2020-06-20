@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>数据查询 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>数据查询</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-06-20T620:533:56">2020-06-20</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E6%2595%25B0%25E6%258D%25AE%25E6%259F%25A5%25E8%25AF%25A2%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="数据查询" data-url="https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h1 id="heading">数据查询</h1>
+<p>学生表：Student(Sno, Sname, Ssex, Sage, Sdept)</p>
+<p>课程表：Course(Cno, Cname, Cpno, Ccredit)</p>
+<p>学生选课表：SC(Sno, Cno, Grade)</p>
+<p>Sdept：院系、Cpno：先修课、Ccredit：学分</p>
+<h2 id="heading1">单表查询</h2>
+<h3 id="1">1.选择表中若干列</h3>
+<p>查询指定列：SELECT Sno, Sname FROM Student;</p>
+<p>查询全部列：SELECT * FROM Student;</p>
+<p>查询经过计算的值：SELECT Sname, 2014-Sage FROM Student;</p>
+<ul>
+<li>select子句的&lt;目标表达式&gt;不仅可以是表中的属性，也可以是表达式。</li>
+<li>可以通过指定别名改变查询结果的列标题。</li>
+</ul>
+<h3 id="2">2.选择标准若干元组</h3>
+<p>消除重复元组：SELECT DISTINCT Sno FROM SC;</p>
+<ul>
+<li>如果没有指定DISTINCT关键词，默认ALL。</li>
+</ul>
+<p>查询满足条件的元组：SELECT Sname FROM Student <strong>Where</strong> Sdept = &lsquo;CS&rsquo;;</p>
+<ul>
+<li>比较：= &gt; &lt; &hellip;&hellip;&hellip;</li>
+<li>确定范围：between and、not between and</li>
+<li>确定集合：in 、not in</li>
+<li>字符匹配：like、not like</li>
+<li>空值：is null、is not null</li>
+<li>多重条件：and、or、not</li>
+</ul>
+<h3 id="3order-by-">3.ORDER BY 子句</h3>
+<p>升序：ORDER BY Grade ASC;</p>
+<p>降序：ORDER BY Grade DESC;</p>
+<h3 id="4">4.聚集函数</h3>
+<p>COUNT(*)：统计元组个数</p>
+<p>COUNT(&lt;列名&gt;)：统计一列中值得个数</p>
+<p>SUM(&lt;列名&gt;)：计算列指得总和</p>
+<p>AVG&lt;列名&gt;)：计算一列中的最大值</p>
+<p>MAX(&lt;列名&gt;)：求一列中最大值</p>
+<p>MIN(&lt;列名&gt;)：求一列中最小值</p>
+<p><strong>where子句不能用聚集函数作为条件表达式，聚集函数总能用GROUP BY中的HAVING子句或SELECT子句。</strong></p>
+<h3 id="5group-by-">5.GROUP BY 子句</h3>
+<p>将查询结果按某一列或多列的值分组，值相等的一组。</p>
+<p>各个课号相应的选课人数：SELECT Cno, COUNT(Sno) FROM SC <strong>GROUP BY</strong> Cno;</p>
+<p>HAVING子句：查询平均分大于等于90的学生学号和平均成绩</p>
+<p>SELECT Sno, AVG(Grade) FROM SC GROUP BY Sno <strong>Having</strong> AVG(Grade) &gt; 90;</p>
+<h2 id="heading2">连接查询</h2>
+<h3 id="11">1.等值与非等值连接查询</h3>
+<p>查询选修2号课程且成绩在90分以上的所有学生的学号和姓名：</p>
+<p>SELECT Student.Sno, Sname</p>
+<p>FROM Student, SC</p>
+<p><strong>WHERE Student.Sno = SC.Sno</strong> AND SC.Cno='2&rsquo; AND SC.Grade&gt;90;</p>
+<ul>
+<li>
+<p>过程是，先从SC中挑选出限定条件的元组，再和Student中满足连接条件的元组进行连接。</p>
+</li>
+<li>
+<p>一条SQL语句可以同时完成选择和连接查询。</p>
+</li>
+</ul>
+<h3 id="21">2.自身连接</h3>
+<p>连接操作也可以和自己连接，需要为自身表取两个别名。</p>
+<h3 id="3">3.外连接</h3>
+<p>额，略</p>
+<h3 id="41">4.多表连接</h3>
+<p>查询每个学生的学号、姓名、选修的课程名和成绩：</p>
+<p>SELECT Student.Sno, Sname, Cname, Grade</p>
+<p>FROM Student, SC, Course</p>
+<p>WHERE Student.Sno=SC.Sno AND SC.Cno=Course.Cno;</p>
+<ul>
+<li>可能过程，先将Student表和SC表进行连接得到每个学生的学号、姓名、成绩和<strong>选修的课程号</strong>，然后再通过课程号与Course表连接。</li>
+</ul>
+<h2 id="heading3">嵌套查询</h2>
+<p>SELECT-FROM-WHERE 语句称为查询块，将一个查询块嵌套在另一个查询块的WHERE子句或HAVING短句的条件中称为嵌套查询。</p>
+<p>子查询的SELECT语句中不能用ORDER BY 子句。</p>
+<p>实现一个查询请求可以有多种方法，不同方法其执行效率差别也就不一样。所以，在实际应用中，能用连接运算尽可能用连接表达。</p>
+<h3 id="heading4">表与表之间的联系</h3>
+<p>当表与表之间有直接联系或者间接联系时，通过这个联系可以选择连接运算或者嵌套运算。</p>
+<p>查询与“刘晨”同一个系的学生：Student 表联系。</p>
+<p>查询选修了1号课程的学生姓名：课程选修表（SC）和 Student 表联系。</p>
+<ul>
+<li>SC 表：选修、1号课程</li>
+<li>Student 表：学生姓名</li>
+</ul>
+<p>查询选修了课程名为“信息系统”的学生姓名：SC 表、Course 表 和 Student 表联系。</p>
+<ul>
+<li>SC 表：选修</li>
+<li>Student 表：学生姓名</li>
+<li>Course 表：课程名</li>
+</ul>
+<p>查询选修了全部课程的学生姓名：SC 表、Course 表 和 Student 表联系。</p>
+<ul>
+<li>全部课程是 Course 表，因为 可能没有学生选修全部课程，这时候 SC 表只能表示部分课程。</li>
+</ul>
+<h3 id="heading5">相关子查询和不相关子查询</h3>
+<p>子查询的查询条件不依赖于父查询，不相关子查询。反之。</p>
+<h3 id="1in">1.带有IN谓语的子查询</h3>
+<p>查询与“刘晨”同一个系的学生：</p>
+<p>1)嵌套</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-SQL" data-lang="SQL"><span style="color:#66d9ef">SELECT</span> Sno, Sname, Sdept
+<span style="color:#66d9ef">FROM</span> Student
+<span style="color:#66d9ef">Where</span> Sdept <span style="color:#66d9ef">IN</span>
+	(<span style="color:#66d9ef">SELECT</span> Sdept
+     <span style="color:#66d9ef">FROM</span> Student
+     <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">刘晨</span><span style="color:#e6db74">&#34;</span>
+    );
+    
+<span style="color:#960050;background-color:#1e0010">不</span><span style="color:#960050;background-color:#1e0010">相</span><span style="color:#960050;background-color:#1e0010">关</span><span style="color:#960050;background-color:#1e0010">子</span><span style="color:#960050;background-color:#1e0010">查</span><span style="color:#960050;background-color:#1e0010">询</span>
+</code></pre></div><p>2)连接</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> S1.Sno, S2.Sname, S1.Sdept
+<span style="color:#66d9ef">FROM</span> Student S1, Student S2
+<span style="color:#66d9ef">WHERE</span> S1.Sdept<span style="color:#f92672">=</span>S2.Sdept <span style="color:#66d9ef">AND</span> S2.Sname<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">刘晨</span><span style="color:#e6db74">&#34;</span>;
+</code></pre></div><p>查询选修了课程名为信息系统的学生学号和姓名：</p>
+<p>1)嵌套</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Sno<span style="color:#960050;background-color:#1e0010">，</span> Sname
+<span style="color:#66d9ef">FROM</span> Student
+<span style="color:#66d9ef">WHERE</span> Sno <span style="color:#66d9ef">IN</span>
+	(<span style="color:#66d9ef">SELECT</span> Sno
+     <span style="color:#66d9ef">FROM</span> SC
+     <span style="color:#66d9ef">WHERE</span> Cno <span style="color:#66d9ef">IN</span>
+     	(<span style="color:#66d9ef">SELECT</span> Cno
+         <span style="color:#66d9ef">FROM</span> Course
+         <span style="color:#66d9ef">WHERE</span> Cname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">信息系统</span><span style="color:#e6db74">&#34;</span>
+        )
+    );
+</code></pre></div><ul>
+<li>涉及到的属性：学号、姓名、课程名，而学号、姓名存放在Student表，课程名存放在Course表，所以必须通过SC表建立联系。</li>
+</ul>
+<p>2)连接</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Student.Sno, Sname
+<span style="color:#66d9ef">FROM</span> Student, SC, Course
+<span style="color:#66d9ef">WHERE</span> Student.Sno <span style="color:#f92672">=</span> SC.Sno <span style="color:#66d9ef">AND</span>
+	SC.Cno <span style="color:#f92672">=</span> Course.Cno <span style="color:#66d9ef">AND</span>
+	Course.Cname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">信息系统</span><span style="color:#e6db74">&#34;</span>;
+</code></pre></div><h3 id="22">2.带有比较运算符的子查询</h3>
+<p>又一次查找与“刘晨”同一个系的学生：可以用 = 代替 IN。</p>
+<p>找出每个学生超过他自己选修课程平均成绩的课程号：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> Sno,Cno
+<span style="color:#66d9ef">FROM</span> SC x
+<span style="color:#66d9ef">WHERE</span> Grade <span style="color:#f92672">&gt;</span><span style="color:#f92672">=</span> (
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">AVG</span>(Grade)
+    <span style="color:#66d9ef">FROM</span> SC y
+    <span style="color:#66d9ef">WHERE</span> y.Sno<span style="color:#f92672">=</span>x.Sno
+);
+
+<span style="color:#960050;background-color:#1e0010">相</span><span style="color:#960050;background-color:#1e0010">关</span><span style="color:#960050;background-color:#1e0010">子</span><span style="color:#960050;background-color:#1e0010">查</span><span style="color:#960050;background-color:#1e0010">询</span>
+</code></pre></div><p>相关子查询过程：</p>
+<ol>
+<li>从外层查询中取出SC的一个元组x，将x的Sno值（201215121）传给内层。</li>
+<li>内层循环得到的值，用该值代替内层查询，得到外层查询。</li>
+<li>执行新的查询。</li>
+<li>重复；直到外层的SC元组全部处理完毕。</li>
+</ol>
+<h3 id="3-any--all-">3.带有 ANY 或 ALL 谓词的子查询</h3>
+<p>略&hellip;&hellip;</p>
+<h3 id="4exists">4.带有EXISTS谓词的子查询</h3>
+<p>EXISTS代表存在量词。</p>
+<p>EXISTS引出的子查询目标列表达式通常用 * ，因为其子查询只返回真值或假值。</p>
+<p>带有 IN 谓词、比较运算符的子查询都能用带有 EXISTS 谓词的等价代替。</p>
+<p>再一次查找与“刘晨”同一个系的学生：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">IN</span><span style="color:#960050;background-color:#1e0010">：</span>
+
+<span style="color:#66d9ef">SELECT</span> Sno, Sname, Sdept
+<span style="color:#66d9ef">FROM</span> Student
+<span style="color:#66d9ef">Where</span> Sdept <span style="color:#66d9ef">IN</span>
+	(<span style="color:#66d9ef">SELECT</span> Sdept
+     <span style="color:#66d9ef">FROM</span> Student
+     <span style="color:#66d9ef">WHERE</span> Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">刘晨</span><span style="color:#e6db74">&#34;</span>
+    );
+    
+
+
+<span style="color:#66d9ef">EXISTS</span><span style="color:#960050;background-color:#1e0010">：</span>
+
+<span style="color:#66d9ef">SELECT</span> Sno, Sname, Sdept
+<span style="color:#66d9ef">FROM</span> Student S1
+<span style="color:#66d9ef">Where</span> <span style="color:#66d9ef">EXISTS</span>
+	(<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+     <span style="color:#66d9ef">FROM</span> Student S2
+     <span style="color:#66d9ef">WHERE</span> S2.Sdept<span style="color:#f92672">=</span>S1.Sdept <span style="color:#66d9ef">AND</span> S2.Sname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">刘晨</span><span style="color:#e6db74">&#34;</span>
+    );
+</code></pre></div><p>查询选修了全部课程的学生名：</p>
+<p><img src="https://onlythepiano.github.io/images/%E5%B8%A6%E6%9C%89EXISTS%E7%9A%84%E5%AD%90%E6%9F%A5%E8%AF%A2.jpg" alt="带有EXISTS的子查询"></p>
+<h2 id="heading6">集合查询</h2>
+<p>略&hellip;&hellip;&hellip;.</p>
+
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/mysql/">MySQL</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+                <span class="post-tags">
+                        <a href="https://onlythepiano.github.io/tags/out-of-mess/">out of mess</a>&emsp;
+                        
+                </span>
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+	<h4>Related Posts</h4>
+	<ol style="margin-left: 30px; list-style-type: decimal;">
+		
+		<li><strong><a href="/mysql/">MySQL</a></strong></li>
+		
+		<li><strong><a href="/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a></strong></li>
+		
+		<li><strong><a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E7%BB%93%E5%90%88%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">策略模式结合简单工厂模式</a></strong></li>
+		
+		<li><strong><a href="/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a></strong></li>
+		
+		<li><strong><a href="/4%E5%8F%B7%E6%9D%AF/">4号杯</a></strong></li>
+		
+		<li><strong><a href="/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%BB%8B%E7%BB%8D/">版本控制介绍</a></strong></li>
+		
+		<li><strong><a href="/mavan%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/">Mavan构建工具</a></strong></li>
+		
+	</ol>
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/mysql/"> MySQL</a>
+                
+            </div>
+            <div class="nav-next">
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (3)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (6)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/">数据查询</a>
+            </li>
+            <li>
+                <a href="/mysql/">MySQL</a>
+            </li>
+            <li>
+                <a href="/b%E6%A0%91/">B树</a>
+            </li>
+            <li>
+                <a href="/%E5%BB%BA%E7%AD%91%E8%80%85%E6%A8%A1%E5%BC%8F/">建筑者模式</a>
+            </li>
+            <li>
+                <a href="/5%E5%8F%B7%E6%9D%AF/">5号杯</a>
+            </li>
+            <li>
+                <a href="/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/">外观模式</a>
+            </li>
+            <li>
+                <a href="/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F2/">单例模式2</a>
+            </li>
+            <li>
+                <a href="/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
+            </li>
+            <li>
+                <a href="/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a>
+            </li>
+            <li>
+                <a href="/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">工厂方法模式</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

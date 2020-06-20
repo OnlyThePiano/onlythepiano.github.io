@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>B树 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>B树</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-06-13T613:1026:336">2020-06-13</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/b%E6%A0%91/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fb%25E6%25A0%2591%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="B树" data-url="https://onlythepiano.github.io/b%E6%A0%91/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="heading">目的</h2>
+<p>二叉树，虽然查找查找速度非常快，比较次数也少；但是并不适合于存储设备，B树是为了存储设备或者磁盘而设计的一种平衡查找树。</p>
+<p>在大数据存储过程，大量的数据会存储到外存磁盘，外存磁盘中读取与写入某数据的时候，首先定位到磁盘中的某一块；为了减少读写次数，B树是一颗多叉树，成功降低了树得深度。</p>
+<h2 id="b">B树</h2>
+<p>动态查找树主要包括：二叉查找树，平衡二叉树，红黑树，B树，B-树，查找的时间复杂度就为O(log2N)，通过对数就可以发现降低树的深度就会提高查找效率。</p>
+<p><strong>定义：</strong></p>
+<ul>
+<li>
+<p>树中的每个结点最多含有m个孩子；</p>
+</li>
+<li>
+<p>除了根结点和叶子结点，其他结点至少有[ceil(m / 2)（代表是取上限的函数）]个孩子；</p>
+</li>
+<li>
+<p>若根结点不是叶子结点时，则至少有两个孩子（除了没有孩子的根结点）</p>
+</li>
+<li>
+<p>所有的叶子结点都出现在同一层中，叶子结点不包含任何关键字信息；</p>
+</li>
+</ul>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200618194142538.png" alt="image-20200618194142538"></p>
+<h3 id="heading1">树节点代码：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BTreeNode</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+	<span style="color:#75715e">//节点的项，按键非降序存放
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Entry<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> entries<span style="color:#f92672">;</span>
+
+	<span style="color:#75715e">//内节点的子节点
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>BTreeNode<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> children<span style="color:#f92672">;</span>
+	
+	<span style="color:#75715e">//是否为叶子节点
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">boolean</span> leaf<span style="color:#f92672">;</span>
+
+	<span style="color:#75715e">//键的比较函数对象
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">private</span> Comparator<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">&gt;</span> kComparator<span style="color:#f92672">;</span>
+	
+	<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">BTreeNode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> 
+	<span style="color:#f92672">{</span>
+		entries <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		children <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		leaf <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>每个节点里的一个Entry就是存放key和value的键值对：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span> 
+<span style="color:#f92672">{</span> 
+	<span style="color:#66d9ef">private</span> K key<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">private</span> V value<span style="color:#f92672">;</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Entry</span><span style="color:#f92672">(</span>K k<span style="color:#f92672">,</span> V v<span style="color:#f92672">)</span> 
+    <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> k<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> v<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+		
+	<span style="color:#75715e">// getter/setter
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> 
+    <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> key <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> value<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><h2 id="heading2">理解和总结</h2>
+<ul>
+<li>这颗B树实现简单，但是只能在叶子节点上存储数据，也就是说非叶节点只有key，没有value。</li>
+<li>B树为访问外存而生，而什么时候访问呢？就在每次访问节点的时候会查一次磁盘IO，节点内的查询是在内存种进行的，而在访问子节点时就需要访问外存，而最多访问h（树的高度）次节点，因为每一层只会访问一个节点。所以，时间都花在访问节点上。</li>
+</ul>
+<p>原文链接：https://blog.csdn.net/jimo_lonely/article/details/82716142</p>
+
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/%E5%BB%BA%E7%AD%91%E8%80%85%E6%A8%A1%E5%BC%8F/"> 建筑者模式</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/mysql/"> MySQL</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (3)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (6)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/">数据查询</a>
+            </li>
+            <li>
+                <a href="/mysql/">MySQL</a>
+            </li>
+            <li>
+                <a href="/b%E6%A0%91/">B树</a>
+            </li>
+            <li>
+                <a href="/%E5%BB%BA%E7%AD%91%E8%80%85%E6%A8%A1%E5%BC%8F/">建筑者模式</a>
+            </li>
+            <li>
+                <a href="/5%E5%8F%B7%E6%9D%AF/">5号杯</a>
+            </li>
+            <li>
+                <a href="/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/">外观模式</a>
+            </li>
+            <li>
+                <a href="/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F2/">单例模式2</a>
+            </li>
+            <li>
+                <a href="/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
+            </li>
+            <li>
+                <a href="/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a>
+            </li>
+            <li>
+                <a href="/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">工厂方法模式</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

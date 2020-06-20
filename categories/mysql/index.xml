@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on Cocloa is looking at the Piano</title>
+    <link>https://onlythepiano.github.io/categories/mysql/</link>
+    <description>Recent content in MySQL on Cocloa is looking at the Piano</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jun 2020 17:33:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://onlythepiano.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据查询</title>
+      <link>https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/</link>
+      <pubDate>Sat, 20 Jun 2020 17:33:05 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/</guid>
+      <description>数据查询 学生表：Student(Sno, Sname, Ssex, Sage, Sdept) 课程表：Course(Cno, Cname, Cpno, Ccredit) 学生选课表：SC(Sno, Cno, Grade) Sdept：院系、Cpno：先修课、Ccredit：学分 单表查询 1.选择表中若干列 查询指定列：SELECT Sno, Sname FROM Student; 查询全部列：SELECT * FROM Student; 查询经过计算的值：SELECT Sname, 2014-Sage FROM Student; se</description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://onlythepiano.github.io/mysql/</link>
+      <pubDate>Sat, 20 Jun 2020 17:28:04 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/mysql/</guid>
+      <description>数据类型 更小的通常更好 占用更少磁盘、内存和CPU缓存 简单更好 操作时需要更少的CPU周期 避免NULL 可为NULL的列使得索引、索引统计和值比较都更复杂。可为NULL的列会使用更多的存储空间，在MySQL里也需要特殊处理 整数类型 TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT 分别使用 8, 16, 24, 32, 64 位存储空间，一般情况下越小的列越好。 整数计算一般</description>
+    </item>
+    
+  </channel>
+</rss>
