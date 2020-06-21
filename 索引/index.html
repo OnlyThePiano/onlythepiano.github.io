@@ -94,8 +94,8 @@
 <li>数据是以行（Row）为单位一行一行的存放在磁盘上的块中,如图所示.</li>
 <li>在访问数据时，一次从磁盘中读出或者写入至少一个完整的Block。</li>
 </ul>
-<p>如何定位数据？
-<strong>- 表扫描(Table Scan)</strong></p>
+<p><strong>如何定位数据？</strong></p>
+<p><strong>- 表扫描(Table Scan)</strong></p>
 <ul>
 <li>从磁盘中依次读出所有的数据块，一行一行的进行数据匹配。</li>
 <li>时间复杂度 是O(n)， 如果所有的数据占用了100个块。尽管只查询一行数据，也需要读出所有100个块的数据。</li>
@@ -117,17 +117,13 @@
 </ul>
 <h2 id="heading1">索引的产生</h2>
 <p><strong>- 键(Key)</strong></p>
-<p>首先，我们发现在多数情况下，定位操作并不需要匹配整行数据。而是很规律的只匹配某一个
-或几个列的值。 例如，图中第1列就可以用来确定一条记录。这些用来确定一条数据的列，统
-称为<em><strong>键(Key)</strong></em>.</p>
+<p>首先，我们发现在多数情况下，定位操作并不需要匹配整行数据。而是很规律的只匹配某一个 或几个列的值。 例如，图中第1列就可以用来确定一条记录。这些用来确定一条数据的列，统 称为<strong>键(Key)</strong>。</p>
 <p><img src="https://onlythepiano.github.io/images/%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.jpg" alt="数据的存储结构"></p>
 <p><strong>- Dense Index</strong></p>
-<p>根据减少无效数据访问的原则，我们将键的值拿过来存放到独立的块中。并且为每一个键值添
-加一个指针， 指向原来的数据块。</p>
+<p>根据减少无效数据访问的原则，我们将键的值拿过来存放到独立的块中。并且为每一个键值添加一个指针， 指向原来的数据块。</p>
 <p><img src="https://onlythepiano.github.io/images/Dense_Index.jpg" alt="Dense Index"></p>
-<p>这就是‘索引’的祖先<em><strong>Dense Index</strong></em>. 当进行定位操作时，不再进行表扫描。而是进行
-<em><strong>索引扫描(Index Scan)</strong></em>，依次读出所有的索引块，进行键值的匹配。当找到匹配的键值后，
-根据该行的指针直接读取对应的数据块，进行操作。</p>
+<p>这就是‘索引’的祖先<strong>Dense Index</strong>. 当进行定位操作时，不再进行表扫描。而是进行
+<strong>索引扫描(Index Scan)</strong>，依次读出所有的索引块，进行键值的匹配。当找到匹配的键值后，根据该行的指针直接读取对应的数据块，进行操作。</p>
 <h2 id="heading2">索引的进化</h2>
 <p>在实际的应用中，这样的定位效率仍然不能满足需求。很多人可能已经想到了，通过排序和查找算法来减少IO的访问。因此我们开始尝试对Dense Index进行排序存储,并且期望利用排序查*找算法来减少磁盘IO。</p>
 <p><strong>- 折半块查找</strong></p>
@@ -149,18 +145,12 @@
 </ul>
 <p><img src="https://onlythepiano.github.io/images/Dense_Index%EF%BC%882%EF%BC%89.jpg" alt="Dense Index（2）"></p>
 <p><strong>- Sparse Index</strong></p>
-<p>实现基于块的折半查找时发现，读出每个块后只需要和第一行的键值匹配，就可以决定下一个块
-的位置（方向）。 因此有效数据是每个块（最后一个块除外）的第一行的数据。还是根据减少无
-效数据IO的原则，将每一个块的第一行的数据单独拿出来，和索引数组的地址放到一起。这样就
-可以直接在这个数组上进行折半查找了。如下图所示，这个数组就进化成了Sparse Index。</p>
+<p>实现基于块的折半查找时发现，读出每个块后只需要和第一行的键值匹配，就可以决定下一个块的位置（方向）。 因此有效数据是每个块（最后一个块除外）的第一行的数据。还是根据减少无效数据IO的原则，将每一个块的第一行的数据单独拿出来，和索引数组的地址放到一起。这样就可以直接在这个数组上进行折半查找了。如下图所示，这个数组就进化成了Sparse Index。</p>
 <p><img src="https://onlythepiano.github.io/images/Sparse_Index.jpg" alt="Sparse Index"></p>
-<p>因为Sparse Index和Dense Index的存储结构是相同的，所以占用的空间也相同。大约需
-要10个块来存储10000个Dense Index块的地址和首行键值。通过Sparse索引，仅需要读
-取10(Sparse块)+1(Dense块)+1(数据块)=12个块。</p>
+<p>因为Sparse Index和Dense Index的存储结构是相同的，所以占用的空间也相同。大约需要10个块来存储10000个Dense Index块的地址和首行键值。通过Sparse索引，仅需要读取10(Sparse块)+1(Dense块)+1(数据块)=12个块。</p>
 <p><strong>- 多层Sparse Index</strong></p>
 <p>因为Sparse Index本身是有序的，所以可以为Sparse Index再建sparse Index。通过
-这个方法，一层一层的建立 Sparse Indexes,直到最上层的Sparse Index只占用一个块
-为止,</p>
+这个方法，一层一层的建立 Sparse Indexes,直到最上层的Sparse Index只占用一个块 为止。</p>
 <p><img src="https://onlythepiano.github.io/images/%E5%A4%9A%E5%B1%82Sparse_Index.jpg" alt="多层Sparse Index"></p>
 <ul>
 <li>这个最上层的Sparse Index称作整个索引树的根(root).</li>
@@ -172,7 +162,7 @@
 <li>索引的IO性能和索引树的高度密切相关。索引树越高，磁盘IO越多。</li>
 </ul>
 <p>在我们的例子中的Sparse Index，只有10个块，因此我们只需要再建立一个Sparse Index。通过两层Sparse Index和一层Dense Index查找时，只需读取1+1+1+1=4个块。</p>
-<p><strong>- 簇索引(Clustered Index)和辅助索引(Secondary Index)</strong></p>
+<p>**- 簇索引 (Clustered Index) 辅助索引 (Secondary Index) **</p>
 <p>如果数据本身是基于某个Key来排序的，那么可以直接在数据上建立sparse索引，而不需要建立一个dense索引层(可以认为数据就是dense索引层)。</p>
 <p><img src="https://onlythepiano.github.io/images/%E7%B0%87%E7%B4%A2%E5%BC%95%EF%BC%88Clustered%EF%BC%89.jpg" alt="簇索引（Clustered）"></p>
 <p>这个索引就是我们常说的 “ <strong>Clustered Index</strong> ” ，而用来排序数据的键叫做主键 <strong>Primary Key</strong>。</p>
@@ -185,8 +175,8 @@
 <p><strong>- 范围搜索(Range Search)</strong></p>
 <p>由于键值是有序的，因此可以进行范围查找。只需要将数据块、Dense Index块分别以双向链表的方式进行连接， 就可以实现高效的范围查找。</p>
 <p><img src="https://onlythepiano.github.io/images/%E6%88%90%E9%93%BE-1592671838377.jpg" alt="成链"></p>
-<p><em>是不是看着这个索引树很眼熟？换个角度看看这个图吧！</em></p>
-<p>![B + Tree](<a href="https://onlythepiano.github.io/images/B">https://onlythepiano.github.io/images/B</a> + Tree-1592672141481.jpg)</p>
+<p>是不是看着这个索引树很眼熟？换个角度看看这个图吧！</p>
+<p><img src="https://onlythepiano.github.io/images/B+Tree.jpg" alt="B + Tree"></p>
 <h2 id="sparse-index-">Sparse Index 中的数据指针</h2>
 <p>Sparse Index 中的每个键值都有一个指针指向 所在的数据页。</p>
 <p><img src="https://onlythepiano.github.io/images/%E8%BE%85%E5%8A%A9%E7%B4%A2%E5%BC%95%EF%BC%88Secondary%EF%BC%89.jpg" alt="辅助索引（Secondary）"></p>
@@ -315,6 +305,8 @@
             </div>
             <div class="nav-next">
                 
+                <a class="next" href="https://onlythepiano.github.io/%E5%88%86%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA/"> 分表和分区</a>
+                
             </div>
         </div>
     </nav>
@@ -338,9 +330,9 @@
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/java/">Java (3)</a>
+                <a href="https://onlythepiano.github.io/categories/java/">Java (4)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (4)</a>
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (5)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
             </li><li class="cat-item cat-item-2">
@@ -365,6 +357,12 @@
         <h2>Recent Posts</h2>
         <ul>
             <li>
+                <a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+            </li>
+            <li>
+                <a href="/%E5%88%86%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA/">分表和分区</a>
+            </li>
+            <li>
                 <a href="/%E7%B4%A2%E5%BC%95/">索引</a>
             </li>
             <li>
@@ -387,12 +385,6 @@
             </li>
             <li>
                 <a href="/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F2/">单例模式2</a>
-            </li>
-            <li>
-                <a href="/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
-            </li>
-            <li>
-                <a href="/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a>
             </li>
         </ul>
     </aside>
