@@ -124,7 +124,7 @@
 <p><strong>- Dense Index</strong></p>
 <p>根据减少无效数据访问的原则，我们将键的值拿过来存放到独立的块中。并且为每一个键值添
 加一个指针， 指向原来的数据块。</p>
-<p>![Dense Index](<a href="https://onlythepiano.github.io/images/Dense">https://onlythepiano.github.io/images/Dense</a> Index.jpg)</p>
+<p><img src="https://onlythepiano.github.io/images/Dense_Index.jpg" alt="Dense Index"></p>
 <p>这就是‘索引’的祖先<em><strong>Dense Index</strong></em>. 当进行定位操作时，不再进行表扫描。而是进行
 <em><strong>索引扫描(Index Scan)</strong></em>，依次读出所有的索引块，进行键值的匹配。当找到匹配的键值后，
 根据该行的指针直接读取对应的数据块，进行操作。</p>
@@ -147,13 +147,13 @@
 能存储2000个指针，需要5个块来存储这个数组。通过折半块查找，我们最多只需要读取5（数组块）+ 14（索引块log 2(10000)）+1（数据块）=20个块。</p>
 </li>
 </ul>
-<p>![Dense Index（2）](<a href="https://onlythepiano.github.io/images/Dense">https://onlythepiano.github.io/images/Dense</a> Index（2）.jpg)</p>
+<p><img src="https://onlythepiano.github.io/images/Dense_Index%EF%BC%882%EF%BC%89.jpg" alt="Dense Index（2）"></p>
 <p><strong>- Sparse Index</strong></p>
 <p>实现基于块的折半查找时发现，读出每个块后只需要和第一行的键值匹配，就可以决定下一个块
 的位置（方向）。 因此有效数据是每个块（最后一个块除外）的第一行的数据。还是根据减少无
 效数据IO的原则，将每一个块的第一行的数据单独拿出来，和索引数组的地址放到一起。这样就
 可以直接在这个数组上进行折半查找了。如下图所示，这个数组就进化成了Sparse Index。</p>
-<p>![Sparse Index](C:\Users\79949\Desktop\images\Sparse Index.jpg)</p>
+<p><img src="https://onlythepiano.github.io/images/Sparse_Index.jpg" alt="Sparse Index"></p>
 <p>因为Sparse Index和Dense Index的存储结构是相同的，所以占用的空间也相同。大约需
 要10个块来存储10000个Dense Index块的地址和首行键值。通过Sparse索引，仅需要读
 取10(Sparse块)+1(Dense块)+1(数据块)=12个块。</p>
