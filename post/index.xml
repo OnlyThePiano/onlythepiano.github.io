@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2020 17:33:05 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 08:09:01 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>索引</title>
+      <link>https://onlythepiano.github.io/%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sun, 21 Jun 2020 08:09:01 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E7%B4%A2%E5%BC%95/</guid>
+      <description>背景知识 - 数据库的性能问题 磁盘IO性能非常低，严重的影响数据库系统的性能。 磁盘顺序读写比随机读写的性能高很多。 - 数据的基本存储结构 磁盘空间被划分为许多大小相同的块（Block）或者页(Page). 一个表的这些数据块以链表的方式串联在一起。 数据是以行（Row）为单位一行一行的存放在磁盘上的块中,如图所</description>
+    </item>
     
     <item>
       <title>数据查询</title>
@@ -35,7 +44,7 @@
       <pubDate>Sat, 13 Jun 2020 10:26:33 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/b%E6%A0%91/</guid>
-      <description>目的 二叉树，虽然查找查找速度非常快，比较次数也少；但是并不适合于存储设备，B树是为了存储设备或者磁盘而设计的一种平衡查找树。 在大数据存储过程，大量的数据会存储到外存磁盘，外存磁盘中读取与写入某数据的时候，首先定位到磁盘中的某一块；为了减少读写次数，B树是一颗多叉树，成功降低了树得深度。 B树 动态查找树</description>
+      <description>目的 二叉树，虽然查找查找速度非常快，比较次数也少；但是并不适合于存储设备，B树是为了存储设备或者磁盘而设计的一种平衡查找树。 在大数据存储过程，大量的数据会存储到外存磁盘，外存磁盘中读取与写入某数据的时候，首先定位到磁盘中的某一块；为了减少读写次数，B 树是一颗多叉树，成功降低了树得深度。 B- 树 动态查找树</description>
     </item>
     
     <item>

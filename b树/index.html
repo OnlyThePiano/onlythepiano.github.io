@@ -83,10 +83,10 @@
             <hr>
 <h2 id="heading">目的</h2>
 <p>二叉树，虽然查找查找速度非常快，比较次数也少；但是并不适合于存储设备，B树是为了存储设备或者磁盘而设计的一种平衡查找树。</p>
-<p>在大数据存储过程，大量的数据会存储到外存磁盘，外存磁盘中读取与写入某数据的时候，首先定位到磁盘中的某一块；为了减少读写次数，B树是一颗多叉树，成功降低了树得深度。</p>
-<h2 id="b">B树</h2>
+<p>在大数据存储过程，大量的数据会存储到外存磁盘，外存磁盘中读取与写入某数据的时候，首先定位到磁盘中的某一块；为了减少读写次数，B 树是一颗多叉树，成功降低了树得深度。</p>
+<h2 id="b-">B- 树</h2>
 <p>动态查找树主要包括：二叉查找树，平衡二叉树，红黑树，B树，B-树，查找的时间复杂度就为O(log2N)，通过对数就可以发现降低树的深度就会提高查找效率。</p>
-<p><strong>定义：</strong></p>
+<p><strong>- 定义：</strong></p>
 <ul>
 <li>
 <p>树中的每个结点最多含有m个孩子；</p>
@@ -101,8 +101,14 @@
 <p>所有的叶子结点都出现在同一层中，叶子结点不包含任何关键字信息；</p>
 </li>
 </ul>
-<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200618194142538.png" alt="image-20200618194142538"></p>
-<h3 id="heading1">树节点代码：</h3>
+<p><img src="https://onlythepiano.github.io/images/image-20200618194142538.png" alt="image-20200618194142538"></p>
+<p>B- 树的搜索，从根结点开始，对结点内的关键字（有序）序列进行二分查找，如果命中则结束，否则进入查询关键字所属范围的儿子结点；重复，直到所对应的儿子指针为空，或已经是叶子结点。</p>
+<p><strong>- B- 树的特性：</strong></p>
+<ul>
+<li>搜索有可能再非叶子节点结束。</li>
+<li>其搜索性能等价于在关键字全集内做一次二分查找。</li>
+</ul>
+<p><strong>- 树节点：</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BTreeNode</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span>
 <span style="color:#f92672">{</span>
 	<span style="color:#75715e">//节点的项，按键非降序存放
@@ -146,12 +152,35 @@
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 
-</code></pre></div><h2 id="heading2">理解和总结</h2>
+</code></pre></div><h2 id="b-1">B+ 树</h2>
+<p><img src="https://onlythepiano.github.io/images/image-20200621082936813.png" alt="image-20200621082936813"></p>
+<p>B+ 树 是B- 树的一种变形，它把数据都存储在叶子节点，内部只存关键字（其中叶子节点的最小值作为索引）和孩子指针，简化了内部节点。</p>
+<p><img src="https://onlythepiano.github.io/images/image-20200621083626734.png" alt="image-20200621083626734"></p>
+<p><strong>- B+ 树是 B- 树的区别：</strong></p>
 <ul>
-<li>这颗B树实现简单，但是只能在叶子节点上存储数据，也就是说非叶节点只有key，没有value。</li>
-<li>B树为访问外存而生，而什么时候访问呢？就在每次访问节点的时候会查一次磁盘IO，节点内的查询是在内存种进行的，而在访问子节点时就需要访问外存，而最多访问h（树的高度）次节点，因为每一层只会访问一个节点。所以，时间都花在访问节点上。</li>
+<li>非叶子结点的子树指针与关键字个数相同。</li>
+<li>为所有叶子结点增加一个链指针。</li>
+<li>所有关键字都在叶子结点出现。</li>
 </ul>
-<p>原文链接：https://blog.csdn.net/jimo_lonely/article/details/82716142</p>
+<p><strong>- B+ 树的特性：</strong></p>
+<ul>
+<li>所有关键字都出现在叶子结点的链表中（稠密索引），且链表中的关键字恰好是有序的。</li>
+<li>不可能在非叶子结点命中。</li>
+<li>非叶子结点相当于是叶子结点的索引（稀疏索引），叶子结点相当于是存储（关键字）数据的数据层。</li>
+<li>B+树的遍历高效，将所以叶子节点串联成链表即可从头到尾遍历。</li>
+</ul>
+<p><strong>- B+ 树更适合数据库索引：</strong></p>
+<ol>
+<li>
+<p>B+ 树的磁盘读写代价更低。</p>
+<p>多叉树，成功降低了树得深度。</p>
+<p>B+树内部结点没有指向关键字具体信息的指针，内部结点相对较小。</p>
+</li>
+<li>
+<p>B+树的查询更加稳定。</p>
+<p>非终端结点并不是指向文件内容的结点，仅仅是作为叶子结点的关键字索引，因此所有的关键字查询都会走一条从根节点到叶子结点的路径。即s所有关键字查询的长度是一样的，查询效率稳定。</p>
+</li>
+</ol>
 
         </div>
 
@@ -162,6 +191,8 @@
                 
                 
                 <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/mysql/">MySQL</a>&emsp;
+                        
                         <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&emsp;
                         
                 </span>
@@ -224,13 +255,13 @@
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/java/">Java (3)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (2)</a>
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (4)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (6)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (1)</a>
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (9)</a>
             </li><li class="cat-item cat-item-2">
@@ -248,6 +279,9 @@
     <aside class="widget widget_recent_entries">
         <h2>Recent Posts</h2>
         <ul>
+            <li>
+                <a href="/%E7%B4%A2%E5%BC%95/">索引</a>
+            </li>
             <li>
                 <a href="/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/">数据查询</a>
             </li>
@@ -274,9 +308,6 @@
             </li>
             <li>
                 <a href="/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a>
-            </li>
-            <li>
-                <a href="/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">工厂方法模式</a>
             </li>
         </ul>
     </aside>

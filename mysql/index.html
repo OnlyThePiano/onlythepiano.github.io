@@ -195,7 +195,25 @@ MySQL比较BINARY字符串时，每次按一一个字节， 并且根据该字�
 <li>MySQL 根据优化器生成的执行计划，调用存储引擎的API来执行查询。</li>
 <li>将结果返回给客户端。</li>
 </ol>
-
+<h2 id="heading11">查询优化器的局限性</h2>
+<h3 id="11">1.关联子查询</h3>
+<p>MySQL的子查询实现得非常糟糕。最糟糕的一类查询是 WHERE 条件中包含 IN()        的子查询语句。</p>
+<p>MySQL 会将相关的外层表压入子查询，而不是先执行内层查询。它使得子查询是相关子查询方式。</p>
+<p>通常使用 EXISTS() 等效改写来获得更好的效率。避免在表film actor的索引中读取任何额外的行。一旦匹配到一行数据，就立刻停止扫描。</p>
+<p>建议使用左外连接。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> film_id,Language_id
+<span style="color:#66d9ef">FROM</span> sakila.film
+<span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span>
+	(<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span>
+    <span style="color:#66d9ef">FROM</span> sakila.film_actor
+    <span style="color:#66d9ef">WHERE</span> film_actor.film_id <span style="color:#f92672">=</span> film.film_id
+    );
+    
+    
+<span style="color:#66d9ef">SELECT</span> film_id,Language_id
+<span style="color:#66d9ef">FROM</span> sakila.film <span style="color:#66d9ef">LEFT</span> <span style="color:#66d9ef">OUTER</span> <span style="color:#66d9ef">JOIN</span> sakila.film_actor <span style="color:#66d9ef">USING</span>(film_id)
+<span style="color:#66d9ef">WHERE</span> film_actor.film_id <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>;
+</code></pre></div>
         </div>
 
 
@@ -291,13 +309,13 @@ MySQL比较BINARY字符串时，每次按一一个字节， 并且根据该字�
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/java/">Java (3)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (2)</a>
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (4)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (6)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (1)</a>
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (9)</a>
             </li><li class="cat-item cat-item-2">
@@ -315,6 +333,9 @@ MySQL比较BINARY字符串时，每次按一一个字节， 并且根据该字�
     <aside class="widget widget_recent_entries">
         <h2>Recent Posts</h2>
         <ul>
+            <li>
+                <a href="/%E7%B4%A2%E5%BC%95/">索引</a>
+            </li>
             <li>
                 <a href="/%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2/">数据查询</a>
             </li>
@@ -341,9 +362,6 @@ MySQL比较BINARY字符串时，每次按一一个字节， 并且根据该字�
             </li>
             <li>
                 <a href="/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a>
-            </li>
-            <li>
-                <a href="/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/">工厂方法模式</a>
             </li>
         </ul>
     </aside>
