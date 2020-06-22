@@ -17,7 +17,7 @@
       <pubDate>Mon, 22 Jun 2020 10:58:57 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/java%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
-      <description>Java 输入输出 File类 File类是java.io包下代表与平台无关的文件和目录，也就是说,如果希望在程序中操作文件和目录，都可以通过File类来完成。 File 不能访问文件内容本身。如果需要访问文件内容本身，则需要使用输入/输出流。 1.访问文件和目录 - 访问文件名相关的方法： String getName(): 返回此File对象所表示的文件名</description>
+      <description>Java 输入输出 File类 File 类是 java.io 包下代表与平台无关的文件和目录，也就是说,如果希望在程序中操作文件和目录，都可以通过File类来完成。 File 不能访问文件内容本身。如果需要访问文件内容本身，则需要使用输入/输出流。 1.访问文件和目录 - 访问文件名相关的方法： String getName(): 返回此File对象所表示的文件名或路径名( 如果是路</description>
     </item>
     
     <item>
