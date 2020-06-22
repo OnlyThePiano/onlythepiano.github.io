@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2020 08:21:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 10:58:57 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java输入输出</title>
+      <link>https://onlythepiano.github.io/java%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</link>
+      <pubDate>Mon, 22 Jun 2020 10:58:57 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/java%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</guid>
+      <description>Java 输入输出 File类 File类是java.io包下代表与平台无关的文件和目录，也就是说,如果希望在程序中操作文件和目录，都可以通过File类来完成。 File 不能访问文件内容本身。如果需要访问文件内容本身，则需要使用输入/输出流。 1.访问文件和目录 - 访问文件名相关的方法： String getName(): 返回此File对象所表示的文件名</description>
+    </item>
     
     <item>
       <title>6号杯</title>
@@ -17,7 +26,7 @@
       <pubDate>Mon, 22 Jun 2020 08:21:50 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/6%E5%8F%B7%E6%9D%AF/</guid>
-      <description>惊！ NULL 广告：作文征集 明天有素材？后天有素材？期待你们的分享😄 联系方式：QQ“绿色健康小清新” 目的 每次 git 上传博客到 github pages 时都要一一修改图片的地址，很麻烦了。 图片地址修改 利用 Java File 类对文件读取和写入和 String 类的 replaceAll() 方法替换。 输入输出都是文本内容，所以使用字符流。 BufferedTeader.readLine() 方法，可以一次读入一行的内容，方便读取输入流文本内</description>
+      <description>惊！ NULL 广告：作文征集 明天有素材？后天有素材？期待你们的分享😄 联系方式：QQ“绿色健康小清新” 目的 每次 git 上传博客到 github pages 时都要一一修改图片的地址，很麻烦了。 图片地址修改 利用 Java File 类对文件读取和写入和 String 类的 replaceAll() 方法替换。 输入输出都是文本内容，所以使用字符流。 BufferedReader.readLine() 方法，可以一次读入一行的内容，方便读取输入流文本内</description>
     </item>
     
     <item>
