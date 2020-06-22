@@ -6,10 +6,19 @@
     <description>Recent content in Java on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2020 00:16:42 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 08:21:50 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>6号杯</title>
+      <link>https://onlythepiano.github.io/6%E5%8F%B7%E6%9D%AF/</link>
+      <pubDate>Mon, 22 Jun 2020 08:21:50 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/6%E5%8F%B7%E6%9D%AF/</guid>
+      <description>惊！ NULL 广告：作文征集 明天有素材？后天有素材？期待你们的分享😄 联系方式：QQ“绿色健康小清新” 目的 每次 git 上传博客到 github pages 时都要一一修改图片的地址，很麻烦了。 图片地址修改 利用 Java File 类对文件读取和写入和 String 类的 replaceAll() 方法替换。 输入输出都是文本内容，所以使用字符流。 BufferedTeader.readLine() 方法，可以一次读入一行的内容，方便读取输入流文本内</description>
+    </item>
     
     <item>
       <title>正则表达式</title>
