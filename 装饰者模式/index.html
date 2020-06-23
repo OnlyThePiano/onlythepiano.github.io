@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>装饰者模式 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>装饰者模式</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-06-22T622:95:146">2020-06-22</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E8%25A3%2585%25E9%25A5%25B0%25E8%2580%2585%25E6%25A8%25A1%25E5%25BC%258F%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="装饰者模式" data-url="https://onlythepiano.github.io/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="heading">一、为什么？</h2>
+<p>搭配衣服的时候，我们往往会有多种搭配方式。我们人自己是主体，而衣服是装饰，可以有根据不同情况而有多种选择。</p>
+<p>喝奶茶的时候，我们往往也有多种加料方式。</p>
+<p>与建筑者模式不同的是，建筑的过程是稳定的；这里来说，如果衣服的搭配是稳定的就会，搭配方式1（大T恤、大跨库）和搭配方式2（小T恤、小垮裤）等。</p>
+<p>那么怎么才能让它们自由搭配，而不是”套餐式“搭配呢？？？？？</p>
+<h2 id="heading1">二、面向对象编程</h2>
+<p><img src="https://onlythepiano.github.io/images/image-20200623133133818.png" alt="image-20200623133133818"></p>
+<h3 id="heading2">客户端代码：</h3>
+<pre><code>Person p = new Person();
+Finery t = new TShirts();
+Finery b = new BigTrouser();
+Finery s = new Sneakers
+
+p.Show();
+t.Show();
+b.Show();
+s.Show();
+</code></pre><p>虽然实现了自由搭配，但是感觉搭配的全程是”暴露的“；应该实现对主体的内部装备完毕再显示出来吧！！！！！！！</p>
+<h2 id="heading3">三、装饰者模式</h2>
+<p>装饰模式，它把每个要装饰的功能放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。</p>
+<p>“通过装饰，可以让你全副武装到牙齿，也可以让你只挂一丝到内裤。”</p>
+<p><img src="https://onlythepiano.github.io/images/image-20200622234538187.png" alt="image-20200622234538187"></p>
+<h3 id="1">1）例子（衣服搭配）：</h3>
+<p><img src="https://onlythepiano.github.io/images/image-20200622234452828.png" alt="image-20200622234452828"></p>
+<h3 id="2decorator">2）服饰类（Decorator）：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Finery</span> <span style="color:#66d9ef">extends</span> Person
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> Person component<span style="color:#f92672">;</span>
+    
+    <span style="color:#75715e">//装饰，选择想要的装饰
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>Person component<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">component</span> <span style="color:#f92672">=</span> component<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    
+    <span style="color:#75715e">//形象展示
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>component <span style="color:#f92672">!</span><span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">{</span>
+            component<span style="color:#f92672">.</span><span style="color:#a6e22e">Show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="3">3）具体装饰类：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Tshirts</span> <span style="color:#66d9ef">extends</span> Finery
+<span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">print</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;TShirt&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        
+        <span style="color:#75715e">//递归输出
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="4">4）客户端代码：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//主体
+</span><span style="color:#75715e"></span>Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//装饰
+</span><span style="color:#75715e"></span>TShirts t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TShirts<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+BigTrouser b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BigTrouser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+Sneakers s <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Sneakers<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//开始装饰
+</span><span style="color:#75715e"></span>t<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>p<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+b<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>t<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+s<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#75715e">//装饰结束,递归输出
+</span><span style="color:#75715e"></span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><p><strong>-装饰过程：</strong></p>
+<p><img src="https://onlythepiano.github.io/images/image-20200623101518322.png" alt="image-20200623101518322"></p>
+<h3 id="5">5）解释：</h3>
+<p><strong>- 原则：</strong></p>
+<ul>
+<li>开放-关闭原则的设计</li>
+</ul>
+<p><strong>- 关系：</strong></p>
+<ul>
+<li>继承关系</li>
+</ul>
+<p>通过在主体和具体装饰类之间添加一个中间层（抽象装饰类），使得具体装饰类可以通过抽象类进行通信。</p>
+<p>子类在重写的 show() 方法里通过 super 关键字调用父类被覆盖方法，被覆盖的父类 show() 方法：先判断自己有没有包装对象，有包装的对象则调用该包装对象的 show() 方法。一步一步递归从而实现了所有具体装饰类的 show() 方法。</p>
+<p>在重写的方法里调用被覆盖的方法，使得子类实现了又一功能。</p>
+<p><strong>- 递归：</strong></p>
+<ol>
+<li>各个具体装饰类包装对象，即对 Person component 赋值；</li>
+<li>执行 show() 方法里的输出；</li>
+<li>通过 show() 方法执行被覆盖的父类方法；</li>
+<li>父类方法判断当前类有没有包装对象，有则调用改所包装对象的 show() 方法；</li>
+<li>回到2步骤；</li>
+</ol>
+<h2 id="heading4">四、装饰者模式的应用</h2>
+<p><strong>- 优点：</strong></p>
+<ul>
+<li>
+<p>装饰类和被装饰类可以独立发展，而不会相互耦合。它有效地把类的核心职责和装饰功能分开了</p>
+</li>
+<li>
+<p>装饰模式是继承关系的一个替代方案</p>
+</li>
+<li>
+<p>装饰模式可以动态地扩展一个实现类的功能</p>
+</li>
+</ul>
+<p><strong>- 缺点：</strong></p>
+<ul>
+<li>多层装饰比较复杂。比如我们现在有很多层装饰，出了问题，一层一层检查，最后发现是最里层的装饰出问题了，想想工作量都害怕</li>
+</ul>
+<p><strong>- 使用场景：</strong>　</p>
+<ul>
+<li>需要扩展一个类的功能时</li>
+<li>需要动态地给一个对象增加功能，并可以动态地撤销时</li>
+<li>需要为一批的兄弟类进行改装或加装功能时</li>
+</ul>
+<p><strong>- 应用实例：</strong></p>
+<ul>
+<li>奶茶订单系统</li>
+</ul>
+
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/%E5%A4%8D%E5%88%B6/"> 复制</a>
+                
+            </div>
+            <div class="nav-next">
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (6)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (7)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (10)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a>
+            </li>
+            <li>
+                <a href="/%E5%A4%8D%E5%88%B6/">复制</a>
+            </li>
+            <li>
+                <a href="/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/">数理逻辑</a>
+            </li>
+            <li>
+                <a href="/mysql-%E5%BA%94%E7%94%A8%E5%B1%82%E4%BC%98%E5%8C%96/">MySQL-应用层优化</a>
+            </li>
+            <li>
+                <a href="/mysql-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/">MySQL-高级特性</a>
+            </li>
+            <li>
+                <a href="/mysql-%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">MySQL-查询性能优化</a>
+            </li>
+            <li>
+                <a href="/java%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">Java输入输出</a>
+            </li>
+            <li>
+                <a href="/6%E5%8F%B7%E6%9D%AF/">6号杯</a>
+            </li>
+            <li>
+                <a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+            </li>
+            <li>
+                <a href="/%E5%88%86%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA/">分表和分区</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

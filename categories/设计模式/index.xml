@@ -6,10 +6,19 @@
     <description>Recent content in 设计模式 on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jun 2020 09:37:11 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 21:05:14 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>装饰者模式</title>
+      <link>https://onlythepiano.github.io/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 22 Jun 2020 21:05:14 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>一、为什么？ 搭配衣服的时候，我们往往会有多种搭配方式。我们人自己是主体，而衣服是装饰，可以有根据不同情况而有多种选择。 喝奶茶的时候，我们往往也有多种加料方式。 与建筑者模式不同的是，建筑的过程是稳定的；这里来说，如果衣服的搭配是稳定的就会，搭配方式1（大T恤、大跨库）和搭配方式2（小T恤、小垮裤）等。</description>
+    </item>
     
     <item>
       <title>建筑者模式</title>

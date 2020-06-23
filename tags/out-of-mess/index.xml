@@ -30,15 +30,6 @@
     </item>
     
     <item>
-      <title>MySQL</title>
-      <link>https://onlythepiano.github.io/mysql/</link>
-      <pubDate>Sat, 20 Jun 2020 17:28:04 +0800</pubDate>
-      
-      <guid>https://onlythepiano.github.io/mysql/</guid>
-      <description>数据类型 更小的通常更好 占用更少磁盘、内存和CPU缓存 简单更好 操作时需要更少的CPU周期 避免NULL 可为NULL的列使得索引、索引统计和值比较都更复杂。可为NULL的列会使用更多的存储空间，在MySQL里也需要特殊处理 整数类型 TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT 分别使用 8, 16, 24, 32, 64 位存储空间，一般情况下越小的列越好。 整数计算一般</description>
-    </item>
-    
-    <item>
       <title>观察者模式</title>
       <link>https://onlythepiano.github.io/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 04 Jun 2020 13:51:50 +0800</pubDate>
