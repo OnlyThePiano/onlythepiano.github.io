@@ -6,10 +6,19 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2020 21:05:14 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 21:44:09 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>中介者模式</title>
+      <link>https://onlythepiano.github.io/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 27 Jun 2020 21:44:09 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>一、为什么？ MVC 模式，C（Controller控制器）是 M（Model模型）和 V（View视图）的中介者，在前后端交互时起到了中间人的作用。 如果大量的连接使得一个对象不可能在没有其他对象的支持下工作，系统表现为一个不可分割的整体，这对系统的行为进行任何较大的改动就十分困难了。 二、中介者模式 中介者模式 (</description>
+    </item>
     
     <item>
       <title>装饰者模式</title>
