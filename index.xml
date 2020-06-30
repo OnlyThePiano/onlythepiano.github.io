@@ -6,10 +6,19 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jun 2020 21:44:09 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2020 21:12:48 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>责任链模式</title>
+      <link>https://onlythepiano.github.io/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 30 Jun 2020 21:12:48 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</guid>
+      <description>责任链模式 一、为什么？ 职责链模式(Chain of Responsibility)：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这个对象连成一条链， 并沿着这条链传递该请求，直到有一个对象处理它为止。 “这里发出这个请求的客户端并不知道这当中的哪一个对象最终处理这个请求，这样系统</description>
+    </item>
     
     <item>
       <title>中介者模式</title>
