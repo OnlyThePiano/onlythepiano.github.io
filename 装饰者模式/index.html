@@ -106,6 +106,8 @@ s.Show();
 <h3 id="1">1）例子（衣服搭配）：</h3>
 <p><img src="https://onlythepiano.github.io/images/image-20200622234452828.png" alt="image-20200622234452828"></p>
 <h3 id="2decorator">2）服饰类（Decorator）：</h3>
+<p>注意：protected Person component；</p>
+<p>这里 “聚合关系” 的实现，当然也可以和责任链模式一样，在父类声明自身类型的变量给子类继承后调用父类的方法。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Finery</span> <span style="color:#66d9ef">extends</span> Person
 <span style="color:#f92672">{</span>
     <span style="color:#66d9ef">protected</span> Person component<span style="color:#f92672">;</span>
@@ -139,21 +141,21 @@ s.Show();
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><h3 id="4">4）客户端代码：</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//主体
-</span><span style="color:#75715e"></span>Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-<span style="color:#75715e">//装饰
-</span><span style="color:#75715e"></span>TShirts t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TShirts<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-BigTrouser b <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BigTrouser<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-Sneakers s <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Sneakers<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<pre><code>//主体
+Person p = new Person();
+//装饰
+TShirts t = new TShirts();
+BigTrouser b = new BigTrouser();
+Sneakers s = new Sneakers();
 
-<span style="color:#75715e">//开始装饰
-</span><span style="color:#75715e"></span>t<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>p<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-b<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>t<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-s<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span><span style="color:#f92672">(</span>b<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+//开始装饰
+t.Decorate(p);
+b.Decorate(t);
+s.Decorate(b);
 
-<span style="color:#75715e">//装饰结束,递归输出
-</span><span style="color:#75715e"></span>s<span style="color:#f92672">.</span><span style="color:#a6e22e">show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-</code></pre></div><p><strong>-装饰过程：</strong></p>
+//装饰结束,递归输出
+s.show();
+</code></pre><p><strong>-装饰过程：</strong></p>
 <p><img src="https://onlythepiano.github.io/images/image-20200623101518322.png" alt="image-20200623101518322"></p>
 <h3 id="5">5）解释：</h3>
 <p><strong>- 原则：</strong></p>
@@ -162,7 +164,12 @@ s<span style="color:#f92672">.</span><span style="color:#a6e22e">Decorate</span>
 </ul>
 <p><strong>- 关系：</strong></p>
 <ul>
-<li>继承关系</li>
+<li>
+<p>聚合关系：服饰类 聚合 主体类</p>
+</li>
+<li>
+<p>继承关系</p>
+</li>
 </ul>
 <p>通过在主体和具体装饰类之间添加一个中间层（抽象装饰类），使得具体装饰类可以通过抽象类进行通信。</p>
 <p>子类在重写的 show() 方法里通过 super 关键字调用父类被覆盖方法，被覆盖的父类 show() 方法：先判断自己有没有包装对象，有包装的对象则调用该包装对象的 show() 方法。一步一步递归从而实现了所有具体装饰类的 show() 方法。</p>
