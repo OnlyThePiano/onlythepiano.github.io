@@ -87,31 +87,88 @@
 <p>“这里发出这个请求的客户端并不知道这当中的哪一个对象最终处理这个请求，这样系统的更改可以在不影响客户端的情况下动态地重新组织和分配责任。”</p>
 <h2 id="heading2">二、责任链模式</h2>
 <p><img src="https://onlythepiano.github.io/images/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="责任链模式结构图"></p>
-<h3 id="1">1）例子（管理层）：</h3>
+<h3 id="1">1）例子（管理层职责）：</h3>
 <p><img src="https://onlythepiano.github.io/images/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F%E4%BE%8B%E5%AD%90.png" alt="责任链模式例子"></p>
 <h3 id="2">2）管理者类：</h3>
-<p>成责任链的关键在于管理者和自己成相互聚合关系</p>
-<pre><code>//管理者类
-abstract class Manager
-{
-    protected string name;
-    protected Manager superior;
+<p>成责任链的关键在于管理者和自己成相互 “聚合关系”</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//管理者类
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Manager</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> string name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">protected</span> Manager superior<span style="color:#f92672">;</span>
     
-    public Manager(string name)
-    {
-        this.name = name;
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Manager</span><span style="color:#f92672">(</span>string name<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    
+    <span style="color:#75715e">//设置管理者上级（成链）
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">SetSuperior</span><span style="color:#f92672">(</span>Manager superior<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">superior</span> <span style="color:#f92672">=</span> superior<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    
+    <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">RequestApplication</span><span style="color:#f92672">(</span>Request request<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>具体管理者类只需要重写“申请请求”的方法就可以了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CommonManager</span> <span style="color:#66d9ef">extends</span> Manager
+<span style="color:#f92672">{</span>
+	String name<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">CommonManager</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">RequestApplication</span><span style="color:#f92672">(</span>Request request<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>request<span style="color:#f92672">.</span><span style="color:#a6e22e">RequestType</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;经理的责任&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//经理的责任实施
+</span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">else</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//经理后继者的责任
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>superior <span style="color:#f92672">!</span><span style="color:#f92672">=</span> NULL<span style="color:#f92672">)</span>
+                superior<span style="color:#f92672">.</span><span style="color:#a6e22e">RequestApplication</span><span style="color:#f92672">(</span>request<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>要注意的是，一个请求极有可能到了链的末端都得不到处理，或者因为没有正确配置而得不到处理，这就很糟糕了。</p>
+<p>所以就刚才的例子而言，最重要的有两点，一个是你需要事先给每个具体管理者设置他的上司是哪个类，也就是设置后继者。另一 点是你需要在每个具体管理者处理请求时，做出判断，是可以处理这个请求，还是必须要 “推卸责任”， 转移给后继者去处理。</p>
+<h3 id="3">3）申请类：</h3>
+<pre><code>public class Request {
+
+    private String requestType;    //申请类别
+    private String requestContent;    //申请内容
+    private int number;    //数量
+
+    public String getRequestType() {
+        return requestType;
     }
-    
-    //设置管理者上级（成链）
-    public void SetSuperior(Manager superior)
-    {
-        this.superior = superior;
+
+    public void setRequestType(String requestType) {
+        this.requestType = requestType;
     }
-    
-    abstract public void RequestApplication(Request request);
+
+    public String getRequestContent() {
+        return requestContent;
+    }
+
+    public void setRequestContent(String requestContent) {
+        this.requestContent = requestContent;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 
 }
-</code></pre><h3 id="3">3）客户端代码：</h3>
+</code></pre><h3 id="4">4）客户端代码：</h3>
 <pre><code>CommonManager jinli = new CommonManager(&quot;经理&quot;);
 Majordomo zongjian =  new Majordomo(&quot;总监&quot;);
 GeneralManager zhongjingli = new GeneralManager(&quot;总经理&quot;);
@@ -123,14 +180,31 @@ zongjian.setSuperior(zhongjinli);
 
 //成了责任链之后，可以将所有客户端申请都由‘经理’发起，但实际谁来决策由具体管理类来处理，客户端不知道。
 Request request1 = new Request();
-request.RequestContent = &quot;请假&quot;;
+request1.RequestContent = &quot;请假&quot;;
 jinli.RequestApplications(request1);
 
 Request request2 = new Request();
-request.RequestContent = &quot;加薪&quot;;
+request2.RequestContent = &quot;加薪&quot;;
 jinli.RequestApplications(request2);
 
-</code></pre>
+</code></pre><h3 id="5">5）解释：</h3>
+<p><strong>- 原则：</strong></p>
+<ul>
+<li>单一职责原则</li>
+</ul>
+<p><strong>- 关系：</strong></p>
+<ul>
+<li>
+<p>聚合关系：具体管理者类 和 抽象类；</p>
+<p>子类继承了父类的 “Manager superior” 自身类型变量，并调用其父类的方法。</p>
+</li>
+<li>
+<p>依赖关系：具体管理者类 和 申请类；</p>
+<p>必须告诉具体管理者类我要申请什么；</p>
+<p>这里成责任链后，客户端申请都由链头的 ‘经理“ 发起，但实际谁来决策由具体管理类来处理，客户端不需要知道。</p>
+</li>
+</ul>
+
         </div>
 
 
