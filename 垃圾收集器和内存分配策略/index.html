@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-    <title>MySQL-应用层优化 - Cocloa is looking at the Piano</title>
+    <title>垃圾收集器和内存分配策略 - Cocloa is looking at the Piano</title>
 
     <style type="text/css">
         img.wp-smiley,
@@ -55,10 +55,10 @@
 <main role="main">
     <article role="article" class="post type-post format-standard hentry">
         <header class="post-header">
-            <h1>MySQL-应用层优化</h1>
+            <h1>垃圾收集器和内存分配策略</h1>
             <div class="post-details">
                 <a rel="bookmark">
-                    <time datetime="2020-06-22T622:229:256">2020-06-22</time>
+                    <time datetime="2020-07-02T72:934:16">2020-07-02</time>
                 </a>
 				
 <span style="float: right;">
@@ -66,11 +66,11 @@
     
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     
-    <div class="fb-share-button" data-href="https://onlythepiano.github.io/mysql-%E5%BA%94%E7%94%A8%E5%B1%82%E4%BC%98%E5%8C%96/" data-layout="button_count" data-size="small">
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fmysql-%25E5%25BA%2594%25E7%2594%25A8%25E5%25B1%2582%25E4%25BC%2598%25E5%258C%2596%2f" class="fb-xfbml-parse-ignore">Share</a>
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8C%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E5%259E%2583%25E5%259C%25BE%25E6%2594%25B6%25E9%259B%2586%25E5%2599%25A8%25E5%2592%258C%25E5%2586%2585%25E5%25AD%2598%25E5%2588%2586%25E9%2585%258D%25E7%25AD%2596%25E7%2595%25A5%2f" class="fb-xfbml-parse-ignore">Share</a>
     </div>
     &nbsp;
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="MySQL-应用层优化" data-url="https://onlythepiano.github.io/mysql-%E5%BA%94%E7%94%A8%E5%B1%82%E4%BC%98%E5%8C%96/" data-show-count="false">Tweet</a>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="垃圾收集器和内存分配策略" data-url="https://onlythepiano.github.io/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8C%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" data-show-count="false">Tweet</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     &nbsp;
     
@@ -81,70 +81,50 @@
 
         <div class="post-content">
             <hr>
-<h1 id="heading">应用层优化</h1>
-<p>我们在应用中反复看到一些相同的问题，经常是因为人们使用了觖乏设计的现成系统或者简单开发的流行框架。虽然有时候可以通过这些框架更快更简单地构建系统，但是如果不清楚这些框架背后做了什么操作，反而会增加系统的风险。</p>
-<p><strong>- 常见问题：</strong></p>
-<ol>
-<li>
-<p>什么东西再消耗每台主机的CUP、磁盘、网络和内存资源呢？</p>
-</li>
-<li>
-<p>应用真的需要获取到的所有数据吗？</p>
-</li>
-<li>
-<p>应用在处理本应由数据库处理的事情吗？从表中获取所有的行在应用中进行统计计数，或者在数据库中执行复杂的字符串操作。数据库擅长统计计数，而应用擅长正则表达式。要善于使用正确的工具来完成任务。</p>
-</li>
-<li>
-<p>应用创建了没必要的MySQL连接吗？如果可以从缓存中获得数据，就不必要连接数据库了。</p>
-</li>
-<li>
-<p>应用做了太多的“垃圾查询”？例如，如果应用在大部分情况使用特定的字符集工作，可以修改配置文件把特定字符集设为默认值，而不需要在每次执行时去做修改。</p>
-</li>
-<li>
-<p>应用使用了连接池吗？这既可能是好事，也可能是坏事。连接池可以帮助限制总的连接数，有大量SQL执行的时候效果不错(Ajax 应用是一个典型的子)。然而，连接池也可能有一些副作用，比如说应用的事务、临时表、连接相关的配置项，以及用户自定义变量之间相互干扰等。</p>
-</li>
-<li>
-<p>应用是否使用长连接？这可能导致太多连接。通常来说长连接不是个好主意。</p>
-</li>
-</ol>
-<p><strong>- 连接池和长连接：</strong></p>
+<h1 id="heading">垃圾收集器和内存分配策略</h1>
+<p>Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人却想出来。</p>
+<p>垃圾收集（Garbage Collection）需考虑的 3 件事情：</p>
 <ul>
-<li>连接池通常不会导致服务器连接过多，因为它们会在进程间排队和共享连接。另一方面，长连接是在每个进程基础上创建，不会在进程间共享。</li>
-<li>连接池可以配置为自动扩展，但是，当遇到连接池完全占满时，应该将连接请求进行排队而不是扩展连接池。<strong>这样做可以在应用服务器上进行排队等待，而不是将压力传递到MySQL数据库服务器上导致连接数太多而过载。</strong></li>
+<li>哪些内存需要回收？</li>
+<li>什么时候回收呢？</li>
+<li>如何回收？</li>
 </ul>
-<h2 id="web">Web服务器问题</h2>
-<p><strong>- 长时间存活的进程：</strong></p>
+<h2 id="gc-">GC 关注的内存</h2>
+<p>程序计数器、虚拟机栈、本地方法栈3个区域随线程而生，随线程而灭；这几个区域的内存分配和回收都具备确定性，在这几个区域内就不需要过多考虑回收的问题，因为方法结束或者线程结束时，内存自然就跟随着回收了。</p>
+<p>而 Java 堆和方法区则不一样，一个接口中的多个实现类需要的内存可能不一样，一个方法中的多个分支需要的内存也可能不一样，我们只有在程序处于运行期间时才能知道会创建哪些对象，这部分内存的分配和回收都是动态的。GC 关注的就是这部分内存。</p>
+<h2 id="-">对象已死吗 ？</h2>
+<h3 id="1">1.判断算法</h3>
 <ul>
-<li>当一个请求完成后，就会释放大部分内存给操作系统，但并不是全部。</li>
-<li>Apache 服务器会保持进程处于打开状态以备后来的请求重用。这意味着，如果下一个请求是请求静态文件，比如一个CSS 文件或者一张图片，就会出现用一个占用内存很多的进程来为一个很小的请求服务的情况。</li>
+<li>引用计数算法</li>
+<li>可达性分析算法</li>
 </ul>
-<h2 id="heading1">缓存</h2>
-<p>典型的高负载应用会有很多层缓存。缓存并不仅仅发生在服务器上，而是在每一个环节；通常，缓存越接近客户端，就越节省资源并且效率更高。从浏览器缓存提供一张图片比从Web服务器的内存获取快。</p>
-<h3 id="1">1.应用层以下的缓存</h3>
-<p>MySQL服务器有自己的内部缓存，但也可以构建你自己的缓存和汇总表。</p>
-<h3 id="2">2.应用层缓存</h3>
-<p>应用层缓存通常在同一台机器的内存中存储数据，或者通过网络存在另一台机器的内存中。</p>
-<p>因为应用可以缓存部分计算结果。因此，应用层缓存可以节省两方面的工作：获取数据和基于这些数据进行计算。</p>
-<p>例子是HTML文本块，应用程序可以生成例如头条新闻的标题这样的HTML片段，并且做好缓存。后续的页面视图就可以简单地插人这个缓存过的文本。</p>
-<p><strong>- 应用缓存的类型：</strong></p>
-<ol>
-<li>本地缓存</li>
-<li>本地共享内存缓存</li>
-<li>分布式内存缓存</li>
-<li>磁盘上的缓存</li>
-</ol>
-<p><strong>- 缓存控制策略：</strong></p>
+<h3 id="2">2.再谈引用</h3>
+<p>JDK 1.2 以前，Java 中的引用的定义很传统：如果 reference 类型的数据中存储的数值代表的是另外一块内存的起 始 地址，就称这块内存代表着一个引用。这种定义下对象只有 “被引用” 或者 “没有被引用“ 两种状态，对于如何描述一些“食之无味，弃之可惜” 的对象就显得无能为力。</p>
+<p>我们希望能描述这样一类对象，当内存空间还足够时，则能保留在内存之中，如果内存空间在进行垃圾收集后还是非常紧张，则可以抛弃这些对象。很多系统的缓存功能都符合这样的应用场景。在 JDK 1.2 之后，Java 对引用的概念进行了扩充，将引用分为强引用 (Strong Reference)、软引用 (Soft Reference)、弱引用 ( Weak Reference)、 虚引用 ( Phantom Reference) 4 种，这 4 种引用强度依次逐渐减弱。</p>
+<h3 id="3">3.再谈方法区</h3>
+<p><strong>- 永久代的垃圾收集主要回收两部分内容：</strong></p>
 <ul>
-<li>
-<p>TTL，存活时间</p>
-<p>缓存对象存储时设置一个过期时间；到时间就删除该对象然后使用新版本替换。</p>
-</li>
-<li>
-<p>显式失效</p>
-</li>
-<li>
-<p>读时失效</p>
-</li>
+<li>废弃常量；</li>
+<li>无用的类；</li>
+</ul>
+<p>回收废弃常量与回收 Java 堆中的对象非常类似；以常量池中字面量的回收为例，假如一个字符串 “abc” 已经进人了常量池中，但是当前系统没有任何一个 String 对象是叫做 “abc&rdquo; 的，换句话说，就是没有任何 String 对象引用常量池中的 “abc&rdquo; 常量，也没有其他地方引用了这个字面量，如果这时发生内存回收，而且必要的话，这个 “abc&rdquo; 常量就会被系统清理出常量池。常量池中的其他类(接口)、方法、字段的符号引用也与此类似。</p>
+<p>回收无用类，这有的看不懂。</p>
+<h2 id="heading1">内存分配与回收策略</h2>
+<p>在了解了垃圾收集器体系后，再要了解的是如何给对象分配内存。</p>
+<p>对象的内存分配，往大方向讲，就是在堆上分配；</p>
+<ul>
+<li>主要分配在新生代的Eden区上；</li>
+<li>如果启动了本地线程分配缓冲，将按线程优先在 TLAB 上分配；</li>
+<li>少数情况下也可能会直接分配在老年代中；</li>
+</ul>
+<p>分配的规则并不是百分之百固定的，其细节取决于当前使用的是哪一种垃圾收集器组合，还有虚拟机中与内存相关的参数的设置。</p>
+<p><strong>- 分配策略：</strong></p>
+<ul>
+<li>对象优先在 Eden 分配；</li>
+<li>大对象直接进入老年代；</li>
+<li>长期存活的对象进入老年代；</li>
+<li>动态对象年龄判断；</li>
+<li>空间分配担保；</li>
 </ul>
 
         </div>
@@ -156,7 +136,7 @@
                 
                 
                 <span class="post-categories">
-                        <a href="https://onlythepiano.github.io/categories/mysql/">MySQL</a>&emsp;
+                        <a href="https://onlythepiano.github.io/categories/java/">Java</a>&emsp;
                         
                 </span>
                 
@@ -186,12 +166,10 @@
         <div class="nav-links">
             <div class="nav-previous">
                 
-                <a class="previous" href="https://onlythepiano.github.io/mysql-%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7/"> MySQL-高级特性</a>
+                <a class="previous" href="https://onlythepiano.github.io/string%E7%B1%BB%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/"> String类和常量池</a>
                 
             </div>
             <div class="nav-next">
-                
-                <a class="next" href="https://onlythepiano.github.io/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/"> 数理逻辑</a>
                 
             </div>
         </div>

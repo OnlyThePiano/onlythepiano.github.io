@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2020 20:29:09 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 21:34:01 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>垃圾收集器和内存分配策略</title>
+      <link>https://onlythepiano.github.io/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8C%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Thu, 02 Jul 2020 21:34:01 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8C%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/</guid>
+      <description>垃圾收集器和内存分配策略 Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人却想出来。 垃圾收集（Garbage Collection）需考虑的 3 件事情： 哪些内存需要回收？ 什么时候回收呢？ 如何回收？ GC 关注的内存 程序计数器、虚拟机栈、本地方法栈3个区域随线程</description>
+    </item>
     
     <item>
       <title>String类和常量池</title>
