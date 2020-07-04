@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Jul 2020 09:56:08 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2020 20:36:08 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>桥接模式</title>
+      <link>https://onlythepiano.github.io/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 04 Jul 2020 20:36:08 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <description>合成、聚合复用原则 “在面向对象设计中，有一个很重要的设计原则，那就是合成/聚合复用原则。即优先使用对象合成/聚合，而不是类继承。” - 继承带来的坏处： 很多情况用继承会带来麻烦，比如：对象的继承关系是在编译时就定义好了，所以无法在运行时改变从父类继承的实现。子类的实现与它的父类有非常紧密的依赖关系，以至</description>
+    </item>
     
     <item>
       <title>Java并发-进程线程2</title>
