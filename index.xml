@@ -6,10 +6,19 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jul 2020 22:13:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2020 22:51:03 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>泛型</title>
+      <link>https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Tue, 07 Jul 2020 22:51:03 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/</guid>
+      <description>泛型 所谓泛型，就是允许在定义类、接口、方法时使用类型形参，这个类型形参将在声明变量、创建对 象、调用方法时动态地指定( 即传入实际的类型参数，也可称为类型实参)。Java 5改写了集合框架中 的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类 型实参，这就是在前面程序中</description>
+    </item>
     
     <item>
       <title>7号杯</title>

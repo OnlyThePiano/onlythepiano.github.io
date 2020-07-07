@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>泛型 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>泛型</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-07-07T77:1051:36">2020-07-07</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E6%25B3%259B%25E5%259E%258B%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="泛型" data-url="https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h1 id="heading">泛型</h1>
+<p>所谓泛型，就是允许在定义类、接口、方法时使用类型形参，这个类型形参将在声明变量、创建对
+象、调用方法时动态地指定( 即传入实际的类型参数，也可称为类型实参)。Java 5改写了集合框架中
+的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类
+型实参，这就是在前面程序中看到的List&lt; <!-- raw HTML omitted -->和ArrayList<!-- raw HTML omitted -->两种类型。</p>
+<h3 id="java5list">java5的List接口：</h3>
+<p>一个形参类型：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> add<span style="color:#f92672">&lt;</span>E x<span style="color:#f92672">&gt;</span><span style="color:#f92672">;</span>
+    Iterator<span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+
+<span style="color:#75715e">//List&lt;String&gt; 等同于：
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ListString</span> <span style="color:#66d9ef">extends</span> List
+<span style="color:#f92672">{</span>
+    <span style="color:#75715e">//原来的E形参全部变成String类型实参
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>String x<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    Itreator<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> itreator<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>两个形参类型：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Map</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span> V<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#75715e">//K,V可以作为类型使用
+</span><span style="color:#75715e"></span>    V <span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>K key<span style="color:#f92672">,</span> V value<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>通过这种方式，就解决虽然程序只定 义了一一个List<!-- raw HTML omitted -->接口，但实际使用时可以产生无数多个List 接口，只要为E传入不同的类型实参，系统就会多出一一个新的List子接口。</p>
+<h3 id="heading1">注意：</h3>
+<ul>
+<li>
+<p>必须指出: List <!-- raw HTML omitted -->绝不会被替换成ListString， 系统没有进行源代码复制，二进制代码中没有，磁盘中没有，内存中也没有。</p>
+</li>
+<li>
+<p>包含泛型声明的类型可以在定义变量、创建对象时传入一个类型实参，从而可以动态
+地生成无数多个逻辑.上的子类，但这种子类在物理上并不存在。</p>
+</li>
+</ul>
+<h3 id="heading2">泛型例子：</h3>
+<p><img src="https://onlythepiano.github.io/images/image-20200613110339981.png" alt="image-20200613110339981"></p>
+<p>这样子，初始化对象时，调用构造函数并传入想要的形参类型，就能多出一个该类型的类对象。</p>
+<h3 id="heading3">注意：</h3>
+<ul>
+<li>当创建带泛型声明的自定义类，为该类定义构造器时，构造器名还是原来的类名，不要增加泛型声明。</li>
+<li>例如，为Apple<!-- raw HTML omitted -->类定 义构造器，其构造器名依然是Apple， 而不是Apple<!-- raw HTML omitted -->调用该构造器时却可以使用Apple<!-- raw HTML omitted -->的形式，当然应该为T形参传入实际的类型参数。Java7 提供了菱形语法，允许省略&lt;&gt;中的类型实参。</li>
+</ul>
+<h2 id="heading4">泛型的继承</h2>
+<ul>
+<li>有传入实际类型参数时：父类的所有带有形参的地方都会被替换成实参类型；</li>
+<li>没有传入实际类型参数时：父类就默认是Object类型</li>
+</ul>
+<p><strong>父类Apple为String类型：</strong></p>
+<p><img src="https://onlythepiano.github.io/images/image-20200613110954391.png" alt="image-20200613110954391"></p>
+<p><strong>默认为Object类型：</strong></p>
+<p><img src="https://onlythepiano.github.io/images/image-20200613111936186.png" alt="image-20200613111936186"></p>
+<p><strong>这里又说一下，重写父类的原则：“两同两小一大”</strong></p>
+<ul>
+<li>方法名同、形参列表同；</li>
+<li>子类返回类型比父类小或等，子类抛出异常类型比父类小或等；</li>
+<li>子类方法访问权限更小或等；</li>
+</ul>
+<h2 id="heading5">并不存在的泛型类</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> l1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> l2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//事实上，l1、l2是相等的
+</span></code></pre></div><p>不管为泛型的类型形参传入哪一种类型实参， 对于Java来说，它们依然被当成同一个类处理，在内存中也只占用&ndash;块内存空间，因此在静态方法、静态初始化块或者静态变量的声明和初始化中不允许
+使用类型形参。</p>
+<p>在静态方法、静态初始化块或者静态变量的声明和初始化中不允许使用类型形参
+<img src="https://onlythepiano.github.io/images/image-20200613160812835.png" alt="image-20200613160812835"></p>
+<ul>
+<li>如果Foo是Bar的一个子类型(子类或者子接口)，而G是具有泛型声明的类或接口，G<!-- raw HTML omitted -->并不是G<!-- raw HTML omitted -->的子类型；这一点非常值得注意，因为它与大部分人的习惯认为是不同的。</li>
+</ul>
+<p>例如：List<!-- raw HTML omitted -->对象是不能当成List<!-- raw HTML omitted -->对象使用的。</p>
+<h3 id="heading6">通配符：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+    
+<span style="color:#f92672">}</span>
+</code></pre></div><p>通配符可以使得元素类型匹配任何类型，</p>
+<p>这样任何类型的List类型来调用test都可以，因为此时List<!-- raw HTML omitted -->的类型时Object；而不管List的真实类型是什么，它也必定是Object类或子类。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>
+<span style="color:#75715e">//编译报错
+</span><span style="color:#75715e"></span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Object<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+</code></pre></div><p>因为需要传入add方法的参数E要是E对象或其子类的对象，而此时E的类型时不知道的。java不允许把对象放入一个未知类型的集合里。</p>
+<h2 id="heading7">泛型方法</h2>
+<p><img src="https://onlythepiano.github.io/images/image-20200613162331552.png" alt="image-20200613162331552"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//声明了一个泛型方法
+</span><span style="color:#75715e"></span><span style="color:#75715e">//带有一个类型形参
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fromArrayToCollection</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[</span><span style="color:#f92672">]</span> a<span style="color:#f92672">,</span> Collection<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+    
+<span style="color:#f92672">}</span>
+</code></pre></div><p>这个T类型形参就可以在该方法内当成普通类型使用。</p>
+<ul>
+<li>与接口、类声明中定义的类型形参不同的是，方法声明中定义的形参只能在该方法里使用，而接口、类声明中定义的类型形参则可以在整个接口、类中使用；</li>
+<li>同时，不需要显式传入实际类型参数，编译器会根据实参推断；</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Collection<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> cs <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Collection<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//当调用方法时，编译器会推断出T时String类型
+</span><span style="color:#75715e"></span>fromArrayCollection<span style="color:#f92672">(</span>sa<span style="color:#f92672">,</span> cs<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/java/">Java</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/7%E5%8F%B7%E6%9D%AF/"> 7号杯</a>
+                
+            </div>
+            <div class="nav-next">
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (11)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (7)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (13)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/%E6%B3%9B%E5%9E%8B/">泛型</a>
+            </li>
+            <li>
+                <a href="/7%E5%8F%B7%E6%9D%AF/">7号杯</a>
+            </li>
+            <li>
+                <a href="/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">桥接模式</a>
+            </li>
+            <li>
+                <a href="/java%E5%B9%B6%E5%8F%91-%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B2/">Java并发-进程线程2</a>
+            </li>
+            <li>
+                <a href="/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%92%8C%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/">垃圾收集器和内存分配策略</a>
+            </li>
+            <li>
+                <a href="/string%E7%B1%BB%E5%92%8C%E5%B8%B8%E9%87%8F%E6%B1%A0/">String类和常量池</a>
+            </li>
+            <li>
+                <a href="/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">Java内存区域与内存溢出异常</a>
+            </li>
+            <li>
+                <a href="/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">责任链模式</a>
+            </li>
+            <li>
+                <a href="/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/">中介者模式</a>
+            </li>
+            <li>
+                <a href="/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>
