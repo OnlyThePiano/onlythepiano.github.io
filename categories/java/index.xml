@@ -6,10 +6,19 @@
     <description>Recent content in Java on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jul 2020 22:51:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2020 15:44:26 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java基础类库</title>
+      <link>https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93/</link>
+      <pubDate>Wed, 08 Jul 2020 15:44:26 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93/</guid>
+      <description>Java 基础类库 Object 类 Object 类是 java 默认的提供的一个类，Object 类是所有类的父类，也就是说任何一个类的定义的时候如果没有明确的继承一个父类的话，那么它就是 Object 的子类。 - 常用方法： Class &amp;lt;?&amp;gt; getClass() 方法 返回该对象的运行时类；final 方法，返回 Class 类型的对象，反射来获取对象。 String toString() 方法 一般子类都有覆盖，目的在于获取对象的信息。 protected</description>
+    </item>
     
     <item>
       <title>泛型</title>

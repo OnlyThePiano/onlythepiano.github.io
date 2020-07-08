@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jul 2020 22:51:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2020 15:44:26 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Java</title>
       <link>https://onlythepiano.github.io/categories/java/</link>
-      <pubDate>Tue, 07 Jul 2020 22:51:03 +0800</pubDate>
+      <pubDate>Wed, 08 Jul 2020 15:44:26 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>https://onlythepiano.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Wed, 08 Jul 2020 10:16:48 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/categories/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
