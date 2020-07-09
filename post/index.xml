@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2020 15:44:26 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 11:29:49 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java子类父类转换</title>
+      <link>https://onlythepiano.github.io/java%E5%AD%90%E7%B1%BB%E7%88%B6%E7%B1%BB%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Thu, 09 Jul 2020 11:29:49 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/java%E5%AD%90%E7%B1%BB%E7%88%B6%E7%B1%BB%E8%BD%AC%E6%8D%A2/</guid>
+      <description>java 子类父类转换 子类转父类 因为子类其实是一种特殊的父类， 因此 Java 允许把一个子类对象直接赋给一个父类引用变量， 无须任何类型转换，或者被称为向上转型(upcasting)， 向上转型由系统自动完成。这也是Java中的多态的实现机制。 java 中子类强转父类，实际上依然是子类； 该引用只能调用父类中定义的方法和变量； 如果</description>
+    </item>
     
     <item>
       <title>Java基础类库</title>
@@ -26,7 +35,7 @@
       <pubDate>Wed, 08 Jul 2020 10:16:48 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
-      <description>- 衡量代码的好坏，包括两个非常重要的指标： 运行时间； 占用空间。 原文链接：https://blog.csdn.net/qq_41523096/article/details/82142747 执行次数 场景1： 给小灰一条长10寸的面包，小灰每3天吃掉1寸，那么吃掉整个面包需要几天？ 答案自然是 3 X 10 = 30天</description>
+      <description>- 衡量代码的好坏，包括两个非常重要的指标： 运行时间； 占用空间； 原文链接：https://blog.csdn.net/qq_41523096/article/details/82142747 执行次数 场景1： 给小灰一条长10寸的面包，小灰每3天吃掉1寸，那么吃掉整个面包需要几天？ 答案自然是 3 X 10 = 30天</description>
     </item>
     
     <item>

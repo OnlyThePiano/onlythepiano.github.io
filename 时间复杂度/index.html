@@ -84,7 +84,7 @@
 <p><strong>- 衡量代码的好坏，包括两个非常重要的指标：</strong></p>
 <ol>
 <li>运行时间；</li>
-<li>占用空间。</li>
+<li>占用空间；</li>
 </ol>
 <p>原文链接：https://blog.csdn.net/qq_41523096/article/details/82142747</p>
 <h2 id="heading">执行次数</h2>
@@ -100,12 +100,12 @@
 <p>如果面包的长度是 N 寸呢？</p>
 <p>需要 5 X logn = 5logn天，记作 T（n） = 5logn。</p>
 <hr>
-<p>**场景3：**给小灰一条长10寸的面包和一个鸡腿，小灰每2天吃掉一个鸡腿。那么小灰吃掉整个鸡腿需要多少天呢？</p>
+<p><strong>场景3：</strong> 给小灰一条长10寸的面包和一个鸡腿，小灰每2天吃掉一个鸡腿。那么小灰吃掉整个鸡腿需要多少天呢？</p>
 <p>答案自然是2天。因为只说是吃掉鸡腿，和10寸的面包没有关系 。</p>
 <p>如果面包的长度是 N 寸呢？</p>
 <p>无论面包有多长，吃掉鸡腿的时间仍然是2天，记作 T（n） = 2。</p>
 <hr>
-<p>**场景4：**给小灰一条长10寸的面包，小灰吃掉第一个一寸需要1天时间，吃掉第二个一寸需要2天时间，吃掉第三个一寸需要3天时间&hellip;..每多吃一寸，所花的时间也多一天。那么小灰吃掉整个面包需要多少天呢？</p>
+<p><strong>场景4：</strong> 给小灰一条长10寸的面包，小灰吃掉第一个一寸需要1天时间，吃掉第二个一寸需要2天时间，吃掉第三个一寸需要3天时间&hellip;..每多吃一寸，所花的时间也多一天。那么小灰吃掉整个面包需要多少天呢？</p>
 <p>答案是从1累加到10的总和，也就是55天。</p>
 <p>如果面包的长度是 N 寸呢？</p>
 <p>此时吃掉整个面包，需要 1+2+3+&hellip;&hellip;+ n-1 + n = (1+n)*n/2 = 0.5n^2 + 0.5n。</p>
@@ -121,7 +121,7 @@
 
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>**场景2： ** T（n） = 5logn，执行次数是对数的。</p>
+</code></pre></div><p><strong>场景2：</strong> T（n） = 5logn，执行次数是对数的。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat2</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>n<span style="color:#f92672">;</span> i<span style="color:#f92672">*</span><span style="color:#f92672">=</span>2<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;等待一天&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
@@ -131,12 +131,12 @@
        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;吃一半面包&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
    <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p><strong>场景3：</strong> T（n） = 2，执行次数是常量的。</p>
+</code></pre></div><p><strong>场景3：</strong>  T（n） = 2，执行次数是常量的。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat3</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;等待一天&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;吃一个鸡腿&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p><strong>场景4：</strong> T（n） = 0.5n^2 + 0.5n，执行次数是一个多项式。</p>
+</code></pre></div><p><strong>场景4：</strong>  T（n） = 0.5n^2 + 0.5n，执行次数是一个多项式。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat4</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>n<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> j<span style="color:#f92672">&lt;</span>i<span style="color:#f92672">;</span> j<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
@@ -247,7 +247,7 @@
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/java/">Java (12)</a>
+                <a href="https://onlythepiano.github.io/categories/java/">Java (13)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
             </li><li class="cat-item cat-item-2">
@@ -278,6 +278,9 @@
         <h2>Recent Posts</h2>
         <ul>
             <li>
+                <a href="/java%E5%AD%90%E7%B1%BB%E7%88%B6%E7%B1%BB%E8%BD%AC%E6%8D%A2/">Java子类父类转换</a>
+            </li>
+            <li>
                 <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93/">Java基础类库</a>
             </li>
             <li>
@@ -303,9 +306,6 @@
             </li>
             <li>
                 <a href="/java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">Java内存区域与内存溢出异常</a>
-            </li>
-            <li>
-                <a href="/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">责任链模式</a>
             </li>
         </ul>
     </aside>
