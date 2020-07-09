@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2020 15:08:01 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 21:53:41 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java集合-Set、List、Map</title>
+      <link>https://onlythepiano.github.io/java%E9%9B%86%E5%90%88-setlistmap/</link>
+      <pubDate>Thu, 09 Jul 2020 21:53:41 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/java%E9%9B%86%E5%90%88-setlistmap/</guid>
+      <description>原文链接：https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/collection/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%A</description>
+    </item>
+    
+    <item>
+      <title>Java集合</title>
+      <link>https://onlythepiano.github.io/java%E9%9B%86%E5%90%88/</link>
+      <pubDate>Thu, 09 Jul 2020 20:42:38 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/java%E9%9B%86%E5%90%88/</guid>
+      <description>Java 集合 为了保存数量不确定的数据，以及保存具有映射关系的数据(也被称为关联数组)，Java 提供了集合类。 集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类。所有的集合类都位于 java.util 包下。 集合类和数组不一样，数组元素既可以是基本类型的值，也可以是对象(实际上保存的是对象的引用变量)；而集合里只能保存</description>
+    </item>
     
     <item>
       <title>Java基础类库-String类</title>

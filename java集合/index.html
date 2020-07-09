@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>Java集合 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>Java集合</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-07-09T79:842:386">2020-07-09</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/java%E9%9B%86%E5%90%88/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fjava%25E9%259B%2586%25E5%2590%2588%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Java集合" data-url="https://onlythepiano.github.io/java%E9%9B%86%E5%90%88/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h1 id="java-">Java 集合</h1>
+<p>为了保存数量不确定的数据，以及保存具有映射关系的数据(也被称为关联数组)，Java 提供了集合类。</p>
+<p>集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类。所有的集合类都位于 java.util 包下。</p>
+<p>集合类和数组不一样，数组元素既可以是基本类型的值，也可以是对象(实际上保存的是对象的引用变量)；而集合里只能保存对象(实际上只是保存对象的引用变量)。</p>
+<h2 id="heading">集合概览</h2>
+<p>Java集合大致可分为Set、List、Queue 和Map 四种体系，其中 Set 代表无序、不可重复的集合; List 代表有序、重复的集合；而 Map 则代表具有映射关系的集合，Java5 又增加了 Queue 体系集合，代表一种队列集合实现。</p>
+<p><strong>- Java 集合类主要由两个接口派生而出：</strong></p>
+<ul>
+<li>Collection</li>
+<li>Map</li>
+</ul>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200709204953320.png" alt="image-20200709204953320"></p>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200709205023761.png" alt="image-20200709205023761"></p>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200709205559828.png" alt="image-20200709205559828"></p>
+<h2 id="collection--iterator-">Collection 和 Iterator 接口</h2>
+<p>Collection 接口是 List、Set 和 Queue 接口的父接口。</p>
+<p>Iterator 必须依赖于 Collection 对象，本身不提供盛装对象的能力。</p>
+<p><strong>- Collection 接口定义的方法：</strong></p>
+<ol>
+<li>boolean add(Object o)：向集合里添加一个元素</li>
+<li>boolean addAll(Collection c)：向集合里添加集合c的所有元素</li>
+<li>boolean remove(Object o)：删除集合中的指定元素</li>
+<li>boolean contains(Object o)：返回集合里是否包含指定元素。</li>
+<li>boolean isEmpty()：返回集合是否为空。当集合长度为0时返回true</li>
+<li>boolean retainAll(Collection c)：从集合中删除集合c里不包含的元素，交集</li>
+<li>Iterator iterator()：返回一个Iterator 对象，用于遍历集合里的元素。</li>
+<li>void clear()：清楚集合元素、集合长度变为 0</li>
+<li>int size()：该方法返回集合里元素的个数。</li>
+<li>Object[] toArray()：该方法把集合转换成一个 数组，所有的集合元素变成对应的数组元素。</li>
+</ol>
+<p>所有 Collection 实现类都重写了 <code>toString()</code> 方法，所以可以 <code>println()</code> 方法一次性输出集合中的所有元素，但是怎么依次访问集合的每个元素呢？</p>
+<p>goto Lnext&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;</p>
+<h3 id="1-lambda-">1.使用 Lambda 表达式</h3>
+<p><strong>- iterator 接口里定义的方法：</strong></p>
+<ul>
+<li>boolean hasNext()：如果被迭代的集合元素还没有被遍历完，则返回true</li>
+<li>Object next()：返回集合里的下一个元素</li>
+<li>void remove()：删除集合里上一次 next() 方法返回的元素</li>
+<li>void forEachRemaining(Consumer action)：这是 Java 8 为 Iterator 新增的默认方法，该方法可使用Lambda表达式来遍历集合元素</li>
+</ul>
+<p>Iterator 必须依赖于 Collection 对象，本身不提供盛装对象的能力。</p>
+<p><strong>注意：</strong> 使用迭代器当使用 Iterator 迭代访问 Collection 集合元素时，集合里的元素不能被改变，只有通过 Iterator 的 remove() 方法删除上一次next() 方法返回的集合元素才可以。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Iterator it <span style="color:#f92672">=</span> books<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>it<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+    String book <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span>it<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    books<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>book<span style="color:#f92672">)</span><span style="color:#f92672">;</span>				<span style="color:#75715e">//引发异常，迭代过程修改了集合元素
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p><strong>- 使用 Lambda 表达式遍历 Iterator：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+    Iterator it <span style="color:#f92672">=</span> books<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    it<span style="color:#f92672">.</span><span style="color:#a6e22e">forEachRemaining</span><span style="color:#f92672">(</span>obj <span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="2-foreach-">2.使用 foreach 循环遍历集合元素</h3>
+<p>同样，当使用foreach循环迭代访问集合元素时，该集合也不能被改变。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Object obj <span style="color:#f92672">:</span> books<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        String book <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span>obj<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/java/">Java</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-string%E7%B1%BB/"> Java基础类库-String类</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/java%E9%9B%86%E5%90%88-setlistmap/"> Java集合-Set、List、Map</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (16)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (7)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%AE%97%E6%B3%95/">算法 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (13)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/java%E9%9B%86%E5%90%88-setlistmap/">Java集合-Set、List、Map</a>
+            </li>
+            <li>
+                <a href="/java%E9%9B%86%E5%90%88/">Java集合</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-string%E7%B1%BB/">Java基础类库-String类</a>
+            </li>
+            <li>
+                <a href="/java%E5%AD%90%E7%B1%BB%E7%88%B6%E7%B1%BB%E8%BD%AC%E6%8D%A2/">Java子类父类转换</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-object%E7%B1%BB/">Java基础类库-Object类</a>
+            </li>
+            <li>
+                <a href="/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">时间复杂度</a>
+            </li>
+            <li>
+                <a href="/%E6%B3%9B%E5%9E%8B/">泛型</a>
+            </li>
+            <li>
+                <a href="/7%E5%8F%B7%E6%9D%AF/">7号杯</a>
+            </li>
+            <li>
+                <a href="/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">桥接模式</a>
+            </li>
+            <li>
+                <a href="/java%E5%B9%B6%E5%8F%91-%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B2/">Java并发-进程线程2</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>
