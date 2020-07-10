@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>序列化 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>序列化</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-07-10T710:130:326">2020-07-10</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E5%BA%8F%E5%88%97%E5%8C%96/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E5%25BA%258F%25E5%2588%2597%25E5%258C%2596%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="序列化" data-url="https://onlythepiano.github.io/%E5%BA%8F%E5%88%97%E5%8C%96/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<p>原文链接：https://blog.csdn.net/so_geili/article/details/99836043</p>
+<h2 id="-">一、为什么需要序列化 ?</h2>
+<p>java进程运行时会把相关的类生成一堆实例，并放入堆栈空间中，如果进程执行结束，那么内存中的实例对象就会被 gc 回收。如果想在新的程序中使用之前那个对象，应该怎么办？</p>
+<p>  远程接口调用时，两端在各自的虚拟机中运行，因为内存是不共享的，那么入参和返回值如何传递？
+序列化就是解决这个问题的。虽然内存不共享，但我们可以将对象转化为一段字节序列，并放到流中，接下来就交给 I/O，可以存储在文件中、可以通过网络传输……当我们想用到这些对象的时候，再通过 I/O，从文件、网络上读取字节序列，根据这些信息重建对象。而重建对象的过程也叫做“反序列化”。如果没有 “反序列化”，那么“序列化”是没有任何意义的。</p>
+<p>  用现实生活中的搬桌子为例，桌子太大了不能通过比较小的门，我们要把它拆了再运进去，这个拆桌子的过程就是序列化。同理，反序列化就是等我们需要用桌子的时候再把它组合起来，这个过程就是反序列化。</p>
+<p>  理解上面的背景知识后，序列化和反序列化概括起来就是下面这张图：</p>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200710133319666.png" alt="image-20200710133319666"></p>
+<ol>
+<li>根据某种序列化算法，将对象序列化。（结果可能是：字节序列、json串等，取决于使用的序列化算法）</li>
+<li>将序列化的结果通过流写入到载体中 (文件、数据库、redis、网络等 )</li>
+<li>当要用到这些对象的时候，程序通过输入流从载体中读取出序列化的流信息，根据对应的反序列化算法，重建对象。</li>
+</ol>
+<p>虽然过程很简单，但每一步都有很多东西需要了解，下面就逐一介绍。</p>
+<h2 id="heading">二、反序列化时如何生成实例</h2>
+<p>生成对象实例时，一般的做法是让每个类提供一个默认的无参构造方法，等到反序列化的时候，自动调用这个构造方法来生成实例。</p>
+<p><strong>- 默认无参构造函数方式的缺陷：</strong></p>
+<ul>
+<li>侵入性太大，为了实现反序列化，类不得不提供无参构造。</li>
+<li>不安全，如果有的类不希望提供构造方法给外界调用。那么序列化/反序列化的这个“无理”要求将引起灾难。</li>
+</ul>
+<p>因此上述方案是行不通的，只能另寻出路。这里直接说底层源码的做法：不用类去显示声明无参构造方法，而是通过一种语言之外的对象创建机制；从底层源码来看，生成实例时调用了 <strong>java.reflect.Constructor</strong> 的 newInstance() 方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// 用反射生成实例
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> T <span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span>Object<span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span> initargs<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InstantiationException<span style="color:#f92672">,</span> IllegalAccessException<span style="color:#f92672">,</span> IllegalArgumentException<span style="color:#f92672">,</span> InvocationTargetException
+<span style="color:#f92672">{</span>
+        <span style="color:#75715e">// ... 此次省略
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span>T<span style="color:#f92672">)</span> constructorAccessor<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span>initargs<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p><strong>- 用反射方式需要注意：</strong></p>
+<ol>
+<li>通过序列化可以任意创建实例，不受任何限制。单例模式如果实现序列化的话，通过反序列化也可以轻松创建对象。</li>
+<li>由于不调用类自己的构造器，而是通过构造器 Constructor 来实现的。一些限制条件就很难满足。比如，有两个参数 max,min，构造时必须满足 max&gt;min。如果不满足参数条件，系统存在被序列化攻击的风险。</li>
+<li>对象进行序列化时，类中所定义的被 private、final 等访问控制符所修饰的字段是直接忽略这些访问控制符而直接进行序列化的，因此，原本在本地定义的想要控制字段的访问权限的工作都是不起作用的。对于序列化后的有序字节流来说一切都是可见的，对象中的任何 private 字段几乎都是以明文的方式出现在套接字流中，这严重破坏了原有类的数据的 “安全性” 。幸运的是，我们可以让序列化的类可以实现一个 writeObject方法；反序列化过程，我们将在同一个类上实现一个readObject方法，通过使用 writeObject 和 readObject 可以实现密码加密和签名管理。</li>
+</ol>
+<h2 id="heading1">三、是不是所有的类都需要序列化</h2>
+<p><strong>- 不需要的原因如下：</strong></p>
+<ol>
+<li><strong>安全问题:</strong> 有的类是敏感的类，里面的数据不能公开。而实现了序列化就很容易被破解，可以说没有秘密可言，隐私性没有保证。</li>
+<li><strong>资源问题:</strong> 序列化可以任意生成实例而不受限制，如果有的对象生成的实例是受限制的，比如只能生成10个实例，或者是单例的，这个很难保证。</li>
+</ol>
+<p>所以不是所有的类都需要序列化，那么这就要提供一个接口/标识符，需要序列化的类要贴上标识符。未实现此接口的类将无法使其任何状态序列化或反序列化。可序列化类的所有子类型本身都是可序列化的。</p>
+<p>这个标识符就是 Serializable 或 Externalizable (定制自己的序列化算法)，实现了任何一个接口就代表可以被序列化。这就是 JDK 自带的 java 序列化。当然还有很多的序列化框架。他们的区别就在于序列化算法不同，把java实例生成的不同的序列流。先重点梳理JDK自带的java序列化。</p>
+<p><strong>- 序列化框架：</strong></p>
+<ul>
+<li>json序列化；</li>
+<li>dubbo序列化；</li>
+<li>fst、kryo、hessian2序列化等；</li>
+</ul>
+<h2 id="javaserializableexternalizable">四、java序列化(Serializable)和外部化(Externalizable)的主要区别</h2>
+<p>  通过 Serializable 接口对对象序列化的支持是内建于核心 api 的，也就是说只要类实现 java.io.Serializable 接口，java就会试图存储和重组你的对象。如果使用外部化，程序员就可以自由地完成读取和存储的方式(自定义序列化算法、反序列化算法)。</p>
+<p><strong>- 序列化：</strong></p>
+<ul>
+<li>优点：易于实现；直接实现Serializable接口即可。</li>
+<li>缺点：占用空间过大、由于额外的开销导致速度变比较慢，字节序列可读性差。</li>
+</ul>
+<p><strong>- 外部化：</strong></p>
+<ul>
+<li>优点：开销较少（程序员决定存储什么）速度可能有提升；</li>
+<li>缺点：虚拟机不提供任何帮助，也就是说所有的工作(开发自定义序列化算法、反序列化算法)都落到了开发人员的肩上。</li>
+</ul>
+<p>在两者之间如何选择要根据应用程序的需求来定。serializable通常是最简单的解决方案，但是虚拟机必须弄清楚每个成员属性的结构，所以可能会导致不可接受的性能问题或空间问题；在出现这些问题的情况下，externalizable可能是一条可行之路。要记住一点，如果一个类是可外部化的（externalizable），那么externalizable方法将被用于序列化类的实例，即使这个类型也提供了serializable方法。</p>
+<h2 id="-1">五、哪些东西需要序列化 ？</h2>
+<p>类里那么多东西 ，哪些需要进行序列化?序列化的原则就是：序列化的信息要足够帮助我们在反序列化的时候恢复之前对象的状态就可以了，空间能省则省(毕竟涉及到网络传输问题)。</p>
+<ol>
+<li>
+<p>普通成员变量需要序列化</p>
+<p>无论是用什么权限标识符修饰(public/private/protected)的成员变量，他们都是对象的状态，不序列化成员变量的话，反序列化的实例也是不完整的。所以，普通成员变量必须序列化。
+  </p>
+</li>
+<li>
+<p>静态变量无需序列化</p>
+<p>静态变量其实是类属性，并不属于某个具体实例，所以也不用保存。当恢复对象的时候，直接取类当前的静态变量即可。(可以放开Person类中的static int i=0;注释，执行结果不变同上图)</p>
+</li>
+<li>
+<p>方法无需序列化</p>
+<p>方法只是类的无状态指令。重建类的时候，可以直接从类的信息中获取，所以也不需要被序列化。(同样可以用代码验证)</p>
+</li>
+</ol>
+<p><strong>以上讨论的都是很简单的情形，下面看一些复杂场景：</strong>
+  </p>
+<ol start="4">
+<li>
+<p>属性是一个引用(需要被序列化)</p>
+<p>额&hellip;&hellip;&hellip;&hellip;</p>
+</li>
+<li>
+<p>有实现接口(接口内容无需序列化)</p>
+<p>接口一般是无状态的，就算有也是 static 的，那么毫无疑问，接口的信息也不会被序列化。</p>
+</li>
+<li>
+<p>有父类（较为复杂）</p>
+<p>若父类没有实现序列化，反序列化时要生成示例，就只能调用父类的无参构造方法，没有无参构造就会报错。如果父类实现了序列化，那么父类的无参构造方法是不会被调用的。</p>
+<p><strong>父类实现序列化：</strong></p>
+<ul>
+<li>
+<p>父类的状态被保存</p>
+</li>
+<li>
+<p>当一个父类实现序列化，子类自动实现序列化，不需要显式实现Serializable接口</p>
+</li>
+</ul>
+<p><strong>父类未实现序列化：</strong></p>
+<ul>
+<li>
+<p>父类提供了无参构造方法：子类可以序列化，父类不能序列化</p>
+</li>
+<li>
+<p>父类没有提供无参构造方法：子类可以序列化，反序列化时程序报错</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="java-serialversionuid">六、java序列化为什么要使用 serialversionUID</h2>
+<p>如果用户没有自己声明一个 serialVersionUID，接口会默认生成一个serialVersionUID (根据包名、类名、继承关系、非私有的方法和属性以及参数、返回值等诸多因子计算得出的，生成极度复杂的一个 64 位的long值。基本上计算出来的这个值是唯一的)，但是强烈建议用户自定义一个 serialVersionUID，因为默认的 serialVersinUID 对于class的细节非常敏感，类修改后默认的 serialVersionUID 也会发生变化。如果序列化和反序列化时用的serialversionUID不同，会导致InvalidClassException异常。</p>
+<pre><code>private static final long serialVersionUID = 1L;
+</code></pre>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/java/">Java</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/java%E9%9B%86%E5%90%88-setlistmap/"> Java集合-Set、List、Map</a>
+                
+            </div>
+            <div class="nav-next">
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (17)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (7)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%AE%97%E6%B3%95/">算法 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (13)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</a>
+            </li>
+            <li>
+                <a href="/java%E9%9B%86%E5%90%88-setlistmap/">Java集合-Set、List、Map</a>
+            </li>
+            <li>
+                <a href="/java%E9%9B%86%E5%90%88/">Java集合</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-string%E7%B1%BB/">Java基础类库-String类</a>
+            </li>
+            <li>
+                <a href="/java%E5%AD%90%E7%B1%BB%E7%88%B6%E7%B1%BB%E8%BD%AC%E6%8D%A2/">Java子类父类转换</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-object%E7%B1%BB/">Java基础类库-Object类</a>
+            </li>
+            <li>
+                <a href="/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">时间复杂度</a>
+            </li>
+            <li>
+                <a href="/%E6%B3%9B%E5%9E%8B/">泛型</a>
+            </li>
+            <li>
+                <a href="/7%E5%8F%B7%E6%9D%AF/">7号杯</a>
+            </li>
+            <li>
+                <a href="/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">桥接模式</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>

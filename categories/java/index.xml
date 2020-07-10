@@ -6,10 +6,19 @@
     <description>Recent content in Java on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2020 21:53:41 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2020 13:30:32 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>序列化</title>
+      <link>https://onlythepiano.github.io/%E5%BA%8F%E5%88%97%E5%8C%96/</link>
+      <pubDate>Fri, 10 Jul 2020 13:30:32 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%BA%8F%E5%88%97%E5%8C%96/</guid>
+      <description>原文链接：https://blog.csdn.net/so_geili/article/details/99836043 一、为什么需要序列化 ? java进程运行时会把相关的类生成一堆实例，并放入堆栈空间中，如果进程执行结束，那么内存中的实例对象就会被 gc 回收。如果想在新的程序中使用之前那个对象，应该怎么</description>
+    </item>
     
     <item>
       <title>Java集合-Set、List、Map</title>
