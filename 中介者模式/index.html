@@ -91,39 +91,39 @@
 <h3 id="1">1）例子（联合国）：</h3>
 <p><img src="https://onlythepiano.github.io/images/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BE%8B%E5%AD%90.png" alt="中介者模式例子"></p>
 <h3 id="2">2）具体中介者类：</h3>
-<pre><code>class UnitedNationsSecurityCouncil extends UnitedNations
-{
-    private USA colleague1;
-    private Traq colleague2;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnitedNationsSecurityCouncil</span> <span style="color:#66d9ef">extends</span> UnitedNations
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> USA colleague1<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Traq colleague2<span style="color:#f92672">;</span>
     
-    @Override
-    private void Declare(String message, Country colleague)
-    {
-        if (colleague == colleague1)
-            colleague2.GetMessage(message);
-        else
-            colleague1.GetMessage(message);
-    }
-}
-</code></pre><h3 id="3">3）具体国家类：</h3>
-<pre><code>class USA extends Country
-{
-	protected UnitedNations mediator;
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Declare</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">,</span> Country colleague<span style="color:#f92672">)</span>
+    <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>colleague <span style="color:#f92672">=</span><span style="color:#f92672">=</span> colleague1<span style="color:#f92672">)</span>
+            colleague2<span style="color:#f92672">.</span><span style="color:#a6e22e">GetMessage</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">else</span>
+            colleague1<span style="color:#f92672">.</span><span style="color:#a6e22e">GetMessage</span><span style="color:#f92672">(</span>message<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="3">3）具体国家类：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">USA</span> <span style="color:#66d9ef">extends</span> Country
+<span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">protected</span> UnitedNations mediator<span style="color:#f92672">;</span>
 	
-	public USA(UnitedNations mediator) {
-		this.mediator = mediator;
-	}
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">USA</span><span style="color:#f92672">(</span>UnitedNations mediator<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mediator</span> <span style="color:#f92672">=</span> mediator<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
 	
-	public void Declare(String message) {
-		mediator.Declare(message, this)
-	}
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">Declare</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		mediator<span style="color:#f92672">.</span><span style="color:#a6e22e">Declare</span><span style="color:#f92672">(</span>message<span style="color:#f92672">,</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">)</span>
+	<span style="color:#f92672">}</span>
 	
-	public void GetMessage(String message)
-	{
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">GetMessage</span><span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span>
+	<span style="color:#f92672">{</span>
 	
-	}
-}
-</code></pre><h3 id="4">4）客户端代码：</h3>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="4">4）客户端代码：</h3>
 <pre><code>UnitedNationsSecurityCouncil UNSC = new UnitedNationsSecurityCouncil();
 
 USA c1 = new USA(UNSC);
@@ -155,16 +155,16 @@ c2.Declare(&quot;我们没有核武器&quot;);
 <li>可以通过直接赋值给中介者：UNSC.Colleague1 = c1;</li>
 <li>可以给个函数：UNSC.addColleague(c1);</li>
 </ul>
-<pre><code>class UnitedNationsSecurityCouncil extends UnitedNations
-{
-    private List&lt;Country&gt; colleague = new ArraryList&lt;&gt;();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UnitedNationsSecurityCouncil</span> <span style="color:#66d9ef">extends</span> UnitedNations
+<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>Country<span style="color:#f92672">&gt;</span> colleague <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArraryList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
     
-    public void addColleague(Country country) {
-    	colleague.add(country);
-    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addColleague</span><span style="color:#f92672">(</span>Country country<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    	colleague<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>country<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
     
-}
-</code></pre><p><strong>- 抽象类降低耦合，增加复用：</strong></p>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>- 抽象类降低耦合，增加复用：</strong></p>
 <p>抽象类是为了更好的与客户端分离，所有存在关系的类用的都是抽象类；而实际传入的参数是具体类联合国安理会类，为了调用其抽象类定义的唯一方法 Declare()。</p>
 <h2 id="heading2">三、中介者模式的应用</h2>
 <p><strong>- 优点：</strong></p>
