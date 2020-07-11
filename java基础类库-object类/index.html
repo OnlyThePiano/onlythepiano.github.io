@@ -82,7 +82,6 @@
         <div class="post-content">
             <hr>
 <h1 id="java-object">Java 基础类库-Object类</h1>
-<h2 id="object-">Object 类</h2>
 <p>Object 类是 java 默认的提供的一个类，Object 类是所有类的父类，也就是说任何一个类的定义的时候如果没有明确的继承一个父类的话，那么它就是 Object 的子类。</p>
 <p><strong>- 常用方法：</strong></p>
 <ol>
@@ -107,7 +106,7 @@
 <p>该方法用于哈希查找，重写了 equals 方法一般都要重写 hashCode 方法。这个方法在一些具有哈希功能的 Collection 中用到。</p>
 </li>
 </ol>
-<h2 id="tostring-">toString 方法</h2>
+<h2 id="tostring-">toString() 方法</h2>
 <p><strong>toString 源码：</strong></p>
 <p>在使用对象直接输出的时候，默认输出的是一个对象在堆内存上的地址值；如若要输出该对象的内容，则要覆写<code>toString()</code>方法。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -121,7 +120,7 @@
 <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     <span style="color:#75715e">//
 </span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-</code></pre></div><h2 id="equals-">equals 方法</h2>
+</code></pre></div><h2 id="equals-">equals() 方法</h2>
 <p><strong>equals 源码：</strong></p>
 <p>在源码中，传递来的Object对象和当前对象比较地址值，返回布尔值。所以，默认进行比较的是两个对象的地址。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
@@ -150,7 +149,23 @@
 </code></pre></div><pre><code>Person per1 = new Person(&quot;1&quot;, 18);
 Person per2 = new Person(&quot;2&quot;, 18);
 System.out.println(per1.equals(per2));
-</code></pre>
+</code></pre><h2 id="hashcode-">hashCode() 方法</h2>
+<p>对象的 hashCode() 返回的不是对象所在的物理内存地址。甚至也不一定是对象的逻辑地址，hashCode() 相同的两个对象，不一定相等，换言之，不相等的两个对象，hashCode() 返回的哈希码可能相同。</p>
+<p>因此，在上述代码中，重写了equals()方法后，需要重写hashCode()方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">equals和hashcode方法</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#75715e">//修改equals时必须同时修改hashcode方法，否则在作为key时会出问题
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">this</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span> obj<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#75715e">//相同的对象必须有相同hashcode，不同对象可能有相同hashcode
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> hashCode<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">&gt;</span><span style="color:#f92672">&gt;</span> 2<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
         </div>
 
 
@@ -220,7 +235,7 @@ System.out.println(per1.equals(per2));
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
             </li><li class="cat-item cat-item-2">
-                <a href="https://onlythepiano.github.io/categories/java/">Java (17)</a>
+                <a href="https://onlythepiano.github.io/categories/java/">Java (19)</a>
             </li><li class="cat-item cat-item-2">
                 <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
             </li><li class="cat-item cat-item-2">
@@ -251,6 +266,12 @@ System.out.println(per1.equals(per2));
         <h2>Recent Posts</h2>
         <ul>
             <li>
+                <a href="/%E5%8F%8D%E5%B0%84/">反射</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-class%E7%B1%BB/">Java基础类库-Class类</a>
+            </li>
+            <li>
                 <a href="/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</a>
             </li>
             <li>
@@ -273,12 +294,6 @@ System.out.println(per1.equals(per2));
             </li>
             <li>
                 <a href="/%E6%B3%9B%E5%9E%8B/">泛型</a>
-            </li>
-            <li>
-                <a href="/7%E5%8F%B7%E6%9D%AF/">7号杯</a>
-            </li>
-            <li>
-                <a href="/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">桥接模式</a>
             </li>
         </ul>
     </aside>

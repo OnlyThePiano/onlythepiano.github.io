@@ -3,7 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
-    <title>Categories - Cocloa is looking at the Piano</title>
+    <title>Java基础类库-Class类 - Cocloa is looking at the Piano</title>
 
     <style type="text/css">
         img.wp-smiley,
@@ -51,74 +51,82 @@
         
     </div>
         <div id="content" class="content">
-<main aria-role="main">
-  <header class="homepage-header">
-    <h1>Categories</h1>
-    
-  </header>
-  <div class="homepage-content">
-    
-    
-  </div>
-  <div>
-    
-    
-        <article class="list__item post clearfix">
-	<div class="list__content clearfix">
-		<header class="post-header">
-				<h2><a href="/categories/hugo/" rel="bookmark">Hugo</a></h2>
-				<div class="post-details">
-				<a rel="bookmark">
-					<time datetime="2019-12-05T13:16:26">2019-12-05</time>
-				</a>
-				</div>
-		</header>
 
-		<div class="post-excerpt"><p>
-			
-		</p></div>
-	</div>
-	
-	<footer class="post-footer">
-		
-		
-		
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>Java基础类库-Class类</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-07-11T711:947:296">2020-07-11</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-class%E7%B1%BB/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2fjava%25E5%259F%25BA%25E7%25A1%2580%25E7%25B1%25BB%25E5%25BA%2593-class%25E7%25B1%25BB%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Java基础类库-Class类" data-url="https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-class%E7%B1%BB/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
 
-		
-		
-		
-	</footer>
+            </div>
+        </header>
 
-</article>
-    
-  </div>
-
-
-
-<div class="nav-links">
-<ul class="pagination">
-    
-        <a href="/categories/" aria-label="First"><span aria-hidden="true">&laquo;</span></a>
-    
-
-    <a href="/categories/" aria-label="Previous"><span aria-hidden="true">Previous Page</span></a>
-    
-    
-    <a href="/categories/">1</a>
-    
-    
-    
-    <span href="/categories/page/2/">2</a>
-    
-    
-    <a href="" aria-label="Next"><span aria-hidden="true">Next Page</span></a>
-    
-    <a href="/categories/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;</span></a>
-    
+        <div class="post-content">
+            <hr>
+<h1 id="class-">Class 类</h1>
+<p>Java程序在运行时，Java运行时系统一直对所有的对象进行所谓的运行时类型标识，即所谓的RTTI。</p>
+<blockquote>
+<p>这项信息纪录了每个对象所属的类。虚拟机通常使用运行时类型信息选准正确方法去执行，用来保存这些类型信息的类是Class类。Class类封装一个对象和接口运行时的状态，当装载类时，Class类型的对象自动创建。</p>
+</blockquote>
+<p>说白了就是：</p>
+<ul>
+<li>
+<p>Class 类也是类的一种，只是名字和 class 关键字高度相似。Java是大小写敏感的语言。</p>
+</li>
+<li>
+<p>Class 类的对象内容是你创建的类的类型信息，比如你创建一个shapes类，那么，Java会生成一个内容是shapes的Class类的对象</p>
+</li>
+<li>
+<p>Class 类的对象不能像普通类一样，以 new shapes() 的方式创建，它的对象只能由JVM创建，因为这个类没有 public 构造函数</p>
+</li>
 </ul>
-</div>
+<h2 id="class---object-">Class 类 和 Object 类的关系</h2>
+<blockquote>
+<p>Object类和Class类没有直接的关系。</p>
+<p>Class 类只是一个用于描述 Java 类与接口的、用于支持反射操作的类型。</p>
+</blockquote>
+<p>Class类是用于java反射机制的，一切java类，都有一个对应的Class对象，他是一个final类。Class 类的实例表示，正在运行的 Java 应用程序中的类和接口。</p>
+<h2 id="heading">反射</h2>
+<p>额&hellip;&hellip;&hellip;.</p>
+<p>goto Lnext&hellip;&hellip;&hellip;..</p>
+
+        </div>
 
 
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/java/">Java</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
 <table cellspacing="15" style="width:100%; border: none;">
     <tr>
         <td style="text-align: center; border: none; padding: 0px;">
@@ -127,6 +135,32 @@
         </td>
     </tr>
 </table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/%E5%BA%8F%E5%88%97%E5%8C%96/"> 序列化</a>
+                
+            </div>
+            <div class="nav-next">
+                
+                <a class="next" href="https://onlythepiano.github.io/%E5%8F%8D%E5%B0%84/"> 反射</a>
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
 
 </main>
 

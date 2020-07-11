@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jul 2020 13:30:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2020 22:00:31 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>反射</title>
+      <link>https://onlythepiano.github.io/%E5%8F%8D%E5%B0%84/</link>
+      <pubDate>Sat, 11 Jul 2020 22:00:31 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%8F%8D%E5%B0%84/</guid>
+      <description>什么是反射 ？ 反射是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为 Java 语言的反射机制。</description>
+    </item>
+    
+    <item>
+      <title>Java基础类库-Class类</title>
+      <link>https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-class%E7%B1%BB/</link>
+      <pubDate>Sat, 11 Jul 2020 21:47:29 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-class%E7%B1%BB/</guid>
+      <description>Class 类 Java程序在运行时，Java运行时系统一直对所有的对象进行所谓的运行时类型标识，即所谓的RTTI。 这项信息纪录了每个对象所属的类。虚拟机通常使用运行时类型信息选准正确方法去执行，用来保存这些类型信息的类是Class类。Class类封装一个对象和接口运行时的状态，当装载类时，Class类型的对象</description>
+    </item>
     
     <item>
       <title>序列化</title>
@@ -62,7 +80,7 @@
       <pubDate>Wed, 08 Jul 2020 15:44:26 +0800</pubDate>
       
       <guid>https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-object%E7%B1%BB/</guid>
-      <description>Java 基础类库-Object类 Object 类 Object 类是 java 默认的提供的一个类，Object 类是所有类的父类，也就是说任何一个类的定义的时候如果没有明确的继承一个父类的话，那么它就是 Object 的子类。 - 常用方法： Class &amp;lt;?&amp;gt; getClass() 方法 返回该对象的运行时类；final 方法，返回 Class 类型的对象，反射来获取对象。 String toString() 方法 一般子类都有覆盖，目的在于获</description>
+      <description>Java 基础类库-Object类 Object 类是 java 默认的提供的一个类，Object 类是所有类的父类，也就是说任何一个类的定义的时候如果没有明确的继承一个父类的话，那么它就是 Object 的子类。 - 常用方法： Class &amp;lt;?&amp;gt; getClass() 方法 返回该对象的运行时类；final 方法，返回 Class 类型的对象，反射来获取对象。 String toString() 方法 一般子类都有覆盖，目的在于获取对</description>
     </item>
     
     <item>
