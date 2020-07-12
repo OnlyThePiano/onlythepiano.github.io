@@ -83,7 +83,71 @@
             <hr>
 <h2 id="-">什么是反射 ？</h2>
 <p>反射是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为 Java 语言的反射机制。</p>
+<h2 id="java-">Java 为什么需要反射？反射要解决什么问题？</h2>
+<p><strong>- Java中编译类型有两种：</strong></p>
+<ol>
+<li>
+<p>静态编译：在编译时确定类型，绑定对象即通过。</p>
+</li>
+<li>
+<p>动态编译：运行时确定类型，绑定对象。‘</p>
+</li>
+</ol>
+<p>动态编译最大限度地发挥了 Java 的灵活性，体现了多态的应用，可以减低类之间的耦合性。 Java 反射是 Java 被视为动态（或准动态）语言的一个关键性质。这个机制允许程序在运行时透过 Reflection APIs 取得任何一个已知名称的 class 的内部信息，包括其 modifiers（诸如public、static等）、superclass（例如Object）、实现之 interfaces（例如Cloneable），也包括 fields和methods 的所有信息，并可于运行时改变 field s内容或唤起 methods。</p>
+<p>Reflection 可以在运行时加载、探知、使用编译期间完全未知的 classes。即 Java 程序可以加载一个运行时才得知名称的 class，获取其完整构造，并生成其对象实体、或对其 fields 设值、或唤起其 methods。</p>
+<p>反射（reflection）允许静态语言在运行时（runtime）检查、修改程序的结构与行为。 在静态语言中，使用一个变量时，必须知道它的类型。在 Java 中，变量的类型信息在编译时都保存到了class文件中，这样在运行时才能保证准确无误；换句话说，程序在运行时的行为都是固定的。如果想在运行时改变，就需要反射这东西了。</p>
+<hr>
+<p><strong>- 实现Java反射机制的类都位于 java.lang.reflect 包中：</strong></p>
+<ul>
+<li>
+<p>Class 类：代表一个类</p>
+</li>
+<li>
+<p>Field 类：代表类的成员变量（类的属性）</p>
+</li>
+<li>
+<p>Method 类：代表类的方法</p>
+</li>
+<li>
+<p>Constructor 类：代表类的构造方法</p>
+</li>
+<li>
+<p>Array 类：提供了动态创建数组，以及访问数组的元素的静态方法 一句话概括就是使用反射可以赋予 jvm 动态编译的能力，否则类的元数据信息只能用静态编译的方式实现，例如热加载，Tomca t的 classloader 等等都没法支持。</p>
+</li>
+</ul>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200712225340997.png" alt="image-20200712225340997"></p>
+<p><strong>- 反射机制的优缺点 ？</strong></p>
+<p>优点：可以动态执行，在运行期间根据业务功能动态执行方法、访问属性，最大限度发挥了java的灵活性。 缺点：对性能有影响，这类操作总是慢于直接执行java代码。</p>
+<h2 id="heading">反射的基本应用</h2>
+<h3 id="1--class-">1. 获得 Class 对象方法</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">StringBuilder str <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;123&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+Class<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> klass <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><h3 id="2-">2. 判断是否为某个类的实例</h3>
+<p>一般地，我们用 instanceof 关键字来判断是否为某个类的实例。同时我们也可以借助反射中Class对象的 isInstance() 方法来判断是否为某个类的实例，它是一个Native方法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">native</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isInstance</span><span style="color:#f92672">(</span>Object obj<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><h3 id="3-">3. 创建实例</h3>
+<p>通过反射来生成对象主要有两种方式。</p>
+<p>（1）使用 Class 对象的 newInstance() 方法来创建 Class 对象对应类的实例。</p>
+<p><strong>注意：</strong> 利用 newInstance 创建对象：调用的类必须有无参的构造器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//Class&lt;?&gt;代表任何类的一个类对象。
+</span><span style="color:#75715e"></span><span style="color:#75715e">//使用这个类对象可以为其他类进行实例化
+</span><span style="color:#75715e"></span><span style="color:#75715e">//因为jvm加载类以后自动在堆区生成一个对应的*.Class对象
+</span><span style="color:#75715e"></span><span style="color:#75715e">//该对象用于让JVM对进行所有*对象实例化。
+</span><span style="color:#75715e"></span>Class<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> c <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
 
+<span style="color:#75715e">//Class&lt;?&gt; 中的 ? 是通配符，其实就是表示任意符合泛类定义条件的类，和直接使用 Class
+</span><span style="color:#75715e"></span><span style="color:#75715e">//效果基本一致，但是这样写更加规范，在某些类型转换时可以避免不必要的 unchecked 错误。
+</span><span style="color:#75715e"></span>
+Object str <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><p>（2）先通过Class对象获取指定的Constructor对象，再调用Constructor对象的newInstance()方法来创建实例。这种方法可以用指定的构造器构造类的实例。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//获取String所对应的Class对象
+</span><span style="color:#75715e"></span>Class<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> c <span style="color:#f92672">=</span> String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//获取String类带一个String参数的构造器
+</span><span style="color:#75715e"></span>Constructor constructor <span style="color:#f92672">=</span> c<span style="color:#f92672">.</span><span style="color:#a6e22e">getConstructor</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//根据构造器创建实例
+</span><span style="color:#75715e"></span>Object obj <span style="color:#f92672">=</span> constructor<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;23333&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div>
         </div>
 
 
