@@ -93,9 +93,9 @@
 <p>动态编译：运行时确定类型，绑定对象。‘</p>
 </li>
 </ol>
-<p>动态编译最大限度地发挥了 Java 的灵活性，体现了多态的应用，可以减低类之间的耦合性。 Java 反射是 Java 被视为动态（或准动态）语言的一个关键性质。这个机制允许程序在运行时透过 Reflection APIs 取得任何一个已知名称的 class 的内部信息，包括其 modifiers（诸如public、static等）、superclass（例如Object）、实现之 interfaces（例如Cloneable），也包括 fields和methods 的所有信息，并可于运行时改变 field s内容或唤起 methods。</p>
-<p>Reflection 可以在运行时加载、探知、使用编译期间完全未知的 classes。即 Java 程序可以加载一个运行时才得知名称的 class，获取其完整构造，并生成其对象实体、或对其 fields 设值、或唤起其 methods。</p>
+<p>动态编译最大限度地发挥了 Java 的灵活性，体现了多态的应用，可以减低类之间的耦合性。 Java 反射是 Java 被视为动态（或准动态）语言的一个关键性质。这个机制允许程序在运行时透过 Reflection APIs 取得任何一个已知名称的 class 的内部信息，Reflection 可以在运行时加载、探知、使用编译期间完全未知的 classes。即 Java 程序可以加载一个运行时才得知名称的 class，获取其完整构造，并生成其对象实体、或对其 fields 设值、或唤起其 methods。</p>
 <p>反射（reflection）允许静态语言在运行时（runtime）检查、修改程序的结构与行为。 在静态语言中，使用一个变量时，必须知道它的类型。在 Java 中，变量的类型信息在编译时都保存到了class文件中，这样在运行时才能保证准确无误；换句话说，程序在运行时的行为都是固定的。如果想在运行时改变，就需要反射这东西了。</p>
+<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200712225340997.png" alt="image-20200712225340997"></p>
 <hr>
 <p><strong>- 实现Java反射机制的类都位于 java.lang.reflect 包中：</strong></p>
 <ul>
@@ -115,7 +115,6 @@
 <p>Array 类：提供了动态创建数组，以及访问数组的元素的静态方法 一句话概括就是使用反射可以赋予 jvm 动态编译的能力，否则类的元数据信息只能用静态编译的方式实现，例如热加载，Tomca t的 classloader 等等都没法支持。</p>
 </li>
 </ul>
-<p><img src="C:%5CUsers%5C79949%5CDesktop%5Cimages%5Cimage-20200712225340997.png" alt="image-20200712225340997"></p>
 <p><strong>- 反射机制的优缺点 ？</strong></p>
 <p>优点：可以动态执行，在运行期间根据业务功能动态执行方法、访问属性，最大限度发挥了java的灵活性。 缺点：对性能有影响，这类操作总是慢于直接执行java代码。</p>
 <h2 id="heading">反射的基本应用</h2>
@@ -147,7 +146,11 @@ Object str <span style="color:#f92672">=</span> c<span style="color:#f92672">.</
 <span style="color:#75715e">//根据构造器创建实例
 </span><span style="color:#75715e"></span>Object obj <span style="color:#f92672">=</span> constructor<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;23333&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-</code></pre></div>
+</code></pre></div><h3 id="4-">4. 获取方法</h3>
+<h3 id="5-">5. 获取构造器信息</h3>
+<h3 id="6-">6. 获取类的成员变量信息</h3>
+<h3 id="7-">7. 调用方法</h3>
+
         </div>
 
 
