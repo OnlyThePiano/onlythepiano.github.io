@@ -6,10 +6,19 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Jul 2020 22:00:31 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 13:16:28 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>嵌套类</title>
+      <link>https://onlythepiano.github.io/%E5%B5%8C%E5%A5%97%E7%B1%BB/</link>
+      <pubDate>Mon, 13 Jul 2020 13:16:28 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E5%B5%8C%E5%A5%97%E7%B1%BB/</guid>
+      <description>1. 什么是嵌套类？ 原文链接：https://www.cnblogs.com/nwgdk/p/8661442.html 在 Java 语言中允许在另外一个类中定义一个类，这样的类被称为嵌套类。包含嵌套类的类称为外部类（outer class），也可以叫做封闭类，在本文中统一叫做外部类。 内部类的语法： class OuterClass { // code class NestedClass { //</description>
+    </item>
     
     <item>
       <title>反射</title>

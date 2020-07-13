@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <title>嵌套类 - Cocloa is looking at the Piano</title>
+
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://onlythepiano.github.io/css/custom.css' type='text/css' media='all' />
+        
+</head>
+    <body class="two-column">
+        <a href="#content">Skip to content</a>
+<div class="wrapper">
+    <header role="banner" class="banner widgets columns-1">
+        <a href="/" rel="home">
+            <h1 class="site">Cocloa is looking at the Piano</h1>
+            <p></p>
+        </a>
+        <nav role="navigation" aria-label="Primary Navigation">
+
+            <ul class="menu">
+                <li class="menu-item "><a class="menu__link" href="https://onlythepiano.github.io/keeping/">KEEPING</a></li>
+            </ul>
+            <select onChange="location.href=value;">
+                <option value="https://onlythepiano.github.io/keeping/" class="menu-item menu-item-type-custom menu-item-object-custom" >KEEPING</option>
+            </select>
+        </nav>
+    </header>
+
+    <br>
+    <div style="width: 100%; max-height: 100px; text-align: center;">
+       
+</div>
+
+    <div class="breadcrumbs">
+        
+    </div>
+        <div id="content" class="content">
+
+<main role="main">
+    <article role="article" class="post type-post format-standard hentry">
+        <header class="post-header">
+            <h1>嵌套类</h1>
+            <div class="post-details">
+                <a rel="bookmark">
+                    <time datetime="2020-07-13T713:116:286">2020-07-13</time>
+                </a>
+				
+<span style="float: right;">
+    <div id="fb-root" style="height: 100%;"></div>
+    
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+    
+    <div class="fb-share-button" data-href="https://onlythepiano.github.io/%E5%B5%8C%E5%A5%97%E7%B1%BB/" data-layout="button_count" data-size="small">
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fonlythepiano.github.io%2f%25E5%25B5%258C%25E5%25A5%2597%25E7%25B1%25BB%2f" class="fb-xfbml-parse-ignore">Share</a>
+    </div>
+    &nbsp;
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="嵌套类" data-url="https://onlythepiano.github.io/%E5%B5%8C%E5%A5%97%E7%B1%BB/" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    &nbsp;
+    
+</span>
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            <hr>
+<h2 id="1-">1. 什么是嵌套类？</h2>
+<p>原文链接：https://www.cnblogs.com/nwgdk/p/8661442.html</p>
+<p>在 Java 语言中允许在另外一个类中定义一个类，这样的类被称为嵌套类。包含嵌套类的类称为外部类（outer class），也可以叫做封闭类，在本文中统一叫做外部类。</p>
+<p>内部类的语法：</p>
+<pre><code>class OuterClass {
+    // code
+    class NestedClass {
+      // code
+    }
+}
+</code></pre><blockquote>
+<p><strong>嵌套类分为两类：</strong></p>
+<ul>
+<li>静态嵌套类( Static nested classes )：使用 <code>static</code> 声明，一般称为<strong>嵌套类</strong>( Nested Classes )。</li>
+<li>非静态嵌套类( Non-static Nested Classes )：非 <code>static </code>声明，一般称为<strong>内部类</strong>( Inner Classes )。</li>
+</ul>
+</blockquote>
+<pre><code>class OuterClass {
+  ...
+  static class StaticNestedClass {
+    ...
+  }
+  class InnerClass {
+    ...
+  }
+}
+</code></pre><p>嵌套类是它的外部类的成员；内部类可以访问外部类的其他成员，即使该成员是私有的；而嵌套类只能访问外部类的静态成员。</p>
+<p>嵌套类作为外部类的一个成员，可以被声明为：<code>private</code> ,<code>public</code>, <code>protected</code>  或者包范围（注意：外部类只能被声明为<code>public</code>或者包范围）。</p>
+<h2 id="2-">2. 为什么要使用嵌套类？</h2>
+<p>使用嵌套类的主要优点有以下几个方面：</p>
+<ul>
+<li>
+<p>嵌套类可以访问外部类的所有数据成员和方法，即使它是私有的。</p>
+</li>
+<li>
+<p>提高可读性和可维护性：因为如果一个类只对另外一个类可用，那么将它们放在一起，这更便于理解和维护。</p>
+</li>
+<li>
+<p>提高封装性：给定两个类A和B，如果需要访问A类中的私有成员，则可以将B类封装在A类中，这样不仅可以使得B类可以访问A类中的私有成员，并且可以在外部隐藏B类本身。</p>
+</li>
+<li>
+<p>减少代码的编写量。</p>
+</li>
+</ul>
+<h2 id="3-">3. 嵌套类的类型</h2>
+<p>前文已经介绍了嵌套类分为静态嵌套类和非静态嵌套类，而非静态嵌套类又称为内部类（内部类是嵌套类的子集）。</p>
+<p>（1）静态嵌套类</p>
+<ul>
+<li>实例方法</li>
+<li>静态方法</li>
+</ul>
+<p>（2）非静态嵌套类(内部类)又可以分为以下三种：</p>
+<ul>
+<li>成员内部类（Member inner class）</li>
+<li>匿名内部类（Anonymous inner class）</li>
+<li>局部内部类（Local inner class）</li>
+</ul>
+<p><img src="https://onlythepiano.github.io/images/image-20200713131725659.png" alt="image-20200713131725659"></p>
+<h2 id="4-">4. 静态嵌套类</h2>
+<p>静态嵌套类其实就是在顶级类中封装的一个顶级类，它的行为和顶级类一样，它被封装在顶级类中其实就是为了方便打包。</p>
+<ul>
+<li>
+<p>静态嵌套类是外部类的静态成员，它可以直接使用<code>外部类名.静态嵌套类名</code>访问自身。</p>
+</li>
+<li>
+<p>它可以访问外部类的静态成员和静态私有成员。</p>
+</li>
+<li>
+<p>与其他类一样，静态嵌套类不能访问非静态成员。</p>
+</li>
+</ul>
+<p><strong>使用静态嵌套类的 “实例方法” 示例：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OuterClass</span><span style="color:#f92672">{</span>  
+    <span style="color:#75715e">// 外部类的静态数据成员
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> data <span style="color:#f92672">=</span> 30<span style="color:#f92672">;</span>  
+    <span style="color:#75715e">// 外部类中的静态嵌套类
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StaticNestedClass</span> <span style="color:#f92672">{</span>  
+        <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>静态嵌套类中的实例方法
+        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data is &#34;</span><span style="color:#f92672">+</span>data<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>  
+        <span style="color:#75715e">// 实例化静态嵌套类（创建对象）
+</span><span style="color:#75715e"></span>        OuterClass<span style="color:#f92672">.</span><span style="color:#a6e22e">StaticNestedClass</span> obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OuterClass<span style="color:#f92672">.</span><span style="color:#a6e22e">StaticNestedClass</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+        obj<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>
+
+输出结果:
+data is 30
+</code></pre></div><p>在上面的例子中，你需要先创建一个静态嵌套类的实例，因为你需要访问它的实例方法<code>getData()</code>。</p>
+<p><strong>但是你并不需要实例化外部类，因为静态嵌套类相对于外部类来说它是静态的</strong>，可以直接使用 <code>外部类名.静态嵌套类名 </code>访问。</p>
+<hr>
+<p><strong>由编译器生成的静态嵌套类：</strong></p>
+<pre><code>import java.io.PrintStream;  
+    static class OuterClass$Inner  
+    {  
+    OuterClass$StaticNestedClass(){}  
+        void getData(){  
+            System.out.println((new StringBuilder()).append(&quot;data is &quot;)
+            .append(OuterClass.data).toString());  
+    }    
+}  
+</code></pre><p>从上面的代码可以看出，静态嵌套类实际上是直接通过<code>OuterClass.data</code>来访问外部类的静态成员的。</p>
+<p><strong>使用静态嵌套类的 “静态方法” 示例：</strong></p>
+<p>如果静态嵌套类中有静态成员，则不需要实例化静态嵌套类即可直接访问。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OuterClass2</span><span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> data <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>  
+    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StaticNestedClass</span><span style="color:#f92672">{</span>  
+        <span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>静态嵌套类的静态方法
+        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data is &#34;</span><span style="color:#f92672">+</span>data<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+    <span style="color:#f92672">}</span>  
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>  
+        <span style="color:#75715e">// 不需要创建实例可以直接访问
+</span><span style="color:#75715e"></span>        OuterClass2<span style="color:#f92672">.</span><span style="color:#a6e22e">StaticNestedClass</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+输出结果:
+data is 10
+</code></pre></div><h2 id="5-">5. 非静态嵌套类</h2>
+<p>非静态嵌套类也就是内部类，它有以下几个特点：</p>
+<ul>
+<li>
+<p>实例化内部类必须先实例化一个外部类。</p>
+</li>
+<li>
+<p>内部类实例与外部类实例相关联，所有不能在内部类中定义任何静态成员。</p>
+</li>
+<li>
+<p>内部类是非静态的。</p>
+</li>
+</ul>
+<p>下面看详细介绍 ↓</p>
+<h3 id="51-">5.1 成员内部类</h3>
+<p>在外部类中并且在外部类的方法外创建的非静态嵌套类，称为成员内部类。</p>
+<p>说白了成员内部类就是外部类的一个非静态成员而已。</p>
+<pre><code>class OuterClass{  
+    //code  
+    class MemberInnerClass{  
+        //code  
+    }  
+}  
+</code></pre><hr>
+<p><strong>成员内部类的示例</strong>：</p>
+<p>在下面的示例中，我们在成员内部类中创建了<code>getData()</code>和<code>getTest()</code>这两个实例方法，并且这两个方法正在访问外部类中的私有数据成员和成员方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OuterClass</span> <span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> data <span style="color:#f92672">=</span> 30<span style="color:#f92672">;</span>  
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;我是外部类成员方法&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MemberInnerClass</span> <span style="color:#f92672">{</span>  
+        <span style="color:#75715e">// 访问外部类的私有数据成员
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;data is &#34;</span><span style="color:#f92672">+</span>data<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+        <span style="color:#75715e">// 访问外部类的成员方法
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getTest</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>OuterClass<span style="color:#f92672">.</span><span style="color:#a6e22e">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>  
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+        <span style="color:#f92672">(</span>1<span style="color:#f92672">)</span>首先必须实例化外部类
+        OuterClass obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OuterClass<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+        
+        <span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>接着通过外部类对象来创建内部类对象
+        OuterClass<span style="color:#f92672">.</span><span style="color:#a6e22e">MemberInnerClass</span> in <span style="color:#f92672">=</span> obj<span style="color:#f92672">.</span><span style="color:#a6e22e">new</span> <span style="color:#a6e22e">MemberInnerClass</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+        in<span style="color:#f92672">.</span><span style="color:#a6e22e">getData</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        in<span style="color:#f92672">.</span><span style="color:#a6e22e">getTest</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>输出结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">data is 30
+我是外部类成员方法
+</code></pre></div><p>访问外部类的成员方法时，可以直接通过<code>外部类名.this.外部类成员方法()</code>来调用，或者直接使用<code>外部类成员方法()</code>来调用。</p>
+<p><strong>成员内部类的工作方式：</strong></p>
+<p>Java 编译器创建了两个<code>.class</code>文件，其中一个是成员内部类<code>OuterClass$MemberInnerClass.class</code>，成员内部类文件名格式为<code>外部类名$成员内部类名</code>。</p>
+<p>如果你想创建成员内部类的实例，你必须先实例化一个外部类，接着，通过外部类的实例来创建成员内部类的实例。因此成员内部类的实例必须存在于一个外部类的实例中。另外，由于内部类的实例与外部类的实例相关联，因此它不能定义任何静态成员。</p>
+<p><strong>由编译器生成的成员内部类代码：</strong></p>
+<p>在下面的例子中，编译器创建了一个名为<code>OuterClass$MemberInnerClass</code>的内部类文件，成员内部类具有外部类的引用，这就是为什么它可以访问包括私有在内的所有外部类成员。</p>
+<pre><code>import java.io.PrintStream;  
+    class OuterClass$MemberInnerClass {  
+        final OuterClass this$0;  
+        OuterClass$MemberInnerClass() {
+            super();  
+            this$0 = OuterClass.this;// 引用了外部类
+        }  
+        void getData() {  
+            System.out.println((new StringBuilder()).append(&quot;data is &quot;)  
+            .append(OuterClass.access$000(OuterClass.this)).toString());  
+        }  
+}  
+</code></pre><h3 id="52-">5.2 局部内部类</h3>
+<p>局部内部类（Local inner class）通常定义在一个块中。所以通常你会在一个方法块中找到局部内部类。</p>
+<p>它可以访问外部类的所有成员，和它所在的局部方法中所有局部变量。</p>
+<p>如果你想调用局部内部类中的方法，你必须先在局部方法中实例化局部内部类。</p>
+<p><strong>请看下面示例：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">localInner</span> <span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> data <span style="color:#f92672">=</span> 30<span style="color:#f92672">;</span><span style="color:#75715e">// 实例变量
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">// 实例方法
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">display</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+        <span style="color:#75715e">// 局部内部类
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Local</span><span style="color:#f92672">{</span>  
+            <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>data<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+        <span style="color:#f92672">}</span>  
+        <span style="color:#75715e">// 访问局部内部类中的方法
+</span><span style="color:#75715e"></span>        Local l <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Local<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+        l<span style="color:#f92672">.</span><span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+    <span style="color:#f92672">}</span>  
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>  
+        localInner obj <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> localInner<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+        obj<span style="color:#f92672">.</span><span style="color:#a6e22e">display</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>
+输出结果:
+30
+</code></pre></div><p><strong>局部内部类的一些规则：</strong></p>
+<ul>
+<li>无法从方法外部调用局部内部类</li>
+<li>局部内部类不能被声明为<code>private, public, protected</code></li>
+<li>在<code>JDK1.7</code>之前局部内部类不能访问非<code>final</code>的局部变量，但是在<code>JDK1.8</code>及之后是可以访问非<code>final</code>的局部变量的。</li>
+</ul>
+<hr>
+<p><strong>由编译器生成的局部内部类代码：</strong></p>
+<p>此时编译器创建了一个名为<code>localInner$Local</code>的类，它具有外部类的引用</p>
+<pre><code>import java.io.PrintStream;  
+
+class localInner$Local {  
+    final localInner this$0;  // 自动生成的局部变量
+    localInner$Local() {
+        super();  
+        this$0 = localInner.this;  
+    }  
+
+    void msg()  
+    {  
+        System.out.println(localInner.access$000(localInner.this));  
+    }  
+}  
+</code></pre><h3 id="53-">5.3 匿名内部类</h3>
+<p>在 Java 中没有命名的内部类称为匿名内部类，当我们需要重写类或接口中的方法时，都会使用到它。匿名内部类在使用的时候将同时声明和实例化。</p>
+<p>匿名类可以通过以下两种方式进行创建：</p>
+<ul>
+<li>类（可能是抽象类或者其他类）</li>
+<li>接口</li>
+</ul>
+<p><strong>使用类创建匿名内部类：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>  
+	<span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+<span style="color:#f92672">}</span>  
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestAnonymousInner</span> <span style="color:#f92672">{</span>   
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+		<span style="color:#75715e">// 使用匿名内部类实例化抽象类Person
+</span><span style="color:#75715e"></span>		Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+			<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nice fruits&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+		<span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+
+		p<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>输出结果</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">nice fruits
+</code></pre></div><p>上面代码中有以下一段：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nice fruits&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+</code></pre></div><p>它主要有两个作用：</p>
+<ul>
+<li>创建一个匿名内部类，它的名称由编译器决定，并给出了<code>Person</code>类中<code>eat()</code>方法的实现。</li>
+<li>创建匿名类的对象，并使用了类型为<code>Person</code>的引用变量<code>p</code>来引用。</li>
+</ul>
+<p><strong>由编译器生成的匿名内部类代码：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.PrintStream<span style="color:#f92672">;</span>  
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestAnonymousInner$1</span> <span style="color:#66d9ef">extends</span> Person  
+<span style="color:#f92672">{</span>  
+   TestAnonymousInner$1<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span><span style="color:#f92672">}</span>  
+   <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nice fruits&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>从以上代码，我们可以看出，编译器实际上将匿名内部类命名为<code>TestAnonymousInner$1</code>，并继承了抽象类<code>Person</code>。</p>
+<p><strong>使用接口创建匿名内部类：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Eatable</span><span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+<span style="color:#f92672">}</span>  
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestAnnonymousInner1</span><span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>  
+        <span style="color:#75715e">// 创建匿名内部类来实现接口Eatable
+</span><span style="color:#75715e"></span>        Eatable e <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Eatable<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nice fruits&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+        <span style="color:#f92672">}</span><span style="color:#f92672">;</span>  
+
+        e<span style="color:#f92672">.</span><span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>输出结果</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java">nice fruits
+</code></pre></div><p>上面代码有以下一段：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Eatable e <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Eatable<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nice fruits&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span><span style="color:#f92672">;</span>  
+</code></pre></div><p>它主要有两个作用：</p>
+<ul>
+<li>创建一个匿名类，它的名称由编译器决定，并给出了<code>eat()</code>方法的实现。</li>
+<li>创建匿名类的对象，并使用了类型为<code>Person</code>的引用变量<code>p</code>来引用。</li>
+</ul>
+<p><strong>由编译器生成的匿名内部类代码：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.io.PrintStream<span style="color:#f92672">;</span>  
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestAnonymousInner1$1</span> <span style="color:#66d9ef">implements</span> Eatable  
+<span style="color:#f92672">{</span>  
+    TestAnonymousInner1$1<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span><span style="color:#f92672">}</span>  
+        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">eat</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;nice fruits&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>从以上代码我们可以看出，编译器实际上创建了一个名为<code>TestAnonymousInner1$1</code>的类，并使用该类实现了<code>Eatable</code>接口。</p>
+<h2 id="6-">6. 嵌套接口</h2>
+<p>前文主要介绍了嵌套类相关的知识，Java 中嵌套接口与嵌套类类似，下面我们来了解一下关于嵌套接口方面的知识。</p>
+<p>嵌套接口（Nested Interface）指的是在一个类或接口中创建的接口。嵌套接口用于将相关的接口进行分组以便于维护。嵌套接口必须由外部接口或外部类引用，它不能直接访问。</p>
+<p><strong>需要记住的关于嵌套接口的要点：</strong></p>
+<p>这里给出了 Java 程序员应该记住的关于嵌套接口的要点：</p>
+<ul>
+<li>在接口中声明的嵌套接口，默认修饰符为<code>public</code>，也必须为<code>public</code>，但在类中声明嵌套接口则可以使用任何访问修饰符。</li>
+<li>嵌套接口都被隐世声明为静态的。</li>
+</ul>
+<p><strong>在接口中声明嵌套接口：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">interface_name</span><span style="color:#f92672">{</span>  
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>  
+    <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">nested_interface_name</span><span style="color:#f92672">{</span>  
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>   
+</code></pre></div><p><strong>在类中声明嵌套接口：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">class_name</span><span style="color:#f92672">{</span>  
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>  
+    <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">nested_interface_name</span><span style="color:#f92672">{</span>  
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>  
+    <span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>   
+</code></pre></div><p><strong>在接口中声明嵌套接口的示例：</strong></p>
+<p>在下面这个例子中，我们将学习如何声明嵌套接口以及如何使用它。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Showable</span><span style="color:#f92672">{</span>  
+	<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">show</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+	<span style="color:#75715e">// 声明嵌套接口
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Message</span><span style="color:#f92672">{</span>  
+		<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+	<span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestNestedInterface1</span> <span style="color:#66d9ef">implements</span> Showable<span style="color:#f92672">.</span><span style="color:#a6e22e">Message</span><span style="color:#f92672">{</span>  
+	<span style="color:#75715e">// 实现嵌套接口Message中的msg()方法
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello nested interface&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>  
+		<span style="color:#75715e">// 实例化TestNestedInterface1类，向上转型为Showable.Message接口类型
+</span><span style="color:#75715e"></span>		Showable<span style="color:#f92672">.</span><span style="color:#a6e22e">Message</span> message <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestNestedInterface1<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+		message<span style="color:#f92672">.</span><span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+	<span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>输出结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Hello nested <span style="color:#66d9ef">interface</span>
+</code></pre></div><p>正如上面的示例中所看到的，我们不能直接访问嵌套接口<code>Message</code>，但是我们可以通过外部接口<code>Showable</code>来访问它。</p>
+<p>就好比房间中的衣柜，我们不能直接拿到衣柜中的衣服，我们必须先进入房间才行。</p>
+<p><strong>由编译器生成的嵌套接口Message的代码：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Showable$Message</span>  
+<span style="color:#f92672">{</span>  
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>从上面代码可以看出，嵌套接口实际被声明为静态的了。</p>
+<p><strong>在类中声明嵌套接口的示例：</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span><span style="color:#f92672">{</span>  
+	<span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Message</span><span style="color:#f92672">{</span>  
+		<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+	<span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestNestedInterface2</span> <span style="color:#66d9ef">implements</span> A<span style="color:#f92672">.</span><span style="color:#a6e22e">Message</span><span style="color:#f92672">{</span>  
+	<span style="color:#75715e">// 实现Message接口中的msg()方法
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello nested interface&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#f92672">}</span>  
+
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String args<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>  
+		<span style="color:#75715e">// 实例化TestNestedInterface2类，并向上转型为A.Message类型
+</span><span style="color:#75715e"></span>		A<span style="color:#f92672">.</span><span style="color:#a6e22e">Message</span> message <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TestNestedInterface2<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		message<span style="color:#f92672">.</span><span style="color:#a6e22e">msg</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>  
+	<span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>输出结果：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Hello nested <span style="color:#66d9ef">interface</span>
+</code></pre></div><p>最后思考一下，我们可以在接口中定义一个类吗？</p>
+<p>答案是可以的。当我们在接口中定义类时，Java 编译器会自动创建一个静态嵌套类。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Java" data-lang="Java"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">M</span><span style="color:#f92672">{</span>  
+  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span><span style="color:#f92672">{</span><span style="color:#f92672">}</span>  
+<span style="color:#f92672">}</span>  
+</code></pre></div>
+        </div>
+
+
+
+        <footer class="post-footer">
+                
+                
+                
+                <span class="post-categories">
+                        <a href="https://onlythepiano.github.io/categories/java/">Java</a>&emsp;
+                        
+                </span>
+                
+        
+                
+                
+                
+        </footer>
+        
+<table cellspacing="15" style="width:100%; border: none;">
+    <tr>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+        <td style="text-align: center; border: none; padding: 0px;">
+        </td>
+    </tr>
+</table>
+
+        
+	
+	
+
+    </article>
+
+    
+    <nav class="navigation post-navigation" role="navigation">
+        <div class="nav-links">
+            <div class="nav-previous">
+                
+                <a class="previous" href="https://onlythepiano.github.io/%E5%8F%8D%E5%B0%84/"> 反射</a>
+                
+            </div>
+            <div class="nav-next">
+                
+            </div>
+        </div>
+    </nav>
+    <section>
+        
+    </section>
+    
+
+</main>
+
+
+        <div class="sidebar1 widgets columns-1">
+
+    <aside>
+    
+</aside>
+    <aside class="widget widget_categories">
+        <h2>Categories</h2>
+        <ul class="widget__list"><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/git/">Git (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/hugo/">Hugo (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/java/">Java (20)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/mysql/">MySQL (9)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/uml/">UML (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E5%8F%AF%E4%B9%90/">可乐 (7)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构 (2)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E7%AE%97%E6%B3%95/">算法 (1)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式 (13)</a>
+            </li><li class="cat-item cat-item-2">
+                <a href="https://onlythepiano.github.io/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程 (2)</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_tag_cloud">
+        <h2>Tags</h2>
+        <div class="tagcloud"><a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-mess/" title="out-of-mess" style="font-size: 12pt;">out of mess</a>&emsp;<a class="tag-cloud-link" href="https://onlythepiano.github.io/tags/out-of-messy/" title="out-of-messy" style="font-size: 12pt;">out of messy</a>&emsp;
+        </div>
+    </aside>
+
+    <aside class="widget widget_recent_entries">
+        <h2>Recent Posts</h2>
+        <ul>
+            <li>
+                <a href="/%E5%B5%8C%E5%A5%97%E7%B1%BB/">嵌套类</a>
+            </li>
+            <li>
+                <a href="/%E5%8F%8D%E5%B0%84/">反射</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-class%E7%B1%BB/">Java基础类库-Class类</a>
+            </li>
+            <li>
+                <a href="/%E5%BA%8F%E5%88%97%E5%8C%96/">序列化</a>
+            </li>
+            <li>
+                <a href="/java%E9%9B%86%E5%90%88-setlistmap/">Java集合-Set、List、Map</a>
+            </li>
+            <li>
+                <a href="/java%E9%9B%86%E5%90%88/">Java集合</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-string%E7%B1%BB/">Java基础类库-String类</a>
+            </li>
+            <li>
+                <a href="/java%E5%AD%90%E7%B1%BB%E7%88%B6%E7%B1%BB%E8%BD%AC%E6%8D%A2/">Java子类父类转换</a>
+            </li>
+            <li>
+                <a href="/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-object%E7%B1%BB/">Java基础类库-Object类</a>
+            </li>
+            <li>
+                <a href="/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">时间复杂度</a>
+            </li>
+        </ul>
+    </aside>
+
+    <aside class="widget widget_archive">
+        <h2>Archives</h2>
+        <ul>
+        </ul>
+    </aside>
+
+</div>
+        </div>
+        </div>
+<footer role="contentinfo" class="document-footer contentinfo widgets columns-1">
+
+    <aside class="widget widget_text">
+        <div class="textwidget">
+            <p>© Cocloa is looking at the Piano / Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/tosi29/inkblotty" target="_blank">Inkblotty</a></p>
+        </div>
+    </aside>
+</footer>
+</div>
+
+    </body>
+</html>
