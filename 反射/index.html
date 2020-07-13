@@ -90,7 +90,7 @@
 <p>静态编译：在编译时确定类型，绑定对象即通过。</p>
 </li>
 <li>
-<p>动态编译：运行时确定类型，绑定对象。‘</p>
+<p>动态编译：运行时确定类型，绑定对象。</p>
 </li>
 </ol>
 <p>动态编译最大限度地发挥了 Java 的灵活性，体现了多态的应用，可以减低类之间的耦合性。 Java 反射是 Java 被视为动态（或准动态）语言的一个关键性质。这个机制允许程序在运行时透过 Reflection APIs 取得任何一个已知名称的 class 的内部信息，Reflection 可以在运行时加载、探知、使用编译期间完全未知的 classes。即 Java 程序可以加载一个运行时才得知名称的 class，获取其完整构造，并生成其对象实体、或对其 fields 设值、或唤起其 methods。</p>
@@ -147,9 +147,51 @@ Object str <span style="color:#f92672">=</span> c<span style="color:#f92672">.</
 </span><span style="color:#75715e"></span>Object obj <span style="color:#f92672">=</span> constructor<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;23333&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>obj<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 </code></pre></div><h3 id="4-">4. 获取方法</h3>
-<h3 id="5-">5. 获取构造器信息</h3>
+<p>获取某个Class对象的方法集合，主要有以下几个方法：</p>
+<p>getDeclaredMethods() 方法返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。</p>
+<pre><code>public Method[] getDeclaredMethods() throws SecurityException
+</code></pre><p>getMethods() 方法返回某个类的所有公用（public）方法，包括其继承类的公用方法。</p>
+<pre><code>public Method[] getMethods() throws SecurityException
+</code></pre><p>getMethod() 方法返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应Class的对象</p>
+<pre><code>public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)
+</code></pre><h3 id="5-">5. 获取构造器信息</h3>
+<p>获取类构造器的用法与上述获取方法的用法类似。主要是通过 Class 类的 getConstructor 方法得到 Constructor 类的一个实例，而 Constructor 类有一个 newInstance 方法可以创建一个对象实例。</p>
 <h3 id="6-">6. 获取类的成员变量信息</h3>
-<h3 id="7-">7. 调用方法</h3>
+<ol>
+<li>getFiled: 访问公有的成员变量</li>
+<li>getDeclaredField：所有已声明的成员变量。但不能得到其父类的成员变量</li>
+<li>getFileds 和 getDeclaredFields用法同上（参照Method）</li>
+</ol>
+<pre><code>public class 打印成员变量 {
+    public static void main(String[] args) {
+        Class userBeanClass = UserBean.class;
+        //获得该类的所有成员变量，包括static private
+        Field[] fields = userBeanClass.getDeclaredFields();
+
+        for(Field field : fields) {
+            //private属性即使不用下面这个语句也可以访问
+//            field.setAccessible(true);
+
+            //因为类的私有域在反射中默认可访问，所以flag默认为true。
+            String fieldString = &quot;&quot;;
+            fieldString += Modifier.toString(field.getModifiers()) + &quot; &quot;; // `private`
+            fieldString += field.getType().getSimpleName() + &quot; &quot;; // `String`
+            fieldString += field.getName(); // `userName`
+            fieldString += &quot;;&quot;;
+            System.out.println(fieldString);
+            
+            //打印结果
+//            public String userName;
+//            protected int i;
+//            static int j;
+//            private int l;
+//            private long userId;
+        }
+
+    }
+}
+</code></pre><h3 id="7-">7. 调用方法</h3>
+<p>当我们从类中获取了一个方法后，我们就可以用invoke()方法来调用这个方法。</p>
 
         </div>
 
