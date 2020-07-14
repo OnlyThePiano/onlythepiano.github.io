@@ -6,27 +6,18 @@
     <description>Recent content on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jul 2020 13:16:28 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 12:36:50 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>嵌套类</title>
-      <link>https://onlythepiano.github.io/%E5%B5%8C%E5%A5%97%E7%B1%BB/</link>
-      <pubDate>Mon, 13 Jul 2020 13:16:28 +0800</pubDate>
+      <title>8号杯</title>
+      <link>https://onlythepiano.github.io/8%E5%8F%B7%E6%9D%AF/</link>
+      <pubDate>Tue, 14 Jul 2020 12:36:50 +0800</pubDate>
       
-      <guid>https://onlythepiano.github.io/%E5%B5%8C%E5%A5%97%E7%B1%BB/</guid>
-      <description>1. 什么是嵌套类？ 原文链接：https://www.cnblogs.com/nwgdk/p/8661442.html 在 Java 语言中允许在另外一个类中定义一个类，这样的类被称为嵌套类。包含嵌套类的类称为外部类（outer class），也可以叫做封闭类，在本文中统一叫做外部类。 内部类的语法： class OuterClass { // code class NestedClass { //</description>
-    </item>
-    
-    <item>
-      <title>反射</title>
-      <link>https://onlythepiano.github.io/%E5%8F%8D%E5%B0%84/</link>
-      <pubDate>Sat, 11 Jul 2020 22:00:31 +0800</pubDate>
-      
-      <guid>https://onlythepiano.github.io/%E5%8F%8D%E5%B0%84/</guid>
-      <description>什么是反射 ？ 反射是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为 Java 语言的反射机制。 Java 为什么需要反射？反射要解决什么问题？ - Java中编译类型有两种： 静态编译：在编译时确定类型，绑定</description>
+      <guid>https://onlythepiano.github.io/8%E5%8F%B7%E6%9D%AF/</guid>
+      <description>GitHub Pages 容量够了</description>
     </item>
     
     <item>
