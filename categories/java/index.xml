@@ -6,10 +6,19 @@
     <description>Recent content in Java on Cocloa is looking at the Piano</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Jul 2020 21:47:29 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 09:44:40 +0800</lastBuildDate>
     
 	<atom:link href="https://onlythepiano.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>泛型</title>
+      <link>https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/</link>
+      <pubDate>Sat, 18 Jul 2020 09:44:40 +0800</pubDate>
+      
+      <guid>https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/</guid>
+      <description>泛型 所谓泛型，就是允许在定义类、接口、方法时使用类型形参，这个类型形参将在声明变量、创建对象、调用方法时动态地指定( 即传入实际的类型参数，也可称为类型实参)。Java 5改写了集合框架中的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类型实参，这就是在前面程序中</description>
+    </item>
     
     <item>
       <title>Java基础类库-Class类</title>
@@ -72,15 +81,6 @@
       
       <guid>https://onlythepiano.github.io/java%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%BA%93-object%E7%B1%BB/</guid>
       <description>Java 基础类库-Object类 Object 类是 java 默认的提供的一个类，Object 类是所有类的父类，也就是说任何一个类的定义的时候如果没有明确的继承一个父类的话，那么它就是 Object 的子类。 - 常用方法： Class &amp;lt;?&amp;gt; getClass() 方法 返回该对象的运行时类；final 方法，返回 Class 类型的对象，反射来获取对象。 String toString() 方法 一般子类都有覆盖，目的在于获取对</description>
-    </item>
-    
-    <item>
-      <title>泛型</title>
-      <link>https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/</link>
-      <pubDate>Tue, 07 Jul 2020 22:51:03 +0800</pubDate>
-      
-      <guid>https://onlythepiano.github.io/%E6%B3%9B%E5%9E%8B/</guid>
-      <description>泛型 所谓泛型，就是允许在定义类、接口、方法时使用类型形参，这个类型形参将在声明变量、创建对 象、调用方法时动态地指定( 即传入实际的类型参数，也可称为类型实参)。Java 5改写了集合框架中 的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类 型实参，这就是在前面程序中</description>
     </item>
     
     <item>

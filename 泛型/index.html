@@ -58,7 +58,7 @@
             <h1>泛型</h1>
             <div class="post-details">
                 <a rel="bookmark">
-                    <time datetime="2020-07-07T77:1051:36">2020-07-07</time>
+                    <time datetime="2020-07-18T718:944:406">2020-07-18</time>
                 </a>
 				
 <span style="float: right;">
@@ -82,11 +82,9 @@
         <div class="post-content">
             <hr>
 <h1 id="heading">泛型</h1>
-<p>所谓泛型，就是允许在定义类、接口、方法时使用类型形参，这个类型形参将在声明变量、创建对
-象、调用方法时动态地指定( 即传入实际的类型参数，也可称为类型实参)。Java 5改写了集合框架中
-的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类
-型实参，这就是在前面程序中看到的List&lt; <!-- raw HTML omitted -->和ArrayList<!-- raw HTML omitted -->两种类型。</p>
-<h3 id="java5list">java5的List接口：</h3>
+<p>所谓泛型，就是允许在定义类、接口、方法时使用类型形参，这个类型形参将在声明变量、创建对象、调用方法时动态地指定( 即传入实际的类型参数，也可称为类型实参)。Java 5改写了集合框架中的全部接口和类，为这些接口、类增加了泛型支持，从而可以在声明集合变量、创建集合对象时传入类型实参，这就是在前面程序中看到的 <code>List&lt; &lt;String&gt;</code> 和 <code>ArrayList&lt;String&gt;</code> 两种类型。</p>
+<h2 id="heading1">一、泛型类</h2>
+<h3 id="1-">1. 形参数量</h3>
 <p>一个形参类型：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span>E<span style="color:#f92672">&gt;</span>
 <span style="color:#f92672">{</span>
@@ -111,75 +109,88 @@
         
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p>通过这种方式，就解决虽然程序只定 义了一一个List<!-- raw HTML omitted -->接口，但实际使用时可以产生无数多个List 接口，只要为E传入不同的类型实参，系统就会多出一一个新的List子接口。</p>
-<h3 id="heading1">注意：</h3>
+</code></pre></div><p>通过这种方式，就解决虽然程序只定 义了一个List<!-- raw HTML omitted -->接口，但实际使用时可以产生无数多个List 接口，只要为E传入不同的类型实参，系统就会多出一个新的List子接口。</p>
+<p>但是需要注意的是，泛型在物理上是不存在的&hellip;&hellip;&hellip;</p>
+<p><strong>注意：</strong></p>
 <ul>
 <li>
-<p>必须指出: List <!-- raw HTML omitted -->绝不会被替换成ListString， 系统没有进行源代码复制，二进制代码中没有，磁盘中没有，内存中也没有。</p>
+<p>必须指出: List <!-- raw HTML omitted --> 绝不会被替换成 ListString， 系统没有进行源代码复制，二进制代码中没有，磁盘中没有，内存中也没有。</p>
 </li>
 <li>
-<p>包含泛型声明的类型可以在定义变量、创建对象时传入一个类型实参，从而可以动态
-地生成无数多个逻辑.上的子类，但这种子类在物理上并不存在。</p>
+<p>包含泛型声明的类型可以在定义变量、创建对象时传入一个类型实参，从而可以动态地生成无数多个逻辑.上的子类，但这种子类在物理上并不存在。</p>
 </li>
 </ul>
-<h3 id="heading2">泛型例子：</h3>
+<h3 id="2-">2. 泛型例子：</h3>
 <p><img src="https://onlythepiano.github.io/images/image-20200613110339981.png" alt="image-20200613110339981"></p>
 <p>这样子，初始化对象时，调用构造函数并传入想要的形参类型，就能多出一个该类型的类对象。</p>
-<h3 id="heading3">注意：</h3>
+<p>**注意：**泛型通过构造器的定义方式</p>
 <ul>
 <li>当创建带泛型声明的自定义类，为该类定义构造器时，构造器名还是原来的类名，不要增加泛型声明。</li>
-<li>例如，为Apple<!-- raw HTML omitted -->类定 义构造器，其构造器名依然是Apple， 而不是Apple<!-- raw HTML omitted -->调用该构造器时却可以使用Apple<!-- raw HTML omitted -->的形式，当然应该为T形参传入实际的类型参数。Java7 提供了菱形语法，允许省略&lt;&gt;中的类型实参。</li>
+<li>例如，为Apple<!-- raw HTML omitted -->类定义构造器，其构造器名依然是Apple， 而不是Apple<!-- raw HTML omitted -->调用该构造器时却可以使用Apple<!-- raw HTML omitted -->的形式，当然应该为T形参传入实际的类型参数。Java7 提供了菱形语法，允许省略&lt;&gt;中的类型实参。</li>
 </ul>
-<h2 id="heading4">泛型的继承</h2>
+<h3 id="3-">3. 泛型的继承</h3>
 <ul>
-<li>有传入实际类型参数时：父类的所有带有形参的地方都会被替换成实参类型；</li>
-<li>没有传入实际类型参数时：父类就默认是Object类型</li>
+<li>
+<p>有传入实际类型参数时：父类的所有带有形参的地方都会被替换成实参类型；</p>
+</li>
+<li>
+<p>没有传入实际类型参数时：父类就默认是Object类型</p>
+</li>
 </ul>
-<p><strong>父类Apple为String类型：</strong></p>
+<p><strong>(1) 父类Apple为String类型：</strong></p>
 <p><img src="https://onlythepiano.github.io/images/image-20200613110954391.png" alt="image-20200613110954391"></p>
-<p><strong>默认为Object类型：</strong></p>
+<p><strong>(2) 默认为Object类型：</strong></p>
 <p><img src="https://onlythepiano.github.io/images/image-20200613111936186.png" alt="image-20200613111936186"></p>
-<p><strong>这里又说一下，重写父类的原则：“两同两小一大”</strong></p>
+<p><strong>(3) 这里又说一下，重写父类的原则：“两同两小一大”</strong></p>
 <ul>
 <li>方法名同、形参列表同；</li>
 <li>子类返回类型比父类小或等，子类抛出异常类型比父类小或等；</li>
 <li>子类方法访问权限更小或等；</li>
 </ul>
-<h2 id="heading5">并不存在的泛型类</h2>
+<h3 id="4-">4. 并不存在的泛型类</h3>
+<p>前面提到过泛型在物理上是不存在的，这里补充一下为什么。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> l1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> l2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 <span style="color:#75715e">//事实上，l1、l2是相等的
-</span></code></pre></div><p>不管为泛型的类型形参传入哪一种类型实参， 对于Java来说，它们依然被当成同一个类处理，在内存中也只占用&ndash;块内存空间，因此在静态方法、静态初始化块或者静态变量的声明和初始化中不允许
-使用类型形参。</p>
-<p>在静态方法、静态初始化块或者静态变量的声明和初始化中不允许使用类型形参
+</span></code></pre></div><p>不管为泛型的类型形参传入哪一种类型实参， 对于Java来说，它们依然被当成同一个类处理，在内存中也只占用一块内存空间，因此在静态方法、静态初始化块或者静态变量的声明和初始化中不允许使用类型形参。</p>
+<p><strong>注意：</strong> 在静态方法、静态初始化块或者静态变量的声明和初始化中不允许使用类型形参
 <img src="https://onlythepiano.github.io/images/image-20200613160812835.png" alt="image-20200613160812835"></p>
-<ul>
-<li>如果Foo是Bar的一个子类型(子类或者子接口)，而G是具有泛型声明的类或接口，G<!-- raw HTML omitted -->并不是G<!-- raw HTML omitted -->的子类型；这一点非常值得注意，因为它与大部分人的习惯认为是不同的。</li>
-</ul>
-<p>例如：List<!-- raw HTML omitted -->对象是不能当成List<!-- raw HTML omitted -->对象使用的。</p>
-<h3 id="heading6">通配符：</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
-    
-<span style="color:#f92672">}</span>
-</code></pre></div><p>通配符可以使得元素类型匹配任何类型，</p>
-<p>这样任何类型的List类型来调用test都可以，因为此时List<!-- raw HTML omitted -->的类型时Object；而不管List的真实类型是什么，它也必定是Object类或子类。</p>
+<h2 id="heading2">二、使用类型通配符</h2>
+<p><strong>- 为什么要使用类型通配符 ？</strong></p>
+<p>当使用一个泛型类时都应该为这个泛型类传入类型参数，否则编译器会提出警告；Object 类是任何类的父类，但是我们并不能将它作为泛型的参数时却达不到可以作为任何泛型类的父类的作用，因为对于泛型而言，   <code>List&lt;String&gt;</code> 对象不能被当成 <code>List&lt;Object&gt;</code> 对象使用。</p>
+<p>所以需要 类型通配符 <code>？</code>  来匹配任何类型。</p>
+<p>如果 Foo 是 Ba r的一个子类型，而 G 是具有泛型声明的类或接口，但是 G<!-- raw HTML omitted --> 并不是 G<!-- raw HTML omitted --> 的子类型。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#f92672">}</span>
+List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> s <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//编译错误，List&lt;String&gt; 对象不能被当成 List&lt;Object&gt; 对象使用。 
+</span><span style="color:#75715e"></span>test<span style="color:#f92672">.</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><p>改为用类型通配符就可以匹配任何类型。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#f92672">}</span>
+</code></pre></div><p><strong>- 注意：</strong></p>
+<p>但是，使用类型通配符需要注意的是。对于容器，使用通配符是泛型是一个未知类型的对象，Java 不允许把对象放入一个未知类型的集合里。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>
 <span style="color:#75715e">//编译报错
 </span><span style="color:#75715e"></span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Object<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
-
-</code></pre></div><p>因为需要传入add方法的参数E要是E对象或其子类的对象，而此时E的类型时不知道的。java不允许把对象放入一个未知类型的集合里。</p>
-<h2 id="heading7">泛型方法</h2>
+</code></pre></div><h2 id="heading3">二、类型通配符上下限</h2>
+<p><strong>- 为什么要设置类型通配符的上限和下限 ?</strong></p>
+<p><code>List&lt;?&gt;</code> 的确可以是任何泛型 List 的父类，但是有时候只希望它代表某一类泛型 List 的父类时，就需要设置其上限和下限。</p>
+<h3 id="1-1">1. 类型通配符上限</h3>
+<pre><code>? extends Number ： 只能存储Number或者是Number类型的子类数据。
+</code></pre><h3 id="2-1"><strong>2. 类型通配符下限</strong></h3>
+<pre><code>? super Integer : 只能存储Integer或者是Integer父类元素。  
+</code></pre><h2 id="heading4">三、泛型方法</h2>
+<p>泛型方法的定义格式如下：</p>
 <p><img src="https://onlythepiano.github.io/images/image-20200613162331552.png" alt="image-20200613162331552"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//声明了一个泛型方法
-</span><span style="color:#75715e"></span><span style="color:#75715e">//带有一个类型形参
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fromArrayToCollection</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[</span><span style="color:#f92672">]</span> a<span style="color:#f92672">,</span> Collection<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span>
-<span style="color:#f92672">{</span>
-    
-<span style="color:#f92672">}</span>
-</code></pre></div><p>这个T类型形参就可以在该方法内当成普通类型使用。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">这个T类型形参就可以在该方法内当成普通类型使用<span style="color:#960050;background-color:#1e0010">。</span>
+<span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fromArrayToCollection</span><span style="color:#f92672">(</span>T<span style="color:#f92672">[</span><span style="color:#f92672">]</span> a<span style="color:#f92672">,</span> Collection<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> c<span style="color:#f92672">)</span> <span style="color:#f92672">{</span><span style="color:#f92672">}</span>
+
+</code></pre></div><p><strong>- 泛型方法 和 泛型类的区别：</strong></p>
 <ul>
 <li>与接口、类声明中定义的类型形参不同的是，方法声明中定义的形参只能在该方法里使用，而接口、类声明中定义的类型形参则可以在整个接口、类中使用；</li>
-<li>同时，不需要显式传入实际类型参数，编译器会根据实参推断；</li>
+</ul>
+<p><strong>- 值得注意的是：</strong></p>
+<ul>
+<li>泛型方法不需要显式传入实际类型参数，编译器会根据实参推断；</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Collection<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> cs <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Collection<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
 <span style="color:#75715e">//当调用方法时，编译器会推断出T时String类型
@@ -224,12 +235,10 @@ List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&g
         <div class="nav-links">
             <div class="nav-previous">
                 
-                <a class="previous" href="https://onlythepiano.github.io/7%E5%8F%B7%E6%9D%AF/"> 7号杯</a>
+                <a class="previous" href="https://onlythepiano.github.io/8%E5%8F%B7%E6%9D%AF/"> 8号杯</a>
                 
             </div>
             <div class="nav-next">
-                
-                <a class="next" href="https://onlythepiano.github.io/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"> 时间复杂度</a>
                 
             </div>
         </div>
@@ -285,6 +294,9 @@ List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&g
         <h2>Recent Posts</h2>
         <ul>
             <li>
+                <a href="/%E6%B3%9B%E5%9E%8B/">泛型</a>
+            </li>
+            <li>
                 <a href="/8%E5%8F%B7%E6%9D%AF/">8号杯</a>
             </li>
             <li>
@@ -310,9 +322,6 @@ List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&g
             </li>
             <li>
                 <a href="/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">时间复杂度</a>
-            </li>
-            <li>
-                <a href="/%E6%B3%9B%E5%9E%8B/">泛型</a>
             </li>
         </ul>
     </aside>
