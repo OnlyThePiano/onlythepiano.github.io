@@ -115,7 +115,30 @@
 <p>那么这条记录是有效记录，其他记录则是无效记录。我们要努力减少无效数据的访问。</p>
 </li>
 </ul>
-<h2 id="heading1">索引的产生</h2>
+<h2 id="heading1">索引类型</h2>
+<p><strong>- 从数据结构角度</strong></p>
+<ol>
+<li>B+树 索引</li>
+<li>hash 索引</li>
+</ol>
+<blockquote>
+<p>a 仅仅能满足&quot;=&rdquo;,&ldquo;IN&quot;和&quot;&lt;=&gt;&quot;查询，不能使用范围查询
+b 其检索效率非常高，索引的检索可以一次定位，不像B-Tree 索引需要从根节点到枝节点，最后才能访问到页节点这样多次的IO访问，所以 Hash 索引的查询效率要远高于 B-Tree 索引
+c 只有Memory存储引擎显示支持hash索引</p>
+</blockquote>
+<ol start="3">
+<li>全文索引 (FULLTEXT)（现在 MyISAM 和 InnoDB 引擎都支持了）</li>
+<li>R-Tree 索引（用于对 GIS 数据类型创建SPATIAL索引）</li>
+</ol>
+<p><strong>- 从物理存储角度</strong></p>
+<ol>
+<li>聚集索引（clustered index）</li>
+<li>非聚集索引（non-clustered index）（辅助索引、二级索引）</li>
+</ol>
+<p><strong>- 聚簇索引和非聚簇索引的区别：</strong></p>
+<p>​	聚簇索引的叶子节点存放的是主键值和数据行，<strong>支持覆盖索引</strong>；辅助索引的叶子节点存放的是主键值或指向数据行的指针。</p>
+<p>​	由于节子节点(数据页)只能按照一颗 B+树 排序，故<strong>一张表只能有一个聚簇索引</strong>。辅助索引的存在不影响聚簇索引中数据的组织，所以一张表可以有多个辅助索引。</p>
+<h2 id="heading2">索引的产生</h2>
 <p><strong>- 键(Key)</strong></p>
 <p>首先，我们发现在多数情况下，定位操作并不需要匹配整行数据。而是很规律的只匹配某一个 或几个列的值。 例如，图中第1列就可以用来确定一条记录。这些用来确定一条数据的列，统 称为<strong>键(Key)</strong>。</p>
 <p><img src="https://onlythepiano.github.io/images/%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84.jpg" alt="数据的存储结构"></p>
@@ -124,7 +147,7 @@
 <p><img src="https://onlythepiano.github.io/images/Dense_Index.jpg" alt="Dense Index"></p>
 <p>这就是‘索引’的祖先<strong>Dense Index</strong>. 当进行定位操作时，不再进行表扫描。而是进行
 <strong>索引扫描(Index Scan)</strong>，依次读出所有的索引块，进行键值的匹配。当找到匹配的键值后，根据该行的指针直接读取对应的数据块，进行操作。</p>
-<h2 id="heading2">索引的进化</h2>
+<h2 id="heading3">索引的进化</h2>
 <p>在实际的应用中，这样的定位效率仍然不能满足需求。很多人可能已经想到了，通过排序和查找算法来减少IO的访问。因此我们开始尝试对Dense Index进行排序存储,并且期望利用排序查*找算法来减少磁盘IO。</p>
 <p><strong>- 折半块查找</strong></p>
 <ul>
@@ -162,15 +185,23 @@
 <li>索引的IO性能和索引树的高度密切相关。索引树越高，磁盘IO越多。</li>
 </ul>
 <p>在我们的例子中的Sparse Index，只有10个块，因此我们只需要再建立一个Sparse Index。通过两层Sparse Index和一层Dense Index查找时，只需读取1+1+1+1=4个块。</p>
-<p>**- 簇索引 (Clustered Index) 辅助索引 (Secondary Index) **</p>
+<p><strong>- 聚簇索引 (Clustered Index) 辅助索引 (Secondary Index)</strong></p>
 <p>如果数据本身是基于某个Key来排序的，那么可以直接在数据上建立sparse索引，而不需要建立一个dense索引层(可以认为数据就是dense索引层)。</p>
 <p><img src="https://onlythepiano.github.io/images/%E7%B0%87%E7%B4%A2%E5%BC%95%EF%BC%88Clustered%EF%BC%89.jpg" alt="簇索引（Clustered）"></p>
 <p>这个索引就是我们常说的 “ <strong>Clustered Index</strong> ” ，而用来排序数据的键叫做主键 <strong>Primary Key</strong>。</p>
 <ol>
-<li>一个表只能有一个Clustered Index,因为数据只能根据一个键排序.</li>
-<li>用其他的键来建立索引树时，必须要先建立一个dense索引层，在dense索引层上对此键的值进行排序。这样的索引树称作 **Secondary Index **.</li>
-<li>一个表上可以有多个Secondary Index.</li>
-<li>对簇索引进行遍历，实际上就是对数据进行遍历。因此簇索引的遍历效率比辅组索引低。如 SELECT count(*)  操作，使用辅组索引遍历的效率更高。</li>
+<li>
+<p>一个表只能有一个Clustered Index,因为数据只能根据一个键排序.</p>
+</li>
+<li>
+<p>用其他的键来建立索引树时，必须要先建立一个dense索引层，在dense索引层上对此键的值进行排序。这样的索引树称作  <strong>Secondary Index .</strong></p>
+</li>
+<li>
+<p>一个表上可以有多个Secondary Index.</p>
+</li>
+<li>
+<p>对聚簇索引进行遍历，实际上就是对数据进行遍历。因此簇索引的遍历效率比辅组索引低。如 SELECT count(*)  操作，使用辅组索引遍历的效率更高。</p>
+</li>
 </ol>
 <p><strong>- 范围搜索(Range Search)</strong></p>
 <p>由于键值是有序的，因此可以进行范围查找。只需要将数据块、Dense Index块分别以双向链表的方式进行连接， 就可以实现高效的范围查找。</p>
@@ -180,11 +211,10 @@
 <h2 id="sparse-index-">Sparse Index 中的数据指针</h2>
 <p>Sparse Index 中的每个键值都有一个指针指向 所在的数据页。</p>
 <p><img src="https://onlythepiano.github.io/images/%E8%BE%85%E5%8A%A9%E7%B4%A2%E5%BC%95%EF%BC%88Secondary%EF%BC%89.jpg" alt="辅助索引（Secondary）"></p>
-<p>如果数据页进行了拆分或合并操作，那么所有的B+Tree都需要修改相应的页指针。特别是Secondary B+Tree（辅助索引对应的 B+Tree )，要对很多个不连续的页进行修改。同时也需要对这些页加锁，这会降低并发性。</p>
+<p>如果数据页进行了拆分或合并操作，那么所有的 B+Tree 都需要修改相应的页指针。特别是Secondary B+Tree（辅助索引对应的 B+Tree )，要对很多个不连续的页进行修改。同时也需要对这些页加锁，这会降低并发性。</p>
 <p>为了降低难度和增加更新(分裂和合并B+Tree节点)的性能，InnoDB 将 Secondary B+Tree 中的指针替换成了主键的键值。</p>
 <p><img src="https://onlythepiano.github.io/images/%E8%BE%85%E5%8A%A9%E7%B4%A2%E5%BC%952%EF%BC%88Secondary%EF%BC%89.jpg" alt="辅助索引2（Secondary）"></p>
-<p>这样就去除了 Secondary B+Tree 对数据页的依赖，而数据就变成了 Clustered B+Tree (簇
-索引对应的 B+Tree )独占的了。对数据页的拆分及合并操作，仅影响 Clustered B+Tree 。因此 InnoDB 的数据文件中存储的实际上就是多个孤立 B+Tree 。</p>
+<p>这样就去除了 Secondary B+Tree 对数据页的依赖，而数据就变成了 Clustered B+Tree (聚簇索引对应的 B+Tree )独占的了。对数据页的拆分及合并操作，仅影响 Clustered B+Tree 。因此 InnoDB 的数据文件中存储的实际上就是多个孤立 B+Tree 。</p>
 <p>一个有趣的问题，当用户显式的把主键定义到了二级索引中时，还需要额外的主键来做二级索引的数据吗(即存储2份主键)? 很显然是不需要的。InnoDB 在创建二级索引的时候，会判断主键的字段是否已经被包含在了要创建的索引中。</p>
 <h2 id="-b-tree-">数据操作再 B+ Tree 上的基本实现</h2>
 <p><strong>- 用主键查询</strong></p>

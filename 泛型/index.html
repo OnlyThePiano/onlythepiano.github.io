@@ -174,11 +174,15 @@ List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt
 </code></pre></div><h2 id="heading3">二、类型通配符上下限</h2>
 <p><strong>- 为什么要设置类型通配符的上限和下限 ?</strong></p>
 <p><code>List&lt;?&gt;</code> 的确可以是任何泛型 List 的父类，但是有时候只希望它代表某一类泛型 List 的父类时，就需要设置其上限和下限。</p>
-<h3 id="1-1">1. 类型通配符上限</h3>
-<pre><code>? extends Number ： 只能存储Number或者是Number类型的子类数据。
-</code></pre><h3 id="2-1"><strong>2. 类型通配符下限</strong></h3>
-<pre><code>? super Integer : 只能存储Integer或者是Integer父类元素。  
-</code></pre><h2 id="heading4">三、泛型方法</h2>
+<p>(1) 上限：</p>
+<pre><code>&lt;? extends Number&gt;	:	只能存储Number或者是Number类型的子类数据。
+</code></pre><p>(2) 下限：</p>
+<pre><code>&lt;? super Integer&gt;	:	只能存储Integer或者是Integer父类元素。  
+</code></pre><h2 id="heading4">三、类型形参上下限</h2>
+<p>和类型通配符类似。</p>
+<p>但是有时候，类型形参需要设置多个上限（至多一个父类上限，可以有多个接口上限）。</p>
+<pre><code>T extends Number &amp; Comparable&lt;T&gt;	:	表明T类型必须是Number类或其子类, 而且必须实现Comparable接口
+</code></pre><h2 id="heading5">四、泛型方法</h2>
 <p>泛型方法的定义格式如下：</p>
 <p><img src="https://onlythepiano.github.io/images/image-20200613162331552.png" alt="image-20200613162331552"></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">这个T类型形参就可以在该方法内当成普通类型使用<span style="color:#960050;background-color:#1e0010">。</span>
